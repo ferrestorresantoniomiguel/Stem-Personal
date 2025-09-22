@@ -5,8 +5,11 @@
 
 //Pedimos al usuario su edad
 let edadUsuario = Number(prompt ("Dime tu edad"))
+//Pasamos la edad del usuario en días
 let edadDias = Number(365 * edadUsuario)
+//Pongo como edadlimite 80años pero en días
 let edadlimite = Number(28800 - edadDias)
+//Muestro en consola los días restantes para llegar a 80años en días
 console.log("Aquí tienes cuantos días te quedan para llegar a tus 80 años:" + " " + edadlimite);
 
 </script>
