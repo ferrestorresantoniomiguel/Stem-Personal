@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instituto>
+    <clase>
+        <alumno>
+            <nombre>Cristian Perez</nombre>
+            <edad>13años</edad>
+            <notaMedia>8.1</notaMedia>
+        </alumno>
+        <alumno>
+            <nombre>Álvaro Molina</nombre>
+            <edad>14años</edad>
+            <notaMedia>7.8</notaMedia>
+        </alumno>
+    </clase>
+    <clase>
+        <alumno>
+            <nombre>Gonzalo Herrera</nombre>
+            <edad>14años</edad>
+            <notaMedia>9.1</notaMedia>
+        </alumno>
+        <alumno>
+            <nombre>Miguel Gonzalez</nombre>
+            <edad>14años</edad>
+            <notaMedia>6.2</notaMedia>
+        </alumno>
+    </clase>
+</instituto>

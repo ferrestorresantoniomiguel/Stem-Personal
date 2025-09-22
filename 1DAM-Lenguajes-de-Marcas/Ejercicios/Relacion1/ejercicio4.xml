@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recetas>
+  <receta>
+    <nombre>Lentejas con Chorizo</nombre>
+    <ingredientes>
+        <ingredientes>
+            <nombre>Agua</nombre>
+            <peso>1.5L</peso>
+        </ingredientes>
+        <ingredientes>
+            <nombre>Lentenas</nombre>
+            <peso>400gr</peso>
+        </ingredientes>
+    </ingredientes>
+    <tiempoPreparacion>80minutos</tiempoPreparacion>
+  </receta>
+  <receta>
+    <nombre>Pastel de carne</nombre>
+    <ingredientes>
+        <ingredientes>
+            <nombre>Harinn</nombre>
+            <peso>600gr</peso>
+        </ingredientes>
+        <ingredientes>
+            <nombre>Carne</nombre>
+            <peso>600gr</peso>
+        </ingredientes>
+    </ingredientes>
+    <tiempoPreparacion>100minutos</tiempoPreparacion>
+  </receta>
+</recetas>
