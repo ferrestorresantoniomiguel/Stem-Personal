@@ -1,0 +1,19 @@
+<script>
+//### 8. **Cálculo de la Velocidad Media**
+//Pide al usuario la distancia recorrida en kilómetros y el tiempo en minutos, 
+// y calcula la velocidad media en km/h.
+
+//Pido al usuario distancia recorrida en KM
+    let distanciaKM = Number (prompt("Dime la distancia recorrida en Km"))
+//Pido al usuario el tiempo que ha tardado en minutos
+    let tiempoMinutos = Number (prompt("Dime el tiempo en minutos"))
+//Convierto el tiempo de minutos a horas
+    let tiempoHoras = (tiempoMinutos / 60)
+//Hago el calculo para sacar la velocidad media en km/h
+    let velocidadKMH = (distanciaKM / tiempoHoras)
+//Muestro en consola la velodidad medio en km/h realizada por el usuario
+    console.log("Aqui tienes la velocidad media que has tenido" + velocidadKMH);
+    
+
+
+</script>
