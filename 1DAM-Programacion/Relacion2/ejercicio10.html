@@ -1,6 +1,17 @@
 <script>
 //### 10. **Convertir Minutos a Horas y Minutos**
 //Pide al usuario una cantidad de minutos y conviértela a horas y minutos (por ejemplo, 150 minutos son 2 horas y 30 minutos).
+
+//Pido al usuario el nº de minutos que quiera ingresar
+    let minutoUsuario = Number(prompt("Dime una cantidad de minutos"))
+
+//Cojo los minutos del usuario y los divido entre 60 para asi coger su resto (los minutos reales a mostrar)
+    let minutosMostrar = Number(minutoUsuario % 60)
+
+//Con los minutos del usuario, solamente los dividiremos simplemente entre 60(minutos)
+    let HorasMostrar = parseInt(minutoUsuario / 60)
+
+    console.log("Aqui tienes las horas y los minutos:" + " " + HorasMostrar + " " + minutosMostrar);
     
 
 
