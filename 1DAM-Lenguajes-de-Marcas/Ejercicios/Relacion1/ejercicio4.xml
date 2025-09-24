@@ -3,28 +3,28 @@
   <receta>
     <nombre>Lentejas con Chorizo</nombre>
     <ingredientes>
-        <ingredientes>
+        <ingrediente>
             <nombre>Agua</nombre>
             <peso>1.5L</peso>
-        </ingredientes>
-        <ingredientes>
+        </ingrediente>
+        <ingrediente>
             <nombre>Lentenas</nombre>
             <peso>400gr</peso>
-        </ingredientes>
+        </ingrediente>
     </ingredientes>
     <tiempoPreparacion>80minutos</tiempoPreparacion>
   </receta>
   <receta>
     <nombre>Pastel de carne</nombre>
     <ingredientes>
-        <ingredientes>
-            <nombre>Harinn</nombre>
+        <ingrediente>
+            <nombre>Harina</nombre>
             <peso>600gr</peso>
-        </ingredientes>
-        <ingredientes>
+        </ingrediente>
+        <ingrediente>
             <nombre>Carne</nombre>
             <peso>600gr</peso>
-        </ingredientes>
+        </ingrediente>
     </ingredientes>
     <tiempoPreparacion>100minutos</tiempoPreparacion>
   </receta>
