@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE liga SYSTEM "liga.dtd">
+<liga>
+    <entrenador>
+        <nombre>Paco</nombre>
+        <pokemon>
+            <nombre>Articuno</nombre>
+            <tipo>Dragon + Hielo</tipo>
+            <nivel>43</nivel>
+        </pokemon>
+        <pokemon>
+            <nombre>Charizard</nombre>
+            <tipo>Dragon + Fuego</tipo>
+            <nivel>40</nivel>
+        </pokemon>
+    </entrenador>
+
+    <entrenador>
+        <nombre>Miguel</nombre>
+        <pokemon>
+            <nombre>Gengar</nombre>
+            <tipo>Fantasma + Veneno</tipo>
+            <nivel>41</nivel>
+        </pokemon>
+        <pokemon>
+            <nombre>Zapdos</nombre>
+            <tipo>Dragon + Electrico</tipo>
+            <nivel>50</nivel>
+        </pokemon>
+    </entrenador>
+</liga>
