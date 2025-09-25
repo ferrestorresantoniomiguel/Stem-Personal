@@ -1,0 +1,28 @@
+<script>
+//### 7. **Simular una calculadora simple**:
+//Pide dos números y una operación (`+`, `-`, `*`, `/`) e imprime el resultado correspondiente.
+
+let primerNumero =Number(prompt("Dime tu primer número"))
+let segundoNumero= Number(prompt("Dime tu segundo número"))
+let operacion = prompt("Dime que operacion")
+
+let operacionSuma = (operacion == "+")
+let operacionResta = (operacion == "-")
+let operacionDivision = (operacion == "/")
+let operacionMultiplicacion = (operacion == "*")
+
+
+if (operacionSuma) {
+    console.log("Aqui tienes tu suma:",( primerNumero + segundoNumero))
+}
+else if (operacionResta) {
+    console.log("Aqui tienes tu resta:", (primerNumero - segundoNumero))
+}
+else if (operacionMultiplicacion) {
+    console.log("Aqui tienes tu multiplicación:", (primerNumero * segundoNumero))
+}
+else if (operacionDivision) {
+    console.log("Aqui tienes tu division", (primerNumero / segundoNumero))
+}
+
+</script>
