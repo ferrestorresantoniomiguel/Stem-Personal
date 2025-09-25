@@ -1,18 +1,22 @@
 # 1º Trimestre
 
-## 2º Día:
-Distintos comandos para terminal linux:
+## Distintos comandos para terminal linux:
 
-    ls: Carpeta a mostrar
+    bash: Ejecutar bash
+    clear: Limpia la pantalla
+    ls: Muestra el contenido de la Carpeta a mostrar
     ls (-R): Muestra todo lo que puede llegar a mostrar
     cd: Abrir una carpeta
-    clear: Limpia la pantalla
     cat: Muestra contenido del archivo
-    bash: Ejecutar bash
-    nano: Crea y muestra una archivo
+    nano: Crea y/o muestra una archivo
     touch: Solamente crea el archivo
     rm: Borra archivos
-    cp: Para copiar entre carpetas
+    cp: Para copiar archivos
+    chmod: cambiar permisos
+    $1: varibale
+    grep: comando interactivo, sirve para filtrar contenido
+    * : Cualquier caña de carácter
+    ? : como que dices que no sabes dos caracteres de algo ej: pru??.txt te enseñaría todos los archivos que tengan pru__.txt
 
 Distintos parámetros para terminal linux:
 
