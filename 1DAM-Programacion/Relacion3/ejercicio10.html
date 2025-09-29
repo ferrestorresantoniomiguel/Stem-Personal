@@ -1,0 +1,32 @@
+<script>
+//### 10. **Calificación de un examen**:
+//Pide al usuario su calificación (entre 0 y 100) y devuelve su letra correspondiente:
+//A (90-100). B (80-89). C (70-79). D (60-69). F (0-59).
+    let numeroUsuario = Number(prompt ("Dime tu calificación entre 0 y 100"))
+    let mensaje = ""
+
+    if(numeroUsuario >=90) {
+        mensaje = ("A")
+        console.log("Aqui tienes tu calificación=" + mensaje);
+    }
+    else if(numeroUsuario >=80){
+        mensaje = ("B")
+        console.log("Aqui tienes tu calificación=" + mensaje);
+    }
+    else if(numeroUsuario >=70){
+        mensaje = ("C")
+        console.log("Aqui tienes tu calificación=" + mensaje);
+    }
+    else if(numeroUsuario >=60){
+        mensaje = ("D")
+        console.log("Aqui tienes tu calificación=" + mensaje);
+    }
+    else if(numeroUsuario <=59){
+        mensaje = ("F")
+        console.log("Aqui tienes tu calificación=" + mensaje);
+    }
+    else {
+        console.log("Tu calificación introduccida incorrectamente");
+    }
+    
+</script>

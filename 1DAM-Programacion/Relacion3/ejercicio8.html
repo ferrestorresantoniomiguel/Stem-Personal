@@ -7,15 +7,17 @@ let numeroUsuario = Number(prompt("Dime un numero"))
 let numeroCero = (numeroUsuario == 0)
 let numeroPositivo = (numeroUsuario > 0)
 let numeroNegativo = (numeroUsuario < 0)
+let mensaje= ""
 
 if (numeroCero) {
-    console.log("Tu número es Cero");
+    mensaje="Tu número es Cero";
 }
 else if (numeroPositivo) {
-    console.log("Tu número es positivo");
+    mensaje="Tu número es positivo";
 }
 else if (numeroNegativo) {
-    console.log("Tu número es negativo");
+    mensaje="Tu número es negativo";
 }
+console.log(mensaje);
 
 </script>

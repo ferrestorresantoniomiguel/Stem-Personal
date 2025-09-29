@@ -1,0 +1,30 @@
+<script>
+    //### 17. **Calcular el precio de una llamada telefónica**:
+    //Pide al usuario la duración de una llamada (en minutos) y calcula el coste total según estas reglas:
+    // Los primeros 3 minutos son gratis.
+    // De 3 a 10 minutos cuesta 0.50€ por minuto.
+    // Más de 10 minutos cuesta 0.30€ por minuto adicional.
+
+    let llamadaUsuario = Number(prompt("Dime la duración de una llamada en minutos"))
+    let mensaje = ""
+
+    if (llamadaUsuario < 3){
+        mensaje= "Tu llamada es gratuita"
+    }
+    else if (llamadaUsuario < 10){
+        llamadaUsuario= llamadaUsuario * 0.5
+        mensaje= "Tu llamada ha tenido un costo de 0,5€/m" + "coste total:" + llamadaUsuario
+    }
+    else if (llamadaUsuario > 10){
+        let minutosAdicionales = llamadaUsuario - 10
+        let llamadaUsuariofinal= (llamadaUsuario * 0.5)+(minutosAdicionales * 0.3)
+
+        mensaje= "Tu llamada ha tenido un costo de 0,5€/m + 0,3€ por minuto adicional" + "coste total:" + llamadaUsuariofinal
+    }
+    else{
+        mensaje= "Error con los minutos"
+    }
+
+console.log(men);
+
+</script>

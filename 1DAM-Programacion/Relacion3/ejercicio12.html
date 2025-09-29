@@ -1,0 +1,23 @@
+<script>
+//### 12. **Identificar el tipo de triángulo**:
+//Pide al usuario las longitudes de los tres lados de un triángulo 
+//e indica si es equilátero, isósceles o escaleno.
+
+    let lado1Usuario = Number(prompt("Dime la longitud del primer lado del triángulo"))
+    let lado2Usuario = Number(prompt("Dime la longitud del segundo lado del triángulo"))
+    let lado3Usuario = Number(prompt("Dime la longitud del tercer lado del triángulo"))
+    let mensaje = ""
+
+    if (lado1Usuario == lado2Usuario && lado2Usuario== lado3Usuario){
+        mensaje= "Tu triangulo es Equilatero";
+    }
+    else if (lado1Usuario == lado2Usuario || lado1Usuario == lado3Usuario || lado2Usuario ==lado3Usuario){
+        mensaje= "Tu triangulo es Isoceles";
+    }
+    else {
+        mensaje= "Tu triangulo es Escaleno";
+    }
+
+    console.log(mensaje);
+
+</script>
