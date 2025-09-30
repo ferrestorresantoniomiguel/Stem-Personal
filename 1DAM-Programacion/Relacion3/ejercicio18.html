@@ -1,0 +1,26 @@
+<script>
+    //### 18. **Sistema de becas basado en promedio y situación económica**:
+    //Solicita el promedio académico del estudiante y su ingreso familiar anual:
+    // Si tiene un promedio mayor o igual a 8 y su ingreso es menor a 20.000€, 
+    // recibe una beca completa.
+    // Si tiene un promedio mayor o igual a 8, pero su ingreso es mayor a 20.000€, 
+    // recibe una beca parcial.
+    // Si tiene un promedio menor a 8, no recibe beca.
+
+    let promedioUsuario = prompt("Introduceme tu promedio académico")
+    let ingresoFamiliaUsuario = prompt("Introduceme tu ingreso familiar anual")
+    let mensaje = ""
+
+    if (promedioUsuario <= 0) {
+        mensaje = "Tu promedio de Notas es Incorrecto"
+    } else if (promedioUsuario >= 8 && ingresoFamiliaUsuario < 20000){
+        mensaje= "Recibes una beca completa"
+    } else if (promedioUsuario >= 8 && ingresoFamiliaUsuario > 20000){
+        mensaje= "Recibes una beca parcial"
+    } else if (promedioUsuario < 8){
+        mensaje= "No recibes beca por no superar el 8"
+    }
+
+    console.log(mensaje);
+
+</script>

@@ -1,0 +1,34 @@
+<script>
+    //### 19. **Cálculo de costeprimerasH de estacionamiento**:
+    // Pide al usuario el tiempo que estuvo estacionado (en horas) y calcula el costeprimerasH:
+    // Primeras 2 horas: 5€ cada hora.
+    // De 2 a 5 horas: 4€ cada hora.
+    // Más de 5 horas: 3€ cada hora adicional.
+
+    let tiempoUsuario = prompt("Dime cuanto tiempo estuvo usted estacionado")
+    let mensaje = ""
+    let costeprimerasH= 0
+    let primerosHoras = 5
+
+    if (tiempoUsuario < 2){
+        costeprimerasH= tiempoUsuario * primerosHoras
+        mensaje= costeprimerasH
+    } else if (tiempoUsuario >= 2 && tiempoUsuario <= 5){
+        let primerCoste= (tiempoUsuario - 2) * 5
+        let tiempoUSAR= tiempoUsuario - 2
+        let segundoCoste= tiempoUSAR * 4
+        let costeFinal= primerCoste + segundoCoste
+        mensaje= costeFinal
+    } else if (tiempoUsuario > 5) {
+        let primerCoste= (tiempoUsuario - 2) * 5
+        let tiempoUSAR= tiempoUsuario - 2
+        let segundoCoste= tiempoUSAR * 4
+        let tiempoFinal= ((tiempoUsuario - 2) -5)
+        let tercerCoste= tiempoFinal* 3
+        let finalCoste= primerCoste + segundoCoste + tercerCoste
+        mensaje= finalCoste 
+    }
+
+    console.log("Aquí tienes tu costo en el parking" + mensaje);
+    
+</script>
