@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ej6.xsd">
+    <producto id="1">
+        <nombre>PC Master</nombre>
+        <categoria>Ordenador</categoria>
+        <precio>2000.23</precio>
+        <stock>200</stock>
+        <proovedor>
+            <nombre>Pccomponentes</nombre>
+            <telefono>953-122-234</telefono>
+            <país>España</país>
+        </proovedor>
+    </producto>
+    <producto id="2">
+        <nombre>PC Master</nombre>
+        <categoria>Móvil</categoria>
+        <precio>999.99</precio>
+        <stock>1000</stock>
+        <proovedor>
+            <nombre>Pccomponentes</nombre>
+            <telefono>953-122-234</telefono>
+            <país>España</país>
+        </proovedor>    
+    </producto>
+
+</inventario>
