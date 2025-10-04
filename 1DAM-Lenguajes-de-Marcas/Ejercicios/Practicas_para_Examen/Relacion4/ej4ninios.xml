@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ej4ninios.xsd">
+    <alumno id="1">
+        <nombre>Antonio Miguel</nombre>
+        <edad>18</edad>
+        <nota>8</nota>
+        <dni>75303079R</dni>
+    </alumno>
+    <alumno id="2">
+        <nombre>Juan de Dios</nombre>
+        <edad>17</edad>
+        <nota>7</nota>
+        <nota>4</nota>
+        <dni>23412354f</dni>
+    </alumno>
+
+</clase>
