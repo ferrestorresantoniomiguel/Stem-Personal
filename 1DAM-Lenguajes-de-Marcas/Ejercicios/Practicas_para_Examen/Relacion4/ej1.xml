@@ -14,4 +14,11 @@
         <genero>Novela</genero>
         <isbn>904-64-3244-119-0</isbn>
     </libro>
+    <libro id="3">
+        <título>Harry Potter y la Camara Secreta</título>
+        <autor>JK Rowling</autor>
+        <anioPublicacion>2001</anioPublicacion>
+        <genero>Novela</genero>
+        <isbn>074-01-3234-279-0</isbn>
+    </libro>
 </biblioteca>
