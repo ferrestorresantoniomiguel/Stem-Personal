@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ej1.xsd">
+    <libro id="1">
+        <título>Geronimo Stilton</título>
+        <autor>None</autor>
+        <anioPublicacion>2010</anioPublicacion>
+        <genero>Novela</genero>
+        <isbn>978-84-3764-049-7</isbn>
+    </libro>
+    <libro id="2">
+        <título>Harry Potter y la Piedra Filosofal</título>
+        <autor>JK Rowling</autor>
+        <anioPublicacion>1997</anioPublicacion>
+        <genero>Novela</genero>
+        <isbn>904-64-3244-119-0</isbn>
+    </libro>
+</biblioteca>
