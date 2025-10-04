@@ -3,7 +3,7 @@
     <xs:element name="pedidos">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="pedido">
+                <xs:element name="pedido" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="cliente">
@@ -13,7 +13,7 @@
                                         <xs:element name="email">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
-                                                    <xs:pattern value="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"/>
+                                                    <xs:pattern value="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" />
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
@@ -37,14 +37,14 @@
                                                     <xs:element name="precio">
                                                         <xs:simpleType>
                                                             <xs:restriction base="xs:decimal">
-                                                                <xs:minExclusive value="0"/>
+                                                                <xs:minExclusive value="0" />
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
                                                     <xs:element name="cantidad">
                                                         <xs:simpleType>
-                                                            <xs:restriction base="xs:integer">
-                                                                <xs:minInclusive value="1"/> 
+                                                            <xs:restriction base="xs:positiveInteger">
+                                                                <xs:minInclusive value="1"/>
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
