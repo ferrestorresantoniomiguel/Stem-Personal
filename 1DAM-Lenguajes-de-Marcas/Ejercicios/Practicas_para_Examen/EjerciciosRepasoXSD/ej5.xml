@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agencia xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ej5.xsd">
+    <paquete codigo="PKT-0000">
+        <cliente>
+            <nombre>Antonio</nombre>
+            <dni>75939745R</dni>
+            <edad>21</edad>
+            <email>antonio.04.ferres@gmail.com</email>
+        </cliente>
+        <destino>Puntalon</destino>
+        <precio>5.5</precio>
+        <fechaInicio>2025-04-09</fechaInicio>
+        <fechaFin>2025-04-21</fechaFin>
+        <tipo>Aventura</tipo>
+    </paquete>
+    <paquete codigo="PKT-0001">
+        <cliente>
+            <nombre>Pulitos</nombre>
+            <dni>75659123F</dni>
+            <edad>70</edad>
+            <email>amadeo._s@gmail.com</email>   
+        </cliente>
+        <destino>Salobreña</destino>
+        <precio>10.99</precio>
+        <fechaInicio>2025-10-10</fechaInicio>
+        <fechaFin>2026-01-03</fechaFin>
+        <tipo>Familiar</tipo>
+    </paquete>
+</agencia>
