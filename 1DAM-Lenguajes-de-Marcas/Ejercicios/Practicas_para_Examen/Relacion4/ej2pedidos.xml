@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedidos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ej2pedidos.xsd">
+    <pedido codigo="A333">
+        <cliente>
+            <nombre>Antonio</nombre>
+            <email>antonio.04.ferres@gmail.com</email>
+            <telefono>653-030-791</telefono>
+        </cliente>
+        <productos>
+            <producto>
+                <nombre>Lavadora</nombre>
+                <precio>199</precio>
+                <cantidad>2</cantidad>
+            </producto>
+            <producto>
+                <nombre>Nevera</nombre>
+                <precio>239.99</precio>
+                <cantidad>1</cantidad>
+            </producto>
+        </productos>
+        <estado>Enviado</estado>
+    </pedido>
+</pedidos>
