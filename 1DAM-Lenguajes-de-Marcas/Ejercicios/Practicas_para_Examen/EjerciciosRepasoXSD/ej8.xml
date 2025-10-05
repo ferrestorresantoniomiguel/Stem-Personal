@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<redSocial xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ej8.xsd">
+    <usuario id="12">
+        <nombreUsuario>M1ster</nombreUsuario>
+        <email>antonio.2.fer@gmail.com</email>
+        <seguidores>0</seguidores>
+        <publicacion>
+            <titulo>Día en la playa </titulo>
+            <fecha>2004-12-09</fecha>
+            <likes>0</likes>
+        </publicacion>
+        <publicacion>
+            <titulo>AmadeoKain</titulo>
+            <fecha>2001-11-11</fecha>
+            <likes>1000</likes>
+            <comentario>
+                <autor>Yung</autor>
+                <contenido>K guapo sales</contenido>
+                <fecha>2001-11-13</fecha>
+            </comentario>
+        </publicacion>
+    </usuario>
+
+</redSocial>
