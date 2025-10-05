@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reservas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ej7.xsd">
+    <reserva codigo="R001">
+        <cliente>
+            <nombre>Antonio Miguel</nombre>
+            <dni>75939745R</dni>
+        </cliente>
+        <habitacion tipo="Suite" numero="201" />
+        <fechaEntrada>2025-01-01</fechaEntrada>
+        <fechaSalida>2025-01-10</fechaSalida>
+        <precioTotal>50.99</precioTotal>
+    </reserva>
+</reservas>
