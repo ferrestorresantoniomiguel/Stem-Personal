@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE biblioteca [
+  <!ELEMENT biblioteca (seccion+)>
+  <!ELEMENT seccion (nombre, libro+)>
+  <!ELEMENT nombre (#PCDATA)>
+  <!ELEMENT libro (titulo, autor, anio?)>
+  <!ELEMENT titulo (#PCDATA)>
+  <!ELEMENT autor (#PCDATA)>
+  <!ELEMENT anio (#PCDATA)>
+]>
+<biblioteca>
+    <seccion>
+        <nombre>Filosofía</nombre>
+        <libro>
+            <titulo>El trap: filosofía millennial para la crisis en España</titulo>
+            <autor>Ernesto Castro</autor>
+            <anio>2019</anio>
+        </libro>
+    </seccion>
+    <seccion>
+        <nombre>Fantasía</nombre>
+        <libro>
+            <titulo>Geronimo Stilton, El misterio de la pirámide de queso</titulo>
+            <autor>Xavier</autor>
+            <anio>2000</anio>
+        </libro>
+        <libro>
+            <titulo>Geronimo Stilton, El Galeon de los Gatos Piratas</titulo>
+            <autor>Gustavo Flores</autor>
+            <anio>1997</anio>
+        </libro>
+    </seccion>
+</biblioteca>
