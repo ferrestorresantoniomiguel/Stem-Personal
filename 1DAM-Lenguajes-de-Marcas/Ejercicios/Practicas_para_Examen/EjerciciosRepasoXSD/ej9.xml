@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hospital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ej9.xsd">
+    <nombre>Hospital Fabiola</nombre>
+    <departamento>
+        <nombre>Urgencias</nombre>
+        <medicoJefe>Gonzalo Ramos</medicoJefe>
+        <paciente>
+            <dni>75239310T</dni>
+            <edad>21</edad>
+            <fechaIngreso>2025-09-28</fechaIngreso>
+            <diagnostico>Dado de alta</diagnostico>
+            <tratamiento>Ibuprofeno</tratamiento>
+        </paciente>
+        <paciente>
+            <dni>75239310T</dni>
+            <edad>11</edad>
+            <fechaIngreso>2025-10-05</fechaIngreso>
+            <tratamiento>Ibuprofeno</tratamiento>
+        </paciente>
+    </departamento>
+</hospital>
