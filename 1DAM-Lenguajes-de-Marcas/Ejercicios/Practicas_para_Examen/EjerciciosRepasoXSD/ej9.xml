@@ -16,6 +16,7 @@
             <dni>75239310T</dni>
             <edad>11</edad>
             <fechaIngreso>2025-10-05</fechaIngreso>
+            <diagnostico>Sigue ingresado, con un buen proceso</diagnostico>
             <tratamiento>Ibuprofeno</tratamiento>
         </paciente>
     </departamento>
