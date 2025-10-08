@@ -8,6 +8,7 @@
         </xs:restriction>
     </xs:simpleType>
 </xs:attribute>
+- telefono: <xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{3}"/>
 - email: <xs:pattern value="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"/>
 - DNI: <xs:pattern value="[0-9]{8}[A-Za-z]{1}"></xs:pattern>
 - Nota con decimales: <xs:pattern value="\d(\.\d)?"/>
