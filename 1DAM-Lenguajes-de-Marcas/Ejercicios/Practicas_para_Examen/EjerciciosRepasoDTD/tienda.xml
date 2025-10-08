@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tienda SYSTEM "tienda.dtd">
+<tienda>
+    <nombre>Plaza Venus</nombre>
+    <pokemon>
+        <nombre>Pikachu</nombre>
+        <tipo>Electrico</tipo>
+        <precio>10</precio>
+    </pokemon>
+    <pokemon>
+        <nombre>Charizard</nombre>
+        <tipo>Dragon</tipo>
+        <tipo>Volador</tipo>
+        <precio>50</precio>
+    </pokemon>
+</tienda>
