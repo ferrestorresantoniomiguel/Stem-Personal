@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE curso [
+  <!ELEMENT curso (nombre, alumno+)>
+  <!ELEMENT nombre (#PCDATA)>
+  <!ELEMENT alumno (nombre, apellido)>
+  <!ELEMENT apellido (#PCDATA)>
+]>
+<curso>
+    <nombre>Sistemas Microinformáticos y redes</nombre>
+    <alumno>
+        <nombre>Pablo</nombre>
+        <apellido>Galvez Gomez</apellido>
+    </alumno>
+    <alumno>
+        <nombre>Zoe</nombre>
+        <apellido>Jeanneau Canto</apellido>
+    </alumno>
+    <alumno>
+        <nombre>Fernando</nombre>
+        <apellido>Galvez Gomez</apellido>
+    </alumno>
+</curso>
