@@ -22,3 +22,12 @@ Distintos parámetros para terminal linux:
 
     cp: (ruta de origen) (carpeta destino)
     cp (-r): Para copiar todos los archivos 
+
+
+
+Principal diferencia entre grep y find
+find: busca directamente el archivo a traves de metadatos (tamaño, extension...)
+grep: busca dentro del archivo
+
+
+~ = $HOME
