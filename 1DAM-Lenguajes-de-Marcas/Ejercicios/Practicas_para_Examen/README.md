@@ -16,3 +16,41 @@
 - string con regex: (3–15 caracteres alfanuméricos o guiones bajos): <xs:pattern value="[A-Za-z0-9_]{3,15}"/>
 - precio (decimal, con 2 decimales exactos) <xs:pattern value= "\d+\.\d{2}">
 - Atributo codigo obligatorio (formato: PKT-XXXX) <xs:pattern value="PKT\-[0-9]{4}" />
+
+
+ESTRUCTURA XSD
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+</xs:schema>
+
+ESTRUCTURA XML - XSD
+<?xml version="1.0" encoding="UTF-8"?>
+<ejemplo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ej10.xsd">
+
+</ejemplo>
+
+
+ESTRUCTURA XML - DTD
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tienda SYSTEM "tienda.dtd">
+
+ESTRUCTURA DTD EXTERNO
+<!ELEMENT tienda (nombre, pokemon+)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT pokemon (nombre, tipo+, precio)>
+<!ELEMENT tipo (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+
+ESTRUCTURA DTD INTERNO
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE curso [
+  <!ELEMENT curso (nombre, alumno+)>
+  <!ELEMENT nombre (#PCDATA)>
+  <!ELEMENT alumno (nombre, apellido)>
+  <!ELEMENT apellido (#PCDATA)>
+]>
+<curso>
+
+</curso>

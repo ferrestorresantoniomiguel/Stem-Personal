@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<temporada xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="granada.xsd">
+    <partido id="P001">
+        <rival>Real Betis</rival>
+        <fecha>2025-03-15</fecha>
+        <resultado>2-1</resultado>
+        <estadio>Nuevo Los Cármenes</estadio>
+        <asistencia>18500</asistencia>
+        <goles>
+            <gol minuto="23">Uzuni</gol>
+            <gol minuto="67">Callejón</gol>
+        </goles>
+    </partido>
+
+    <partido id="P002">
+        <rival>Valencia CF</rival>
+        <fecha>2025-03-22</fecha>
+        <resultado>0-0</resultado>
+        <estadio>Mestalla</estadio>
+        <asistencia>48000</asistencia>
+    </partido>
+</temporada>
