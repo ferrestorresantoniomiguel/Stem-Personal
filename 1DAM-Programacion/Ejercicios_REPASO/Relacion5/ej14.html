@@ -1,5 +1,19 @@
 <script>
+    let numero = Number(prompt("Dime un número"))
+    let mensaje = numero
+
+    numero++
+    console.log("Empiezo a buscar a partir de " + numero);
+
+    while (numero % 5 != 0) {
+        numero++
+        console.log("Dentro del bucle, numero vale: " + numero);
+
+    }
+    console.log("Bucle finalizado");
+    console.log("El siguiente numero multiplo de CINCO a partir de " + mensaje + " " + "es el " + numero);
 
 
-    
+
+
 </script>

@@ -1,5 +1,18 @@
 <script>
+    let numero = Number(prompt("Dime un numero"))
+    let mensaje = numero
+    numero++
 
+    console.log("Busco a partir del siguiente número " + numero);
 
+    while (numero % 2 != 0 || numero % 3 != 0) {
+        numero++
+        console.log("Dentro del while, numero vale= " + numero);
+    }
+    console.log("Bucle finalizado");
+    console.log("El siguiente número multiplo de DOS y TRES, a partir de " + mensaje + " " + "es el " + numero);
     
+    
+
+
 </script>

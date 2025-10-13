@@ -1,0 +1,19 @@
+<script>
+    let numeroMultiplo = Number(prompt("Dime un numero para que sea el multiplo"))
+    let numeroBuscar = Number(prompt("Dime un numero para buscar a partir del siguiente"))
+    let mensaje = numeroBuscar
+
+    numeroBuscar++
+    console.log("Busco a partir de: " + numeroBuscar + " " + "y el multiplo es: " + numeroMultiplo);
+
+    while (numeroBuscar % numeroMultiplo != 0) {
+        numeroBuscar++
+        console.log("Dentro del while, numero vale: " + numeroBuscar);
+
+    }
+    console.log("While finalizado");
+    console.log("El siguiente numero multiplo de " + numeroMultiplo + " a partir del numero " + mensaje + " es el " + numeroBuscar);
+
+
+
+</script>

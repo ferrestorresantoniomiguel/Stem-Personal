@@ -3,17 +3,15 @@
     let mensaje = numero
 
     numero++
-    console.log("Voy a buscar a partir de: " + numero);
+    console.log("Busco a partir de: " + numero);
 
-    while (numero % 2 != 0 || numero % 5 != 0) {
+    while(numero%3 != 0 || numero%5 != 0){
         numero++
         console.log("Dentro del while, numero vale: " + numero);
     }
     console.log("While finalizado");
-    console.log("El siguiente numero multiplo de DOS y CINCO a partir de " + mensaje + " " + "es el " + numero);
-
-
-
+    console.log("El siguiente numero multiplo de TRES y CINCO a partir de " + mensaje + " " + "es el " + numero);
+    
 
 
 </script>
