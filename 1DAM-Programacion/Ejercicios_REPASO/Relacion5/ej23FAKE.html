@@ -1,0 +1,18 @@
+<script>
+    let altura= Number(prompt("Dime la altura de la torre"))
+
+    for (let i= 0; i<altura; i++){
+        let filas= ""
+
+        for (let j= 0; j < i; j++ ){
+            filas += " "
+        }
+
+        for (let s= 1; s<=altura - i; s++){
+            filas += "*"
+        }
+        console.log(filas);
+
+    }
+
+</script>

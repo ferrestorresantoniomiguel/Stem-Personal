@@ -1,0 +1,21 @@
+<script>
+    let altura = Number(prompt("Dime el tamaño de la piramide"))
+
+
+    for (let i = 0; i < altura; i++) {
+        let fila = ""
+
+        for (let s = 0; s < i; s++) {
+            fila += " "
+        }
+
+        for (let j = 0; j < altura - i; j++) {
+            fila += "*"
+
+        }
+        console.log(fila);
+
+    }
+
+
+</script>
