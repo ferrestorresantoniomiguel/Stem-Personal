@@ -170,13 +170,14 @@ cp /etc/crontab examen/copia_crontab
 ### PT8.9.- Copiar en el directorio `ejercicios1` los archivos de `/bin` que tengan una *"a"* como segunda letra y su nombre termine en *"o"* ó en *"e"*.
 
 ```bash
-
+cp /bin/?a*o /bin/?a*e  ./ejercicios1/
 ```
 
 ### PT8.10.- Sitúate en tu *HOME* y elimina el directorio `examen`.
 
 ```bash
-
+cd ~
+rm examen
 ```
 
 
@@ -208,7 +209,6 @@ cp /etc/crontab examen/copia_crontab
 ```bash
 
 ```
-
 
 
 ### 25. Cambiar el directorio actual al directorio `dir3`, y crear cuatro nuevos directorios llamados `dira`, `dirb`, `dirc`, y `dird` bajo el directorio actual.
