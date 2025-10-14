@@ -1,0 +1,24 @@
+<script>
+    //Declaro variables programa
+    let saldoPrograma = 1000
+    let saldo = 0
+    let saldoRestado = 0
+
+
+    //Bucle para comprobar saldo
+    while (saldoPrograma > 0) {
+
+        saldo = prompt("Saldo: " + saldoPrograma + "|" + "Introduzca saldo a retirar: ")
+        saldoPrograma = saldoPrograma - saldo
+
+        if (saldoPrograma <= 0 && saldoPrograma <= saldo) {
+            console.log("Te has quedado sin saldo ¡A trabajar!");
+
+        } else if (saldoPrograma < saldo) {
+            console.log("Saldo insuficiente.");
+        }
+
+    }
+
+
+</script>
