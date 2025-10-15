@@ -184,7 +184,7 @@ rm examen
 ### 19.Borrar los archivos y directorios de `dir1`, incluido el propio directorio.
 
 ```bash
-
+rm -r dir1
 ```
 
 ### 20. Copiar al directorio `dir312` los ficheros del directorio `/dev` que empiecen por *t*, acaben en un número del *5* al *8* y tengan cinco letras en su nombre.
