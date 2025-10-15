@@ -48,7 +48,7 @@ tree
 *Responde con los comandos utilizados y verifica la estructura resultante con `ls` o `tree`.*
 
 2.1
-pwd /home/antonioferres
+pwd /home/antonioferres/proyecto
 mkdir back_docs
 cp docs/{manual.txt,guia.txt} ./back_docs/
 
@@ -69,15 +69,15 @@ cp -r config ./config_backup
 *Responde con los comandos y verifica la estructura final con `ls` o `tree`.*
 
 3.1
-pwd /home/antonioferres
+pwd /home/antonioferres/proyecto
 mv src/script1.sh test/resultados
 
 3.2
-pwd /home/antonioferres
+pwd /home/antonioferres/proyecto
 mv src/script2.sh src/script_final.sh
 
 3.3
-pwd /home/antonioferres
+pwd /home/antonioferres/proyecto
 mv logs/backup test/
 tree
 
@@ -96,7 +96,7 @@ tree
 
 *Responde con los comandos utilizados*
 
-pwd /home/antonioferres
+pwd /home/antonioferres/proyecto
 4.1
 echo "   Capítulo 1: Introducción
    Capítulo 2: Instalación
@@ -118,7 +118,7 @@ head -n 2 docs/manual.txxt
 3. Busca todos los archivos que hayan sido modificados en las últimas 24 horas.
 
 *Responde con los comandos utilizados*
-pwd /home/antonioferres
+pwd /home/antonioferres/proyecto
 5.1
 find . -type f -name "*.txt"
 
@@ -128,7 +128,7 @@ find . -type d -name "*backup*"
 5.3
 find . -type f -mtime -1
 
-### Ejercicio 6 SIN RESOLVER
+### Ejercicio 6
 
 1. Busca en todos los archivos `.log` dentro de `proyecto` las líneas que contengan la palabra "ERROR" (sin importar mayúsculas o minúsculas).
 2. Encuentra las líneas que contengan números (dígitos) dentro de los archivos `.log` dentro de la estructura `proyecto`.
@@ -137,10 +137,10 @@ find . -type f -mtime -1
 pwd /home/antonioferres
 
 6.1
-grep -r -i "error" --include="*.log*"
+grep -Ri --include="*.log" "ERROR" proyecto/
 
 6.2
-grep -r "[0-9]" --include="*.log"
+grep -R --include="*.log" -n "[0-9]" proyecto/
 
 
 ### Ejercicio 7
