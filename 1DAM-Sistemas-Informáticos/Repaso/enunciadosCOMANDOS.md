@@ -141,6 +141,8 @@ nano archivo2.txt <relleno el texto>
 
 cat archivo2.txt archivo1.txt > temp.txt;
 cat archivo1.txt archivo2.txt > temp.txt
+
+
 ### Ej3 extra:
 
 Repite el ejercicio 1 pero como lo pensamos originalmente. En este caso, carpetas, archivos y programas serán carpetas y hay que almacenar en cada uno lo que corresponde. 
@@ -154,3 +156,7 @@ NOTA: carpetas, archivos y programas no puede estar dentro de la carpeta donde e
 *Responde con los comandos utilizados*
 
 /Home/antonioferres/PT_Enunciados/
+
+mv *.sh programas
+
+mv *.txt archivos
