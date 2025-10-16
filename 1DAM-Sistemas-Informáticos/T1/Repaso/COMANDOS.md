@@ -1,3 +1,14 @@
+## Dentro de tu home, crea un directorio principal llamado `proyecto`
+---
+mkdir -p proyecto/{docs,src/modulos,config,logs/backup,test/resultados}
+
+
+## Dentro de `proyecto`, crea la siguiente estructura de directorios y archivos:
+---
+touch docs/{manual.txt,guia.txt,referencias.txt} src/{script1.sh,script2.sh} config/{app.cfg,db.cfg} logs/{access.log,error.log} test/{test1.txt,test2.txt}
+touch src/modulos/modulo1.py logs/backup/backup1.log test/resultados/resultados1.txt
+
+
 ## Copia de forma recursiva:
 ---
 mkdir config_backup
