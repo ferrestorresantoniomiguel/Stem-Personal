@@ -190,34 +190,37 @@ rm -r dir1
 ### 20. Copiar al directorio `dir312` los ficheros del directorio `/dev` que empiecen por *t*, acaben en un número del *5* al *8* y tengan cinco letras en su nombre.
 
 ```bash
-
+cp  ./dev/t????[5-8] hola/dir312
 ```
 
 ### 21. Mover el directorio `dir312` debajo de `dir3`.
 
 ```bash
-
+mv hola/dir312 dir/dir3
 ```
 
 ### 22. Borrar todos los archivos y directorios creados en el directorio `PRUEBA`.
 
 ```bash
+rm -r PRUEBA/*
 ```
 
 ### 23. Crear el directorio `dir2` y `dir3` en el directorio `PRUEBA`.
 
 ```bash
-
+mkdir PRUEBA/{dir2,dir3}
 ```
 
 
 ### 25. Cambiar el directorio actual al directorio `dir3`, y crear cuatro nuevos directorios llamados `dira`, `dirb`, `dirc`, y `dird` bajo el directorio actual.
 
 ```bash
-
+cd dir3;
+mkdir {dira,dirb,dirv,dird}
 ```
 
 ### 26. Comprobar los permisos de acceso de los directorios recién creados.
 
 ```bash
+ls -ld PRUEBA
 ```
