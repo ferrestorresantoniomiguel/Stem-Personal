@@ -160,3 +160,14 @@ rm -r back_docs
 
 7.3
 rm -r src/modulos
+
+# Ejercicio 7 (alternativa)
+cd ~/PT1
+find config -type f \( -name "app.cfg" -o -name "db.cfg" \) -delete
+rm -rf backup_docs
+rm -rf src/modulos
+
+# Ejercicio 8 (alternativa)
+grep -Ril "archivo" .
+find docs -type f -regex '.*/[bcdfghjklmnpqrstvwxyz].*' -exec bash -c 'mv "$0" docs/' {} \;
+find src -mindepth 1 -type d -exec rm -rf {} +
