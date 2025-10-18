@@ -1,0 +1,29 @@
+<script>
+    let numAlumno = 1
+    let totalNota = 0
+    let alumnoSuspenso = 0
+    let alumnoAprobado = 0
+
+    let notaAlumno = Number(prompt("Introduce la calificacion del alumno" + " " + numAlumno))
+
+    while (notaAlumno != -1) {
+        totalNota += notaAlumno
+        numAlumno++
+
+        if (notaAlumno >= 5) {
+            alumnoAprobado++
+        } else {
+            alumnoSuspenso++
+        }
+
+        notaAlumno = Number(prompt("Introduce la calificacion del alumno" + " " + numAlumno))
+    }
+
+    let calificacionMedia = totalNota / (numAlumno - 1 )
+
+    console.log("Hay " + alumnoAprobado + " alumnos aprobados y " + alumnoSuspenso + " alumnos suspensos");
+    console.log("La calificación media es " + calificacionMedia);
+
+
+
+</script>
