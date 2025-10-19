@@ -1,0 +1,29 @@
+<script>
+    let nCoches = Number(prompt("Dime el número de coches en carrera"))
+    let nombreCoche
+    let puntosCoche = 0
+    let posicion = ""
+
+
+
+    for (let i = 1; i <= nCoches; i++) {
+        nombreCoche = prompt("Dime el nombre del coche " + i)
+        puntosCoche = prompt("Dime los puntos conseguidos por el coche " + i)
+        if (puntosCoche < 100) {
+            if (puntosCoche >= 80) {
+                posicion = "Oro"
+
+            } else if (puntosCoche >= 50 && puntosCoche <= 79) {
+                posicion = "Plata"
+
+            } else {
+                posicion = "Fuera del podio"
+            }
+            console.log("Coche " + i + ": " + nombreCoche + " - " + puntosCoche + " puntos → " + posicion);
+        }
+
+    }
+
+
+
+</script>
