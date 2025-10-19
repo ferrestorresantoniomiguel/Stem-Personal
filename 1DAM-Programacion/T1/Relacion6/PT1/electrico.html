@@ -9,17 +9,16 @@
     let potenciaTotal = 0
     let precioAparato = 0
     let precioTotal = 0
-    let potenciaContratadaKilo = 0
     let potenciaAparatoMes = 0
+    let supera = false
 
     electrodomesticos = Number(prompt("Dime el número de electrodomésticos que desea registrar "))
     preciokWh = Number(prompt("Precio por kWh "))
     potenciacontratada = Number(prompt("Dime la potencia total contratada (en vatios W)"))
-    potenciaContratadaKilo = potenciacontratada / 1000
 
 
 
-    for (let i = 1; i <= electrodomesticos; i++) {
+    for (let i = 1; i <= electrodomesticos && !supera; i++) {
         //Potencia Vatios aparato
         electrodomesticosPotencia = Number(prompt("Introduce la potencia del electrodoméstico " + i + " (en vatios): "))
     
@@ -34,7 +33,7 @@
 
         } else {
             console.log("¡Alerta! Has superado la potencia de " + potenciacontratada + "W.");
-            i--
+            supera = true
         }
     }
 
