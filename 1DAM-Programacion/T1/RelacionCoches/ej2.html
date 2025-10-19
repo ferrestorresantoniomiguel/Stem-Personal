@@ -1,0 +1,29 @@
+<script>
+    let tanque = 60
+    let nRepostar = 1
+    let reposta
+    let totalReposta = 0
+
+    while (tanque > 0) {
+
+        reposta = Number(prompt("Repostaje " + nRepostar + ": "))
+
+        if (reposta > tanque) {
+            console.log("Dato Incorrecto");
+        } else {
+        nRepostar++
+        tanque -= reposta
+        totalReposta += reposta
+        }
+
+    }
+    let precioTotal = Number (totalReposta * 1.25)
+
+    console.log("¡Depósito lleno!");
+    console.log("Total de repostajes: " + (nRepostar - 1));
+    console.log("Total gastado: " + precioTotal + "€");
+    
+    
+
+
+</script>
