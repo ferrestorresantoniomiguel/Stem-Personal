@@ -1,0 +1,27 @@
+<script>
+    let temperatura
+    let contadorDia = 1
+    let temperaturaTotal = 0
+    let temperaturaMedia
+    let restarDias = 0
+
+    while (contadorDia != 8){
+        temperatura = Number(prompt("Introduce la temperatura del día " + contadorDia + " :"))
+
+
+        if (temperatura > -20 && temperatura < 50){
+            temperaturaTotal += temperatura
+
+        } else {
+            restarDias ++
+
+        }
+        contadorDia++
+    }
+
+    temperaturaMedia = temperaturaTotal / ((contadorDia - 1) - restarDias)
+    console.log("La temperatura media de la semana es: " + temperaturaMedia);
+
+
+
+</script>
