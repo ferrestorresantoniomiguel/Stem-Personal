@@ -1,0 +1,44 @@
+<script>
+    let primerNumero
+    let segundoNumero
+    let operacion = ""
+    let resultado
+
+
+    while (primerNumero != "SALIR" && segundoNumero != "SALIR" && operacion != "SALIR") {
+
+        primerNumero = prompt("Introduce el primer número: ")
+
+        if (primerNumero != "SALIR") {
+            primerNumero = Number(primerNumero)
+            segundoNumero = prompt("Introduce el segundo número: ")
+            if (segundoNumero != "SALIR") {
+                segundoNumero = Number(segundoNumero)
+                operacion = prompt("Introduce la operación: ")
+
+
+                if (operacion == "+") {
+                    resultado = primerNumero + segundoNumero
+
+                } else if (operacion == "-") {
+                    resultado = primerNumero - segundoNumero
+
+                } else if (operacion == "*") {
+                    resultado = primerNumero * segundoNumero
+
+                } else if (operacion == "/") {
+                    resultado = primerNumero / segundoNumero
+
+                }
+                console.log("El resultado de " + primerNumero + " " + operacion + " " + segundoNumero + " es " + resultado);
+            }
+
+
+        }
+
+
+
+    }
+
+
+</script>
