@@ -1,0 +1,25 @@
+<script>
+    let nCliente = 0
+    let ruedasclient
+    let cambioCompleto = 0
+    let totalRuedas = 0
+
+    while (ruedasclient != 0) {
+        nCliente++
+        ruedasclient = Number(prompt("Cliente " + nCliente + " :"))
+        totalRuedas = Number(totalRuedas + ruedasclient)
+
+        if (ruedasclient == 4) {
+            cambioCompleto++
+        }
+
+    }
+    console.log("Total de clientes: " + (nCliente - 1));
+    console.log("Neumáticos vendidos: " + totalRuedas);
+    console.log("Clientes con cambio completo: " + cambioCompleto);
+
+
+
+
+
+</script>
