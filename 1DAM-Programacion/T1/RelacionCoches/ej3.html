@@ -1,0 +1,34 @@
+<script>
+    let tiempoSegundos = 0
+    let tiempoTotal = 0
+    let tiempoPromedio = 0
+    let mejorVuelta
+    let mejorTiempo = Infinity
+
+
+    for (let i = 1; i <= 5; i++){
+        tiempoSegundos = Number(prompt("Tiempo vuelta " + i))
+        tiempoTotal += tiempoSegundos
+
+        if (tiempoSegundos <= mejorTiempo){
+            mejorTiempo = tiempoSegundos
+            mejorVuelta = i
+            
+
+        }
+            
+    }
+
+    tiempoPromedio = tiempoTotal / 5
+
+
+    console.log("Tiempo total: " + tiempoTotal);
+    console.log("Tiempo medio: " + tiempoPromedio);
+    console.log("La vuelta más rápida fue la " + mejorVuelta + " con " + mejorTiempo + " segundos.");
+    
+
+    
+    
+
+
+</script>
