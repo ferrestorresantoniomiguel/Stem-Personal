@@ -1,0 +1,100 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Examen Taller</title>
+</head>
+<body>
+<script>
+  // === Solicitud de datos iniciales ===
+  let nEncargos = Number(prompt("Número de encargos:"));
+  while (isNaN(nEncargos) || nEncargos <= 0) {
+    nEncargos = Number(prompt("Número inválido, ingrese uno superior a 0:"));
+  }
+
+  let stockMadera = Number(prompt("Stock de madera (varas):"));
+  while (isNaN(stockMadera) || stockMadera <= 0) {
+    stockMadera = Number(prompt("Número inválido, ingrese uno superior a 0:"));
+  }
+
+  let stockAcero = Number(prompt("Stock de acero (kg):"));
+  while (isNaN(stockAcero) || stockAcero <= 0) {
+    stockAcero = Number(prompt("Número inválido, ingrese uno superior a 0:"));
+  }
+
+  // === Catálogo de artículos ===
+  const articuloFlecha = { madera: 1, acero: 0.05, precio: 2 };
+  const articuloEspada = { madera: 1, acero: 1.2, precio: 25 };
+  const articuloEscudo = { madera: 3, acero: 1.5, precio: 38 };
+
+  // === Acumuladores ===
+  let totalMadera = 0;
+  let totalAcero = 0;
+  let totalImporte = 0;
+  let unidadesFlecha = 0;
+  let unidadesEspada = 0;
+  let unidadesEscudo = 0;
+  let stockSuperado = false;
+
+  // === Registro de encargos ===
+  for (let i = 1; i <= nEncargos && !stockSuperado; i++) {
+    console.log(`--- Encargo ${i} ---`);
+
+    // Pedir y validar el tipo de artículo
+    let articulo = prompt("Artículo (flecha, espada o escudo):").toLowerCase();
+    while (articulo !== "flecha" && articulo !== "espada" && articulo !== "escudo") {
+      articulo = prompt("Inválido. Escribe flecha, espada o escudo:").toLowerCase();
+    }
+
+    // Pedir y validar unidades
+    let unidades = Number(prompt("Unidades:"));
+    while (isNaN(unidades) || unidades < 0) {
+      unidades = Number(prompt("Número inválido. Ingresa un entero mayor o igual a 0:"));
+    }
+
+    // Asignar datos según el tipo
+    let articuloActual;
+    if (articulo === "flecha") articuloActual = articuloFlecha;
+    else if (articulo === "espada") articuloActual = articuloEspada;
+    else articuloActual = articuloEscudo;
+
+    // Calcular consumos
+    let consumoMadera = articuloActual.madera * unidades;
+    let consumoAcero = articuloActual.acero * unidades;
+
+    // Verificar si supera el stock
+    if (totalMadera + consumoMadera > stockMadera) {
+      alert("¡Alerta! Has superado el stock de madera.");
+      stockSuperado = true;
+    } else if (totalAcero + consumoAcero > stockAcero) {
+      alert("¡Alerta! Has superado el stock de acero.");
+      stockSuperado = true;
+    } else {
+      // Actualizar totales
+      totalMadera += consumoMadera;
+      totalAcero += consumoAcero;
+      totalImporte += articuloActual.precio * unidades;
+
+      if (articulo === "flecha") unidadesFlecha += unidades;
+      else if (articulo === "espada") unidadesEspada += unidades;
+      else unidadesEscudo += unidades;
+
+      console.log(`Artículo: ${articulo} | Unidades: ${unidades} | Importe cobrado: ${articuloActual.precio * unidades} monedas`);
+      console.log(`Madera gastada: ${consumoMadera} varas | Acumulada: ${totalMadera}`);
+      console.log(`Acero gastado: ${consumoAcero} kg | Acumulada: ${totalAcero}`);
+    }
+  }
+
+  // === Resumen final ===
+  console.log("=== RESUMEN FINAL ===");
+  console.log(`Unidades → Flecha: ${unidadesFlecha} | Escudo: ${unidadesEscudo} | Espada: ${unidadesEspada}`);
+  console.log(`Consumo total - Madera: ${totalMadera} varas | Acero: ${totalAcero.toFixed(2)} kg`);
+  console.log(`Stock restante - Madera: ${(stockMadera - totalMadera)} varas | Acero: ${(stockAcero - totalAcero).toFixed(2)} kg`);
+  console.log(`Importe total: ${totalImporte} monedas`);
+  if (stockSuperado) {
+    console.log("Registro interrumpido por superación de stock.");
+  } else {
+    console.log("Registro completado con éxito.");
+  }
+</script>
+</body>
+</html>
