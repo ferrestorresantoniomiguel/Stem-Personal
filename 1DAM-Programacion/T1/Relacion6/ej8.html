@@ -28,16 +28,20 @@
         repetir3 = true
     }
 
-    if (edadTotal % 2 === 0) {
-        repetir1 = true
-    } else if (edadTotal % 3 === 0) {
-        repetir2 = true
-    } else if (edadTotal % 5 === 0){
-        repetir3 = true
-    } else if (edadTotal % 2 === 0 && edadTotal % 3 === 0 && edadTotal % 5 === 0) {
+    if (edadTotal % 2 === 0 && edadTotal % 3 === 0 && edadTotal % 5 === 0) {
         repetir1 = true
         repetir2 = true
         repetir3 = true
+
+    } 
+    if (edadTotal % 3 === 0) {
+        repetir2 = true
+    } 
+    if (edadTotal % 5 === 0){
+        repetir3 = true
+    } 
+    if (edadTotal % 2 === 0 ) {
+        repetir1 = true
     }
 
     if (!repetir1 && !repetir2 && !repetir3){
