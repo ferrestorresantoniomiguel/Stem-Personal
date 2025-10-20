@@ -1,0 +1,65 @@
+<script>
+    let hobbit1, hobbit2, hobbit3
+    let edadHobbit1, edadHobbit2, edadHobbit3
+    let edadTotal = 0
+    let repetir1 = false
+    let repetir2 = false
+    let repetir3 = false
+
+    hobbit1 = prompt("Introduzca el nombre del primer Hobbit: ")
+    edadHobbit1 = Number(prompt("Introduzca la edad del primer Hobbit: "))
+
+
+    hobbit2 = prompt("Introduzca el nombre del segundo Hobbit: ")
+    edadHobbit2 = Number(prompt("Introduzca la edad del segundo Hobbit: "))
+
+    hobbit3 = prompt("Introduzca el nombre del tercer Hobbit: ")
+    edadHobbit3 = Number(prompt("Introduzca la edad del tercer Hobbit: "))
+
+    edadTotal = edadHobbit1 + edadHobbit2 + edadHobbit3
+
+    if (edadHobbit1 < 33) {
+        repetir1 = true
+    }
+    if (edadHobbit2 < 33) {
+        repetir2 = true
+    }
+    if (edadHobbit3 < 33) {
+        repetir3 = true
+    }
+
+    if (edadTotal % 2 === 0) {
+        repetir1 = true
+    } else if (edadTotal % 3 === 0) {
+        repetir2 = true
+    } else if (edadTotal % 5 === 0){
+        repetir3 = true
+    } else if (edadTotal % 2 === 0 && edadTotal % 3 === 0 && edadTotal % 5 === 0) {
+        repetir1 = true
+        repetir2 = true
+        repetir3 = true
+    }
+
+    if (!repetir1 && !repetir2 && !repetir3){
+        console.log("Pueden repetir " + hobbit1 + " " + hobbit2 + " y " + hobbit3);
+        
+    } 
+    if (repetir2 === true){
+        console.log("Puede repetir " + hobbit2 );
+    } else{
+        console.log("No puede repetir " + hobbit2 );
+    }
+    if (repetir3 === true){
+        console.log("Puede repetir " + hobbit3 );
+    } else{
+        console.log("No puede repetir " + hobbit3 );
+    }
+    if (repetir1 === true){
+        console.log("Puede repetir " + hobbit1 );
+
+    } else{
+        console.log("No puede repetir " + hobbit1 );
+    }
+
+
+</script>
