@@ -1,0 +1,36 @@
+<script>
+    let nCoche = 1
+    let coche = ""
+    let tiempoTotal = 0
+    let mejorTiempo = Infinity
+    let mejorCoche
+
+    while (coche != "FIN") {
+        coche = prompt("Nombre del coche " + nCoche + " : ")
+        
+        if (coche != "FIN") {
+            let tiempo = parseFloat(prompt("Tiempo en boxes: "))
+            tiempoTotal += tiempo
+
+            if (mejorTiempo >= tiempo) {
+                mejorTiempo = tiempo
+                mejorCoche = coche
+
+            }
+            nCoche++
+        }
+
+
+    }
+    let tiempoPromedio = tiempoTotal / nCoche
+
+    console.log("Total de coches: " + (nCoche - 1));
+    console.log("Tiempo medio: " + tiempoPromedio + " segundos");
+    console.log("El coche más rápido fue " + mejorCoche + " con " + mejorTiempo + " segundos");
+
+
+
+
+
+
+</script>
