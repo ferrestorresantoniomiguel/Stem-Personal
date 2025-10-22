@@ -2,11 +2,10 @@
     let numeros = [100, 200, 300]
     console.log(numeros);
 
-    let primerNumero = numeros[0]
-    let ultimoNumero = numeros[2]
+    let tmp = numeros[0]
+    numeros[0] = numeros[2]
+    numeros[2] = tmp
 
-    numeros[0] = ultimoNumero
-    numeros[2] = primerNumero
     console.log(numeros);
 
 
