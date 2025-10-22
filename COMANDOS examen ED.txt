@@ -1,0 +1,144 @@
+COMANDOS
+
+#2 Primer repositorio local
+Crea un nuevo repositorio en un directorio llamado git-workshop.
+
+Crea los archivos README.md y Jose.txt. Por ahora, no es necesario que contengan texto.
+
+Agrega ambos archivos al staging area y realiza el primer commit del repositorio.
+-----------
+
+mkdir git-workshop
+cd git-workshop
+git init
+
+touch README.md
+touch Jose.txt
+
+
+git add README.md Jose.txt
+git commit -m "Ejercicio 2: primer commit – añadidos README.md y Jose.txt"
+-----------
+
+#3 Correcciones básicas
+¿Tu nombre no es Jose? Vamos a cambiar el nombre del archivo para que coincida con el tuyo.
+
+El objetivo es reescribir el commit anterior para que el archivo Jose.txt pase a llamarse <tu-nombre>.txt, por ejemplo Pablo.txt o Teresa.txt.
+-----------
+# opción 0
+git mv Jose.txt TuNombre.txt
+git commit --amend -m "Renombra Jose.txt a <tu-nombre>.txt"
+
+# opción 1: enmendar el commit anterior
+git add TuNombre.txt
+git rm Jose.txt
+git commit --amend -m "Ejercicio 3: renombrado Jose.txt a TuNombre.txt"
+
+-----------
+
+#4 Crear ramas
+Crea una nueva rama llamada yo++ y cámbiate a ella. Mientras estés en esa rama, escribe una o dos oraciones sobre ti en el archivo .txt con tu nombre.
+
+Cuando termines de redactar, agrega los cambios al staging area y realiza un commit.
+
+Ahora regresa al primer commit del repositorio usando git checkout master. Crea otra rama llamada taller-info y cámbiate a ella. En el archivo README.md, escribe una o dos oraciones sobre el taller. Agrega los cambios al staging area y realiza un commit.
+-----------
+
+# parte A: rama “yo++”
+git branch yo++
+git checkout yo++
+
+echo "Aquí va una o dos oraciones sobre mí." >> TuNombre.txt
+git add TuNombre.txt
+git commit -m "Ejercicio 4: rama yo++ – añadido texto personal"
+
+
+# parte B: volver al primer commit (esto requiere conocer el hash o usar HEAD~2 u otro)
+git checkout master
+# (Opcional: git log para ver hashes)
+# suponiendo que sólo tienes un commit inicial, puedes: git checkout <hash-del-commit-1>
+
+# desde ahí, crear rama “taller-info”
+git branch taller-info
+git checkout taller-info
+
+echo "Aquí va una o dos oraciones sobre el taller." >> README.md
+
+git add README.md
+git commit -m "Ejercicio 4: rama taller-info – añadido texto sobre el taller"
+
+-----------
+
+#5 Merge fast-forward de ramas
+Colócate en la rama master e incorpora los cambios de la rama yo++ mediante un merge.
+-----------
+
+git checkout master
+git merge yo++
+
+# Ahora la rama yo++ se incorpora en master (fast-forward si no hay divergencia)
+
+-----------
+
+#6 Merge recursive de ramas
+Permaneciendo en la rama master, incorpora los cambios de la rama taller-info mediante un merge.
+-----------
+
+git checkout master
+git merge taller-info
+# Si no hubo divergencia compleja, se hará un merge automático (aunque en este caso habrá divergencia en historia)
+
+-----------
+
+#7 Aparición de conflictos al realizar merge
+En la rama master, modifica la primera línea del archivo README.md, agrega los cambios al staging area y realiza un commit.
+
+Ahora colócate en la rama taller-info, modifica la primera línea de README.md (de forma distinta a la anterior), agrega los cambios al staging area y realiza un commit.
+
+Luego, regresa a la rama master e incorpora los cambios de taller-info mediante un merge. Git debería reportar que ha ocurrido un conflicto que requiere ser resuelto manualmente.
+-----------
+
+# En master: modificar README.md
+git checkout master
+
+# Edita README.md: modificar la primera línea de README.md
+# Supongamos que lo haces manualmente en tu editor
+git add README.md
+git commit -m "Ejercicio 7: en master modificado la primera línea de README.md"
+
+# Luego, en la rama taller-info: modificar la misma primera línea de README.md (de forma distinta)
+git checkout taller-info
+
+# Edita README.md: modifica la primera línea de forma distinta a lo que hiciste en master
+git add README.md
+git commit -m "Ejercicio 7: en taller-info modificado la primera línea de README.md"
+
+# Ahora volver a master e intentar merge
+git checkout master
+git merge taller-info
+
+# Git deberá reportar un conflicto en README.md
+
+-----------
+
+#8 Resolución de conflictos de merge
+Abre en tu editor de texto el archivo con el conflicto (README.md). Elimina los marcadores de conflicto (<<<<<<<, =======, >>>>>>>) y edita el contenido según cómo quieras que quede el archivo final.
+
+Una vez termines la edición, agrega los cambios al staging area y ejecuta git merge --continue. También puedes hacer directamente un nuevo commit con el mensaje correspondiente, como se indica a continuación:
+-----------
+
+# Estás en master y tras git merge taller-info tienes conflicto.
+# Edita README.md manualmente: busca los marcadores:
+# <<<<<<< HEAD
+# (tu versión en master)
+# =======
+# (versión de taller-info)
+# >>>>>>> taller-info
+# Elimina esos marcadores y deja el contenido como tú quieras que quede.
+
+git add README.md
+git merge --continue   # si git te lo permite
+# o si no:
+#(git commit -m "Ejercicio 8: resolución de conflicto en README.md")
+
+-----------
