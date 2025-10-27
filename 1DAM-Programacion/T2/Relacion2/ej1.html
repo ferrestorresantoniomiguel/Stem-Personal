@@ -1,7 +1,10 @@
 <script>
     let temperaturaMaxima = Number.NEGATIVE_INFINITY;
+    let temperaturaMinima = Infinity
     let semana = []
     let opciones
+    let terminar = false
+    let contador = 1
 
 
     for (let i = 1; i <= 7; i++) {
@@ -16,21 +19,39 @@
     console.log("Opcion 4: Calcular la temperatura promedio de la semana.");
 
 
-    opciones = prompt("Dime que opciones quieres ver: ")
-    if (opciones == 1) {
-        
-        if (temperaturaDia > temperaturaMaxima) {
-            temperaturaMaxima = temperaturaDia
+    while (!terminar) {
+        opciones = prompt("Dime que opciones quieres ver: ")
+        if (opciones == 1) {
+            for (let j = 0; j < semana.length; j++) {
+                semana[-1] + contador
+                if (semana > temperaturaMaxima) {
+                    temperaturaMaxima = semana
+                }
+                contador++
+
+            }
+
+        } else if (opciones == 2) {
+            for (let x = 0; x < semana.length; x++) {
+                semana[-1 + 1]
+                if (semana > temperaturaMinima) {
+                    temperaturaMinima = semana
+                }
+
+            }
+
+        } else if (opciones == 3) {
+
+        } else if (opciones == 4) {
+            terminar = true
         }
-
-        }
-    } else if (opciones == 2) {
-
-    } else if (opciones == 3) {
-
-    } else if (opciones == 4) {
-
     }
+
+
+    console.log(temperaturaMinima);
+    
+    console.log(temperaturaMaxima);
+
 
 
 
