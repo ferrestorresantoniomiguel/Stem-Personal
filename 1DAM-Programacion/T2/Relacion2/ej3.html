@@ -1,0 +1,40 @@
+<script>
+    let productos = ["producto1", "producto2", "producto3", "producto4", "producto5", "producto6", "producto7", "producto8", "producto9", "producto10"]
+    let precios = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let comprarProducto
+    let cantidadProducto
+    let precioProducto = 0
+    let totalCompra = 0
+    let productoNombreTotales = []
+    let productoCantidadTotales = []
+
+    while (comprarProducto != "FIN") {
+        comprarProducto = prompt("Que producto quieres comprar?: ")
+        if (comprarProducto != "FIN") {
+            cantidadProducto = Number(prompt("Dime cuantas veces quieres comprar " + comprarProducto))
+
+            for (let i = 0; i < productos.length; i++) {
+                if (comprarProducto == productos[i]) {
+                    precioProducto = 0
+                    precioProducto = Number(precios.length[i]) * cantidadProducto
+                    
+                    comprarProducto = productos.length[i]
+
+                    productoNombreTotales.push(comprarProducto)
+                    productoCantidadTotales.push(cantidadProducto)
+                }
+
+            }
+            totalCompra += precioProducto
+        }
+        console.log("Estos son los productos comprados: " + productoNombreTotales +
+            "\n El número de veces que las adquirimos: " + productoCantidadTotales +
+            "\n y el costo total a pagar: " + totalCompra);
+    }
+
+
+
+
+
+
+</script>
