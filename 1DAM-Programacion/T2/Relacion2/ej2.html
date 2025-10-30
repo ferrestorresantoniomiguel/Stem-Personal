@@ -1,5 +1,42 @@
 <script>
+    const jugadores = ["Jugador1", "Jugador2", "Jugador3", "Jugador4", "Jugador5"]
+    const puntuaciones = [120, 200, 150, 180, 220]
+    let terminar = false
+    let nuevoUsuario
+    let nuevaPuntuacion
+
+    while (!terminar) {
+
+        let opción = Number(prompt("Dime que opción quieres utilizar: " +
+            "\n Opcion1: Añadir un nuevo jugador y su puntuación: " +
+            "\n Opcion2: Mostrar los jugadores y sus puntuaciones actuales: " +
+            "\n Opcion3: Salir del programa"
+        ))
+        if (opción == 1 || opción == 2 || opción == 3) {
+            if (opción == 1) {
+                jugadores.shift()
+                puntuaciones.shift()
+                nuevoUsuario = prompt("Dime el nuevo jugador")
+                jugadores.push(nuevoUsuario)
+                nuevaPuntuacion = prompt("Dime la puntuación del nuevo usuario")
+                puntuaciones.push(nuevaPuntuacion)
+            }
+            if (opción == 2) {
+                alert(jugadores);
+                alert(puntuaciones);
+            }
+            if (opción == 3) {
+                terminar = true
+            }
+        } else {
+            opción = prompt("Dime una opción valida: " +
+                "\n Opcion1: Añadir un nuevo jugador y su puntuación: " +
+                "\n Opcion2: Mostrar los jugadores y sus puntuaciones actuales: " +
+                "\n Opcion3: Salir del programa")
+        }
+
+    }
 
 
-    
+
 </script>
