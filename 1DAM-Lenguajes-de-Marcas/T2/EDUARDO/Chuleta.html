@@ -1,0 +1,121 @@
+Este es el cuerpo de un html
+--------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Una breve descripción de mi página web, enfocada en servicios y productos de calidad."/>
+    <meta name="author" content="Eduardo" />
+    <meta name="keywords" content="servicios, productos, agua, domicilio" />
+    <title>Aquaexpress</title>
+  </head>
+
+  <body>
+    <header></header>
+    <main></main>
+    <footer></footer>
+  </body>
+</html>
+
+
+Dentro de header suele haber un nav con su respectiva ol o ul
+--------------------------------------------------------------
+<h1>Gasolinera La Ruta</h1>
+<nav>
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#promociones">Promociones</a></li>
+    <li><a href="#contactos">Contactos</a></li>
+  </ul>
+</nav>
+
+luego en main suele estar las secciones con su respectivo id o incluso sin id
+--------------------------------------------------------------
+<section id="servicios">
+  <h2>Nuestros Servicios</h2>
+  <p>
+    Repostaje de combustible, tienda de conveniencia, lavado de autos, y más.
+  </p>
+</section>
+
+<section id="promociones">
+  <h2>Promociones del Mes</h2>
+  <p>Descuento del 10% en el lavado de autos todos los martes.</p>
+</section>
+
+en footer suele estar el pie de pagina q seria su parrafo con los enlaces a
+sociales para q puedas acceder
+--------------------------------------------------------------
+<p>Derechos reservados &copy; 2024 Nombre de la Empresa</p>
+
+<a href="mailto:ejemplo@ejemplo.com">Contáctanos por correo</a>
+
+<nav>
+  <a href="https://facebook.com">Facebook</a> |
+  <a href="https://twitter.com">Twitter</a>
+</nav>
+
+<a href="URL_DEL_MAPA_AQUI" target="_blank"
+  >Ver nuestra ubicación en Google Maps</a>
+
+  <a href="catalogo.pdf" download>Descargar catálogo completo (PDF)</a>
+
+
+Para poner imagenes se pondria asi
+--------------------------------------------------------------
+<img src="bomba.jpg" alt="Fotografía de una bomba de combustible moderna" />
+(recuerda que la imagen debe de ir en una carpeta dentro del code la cual se
+llame "img") si quieres que las imagenes lleven un encabezado se las mete en un
+figure y un figcaption, ejemplo:
+<figure>
+  <figcaption>Título del Contenido Visual</figcaption>
+
+  <img src="ruta/de/la/imagen.jpg" alt="Descripción detallada de la imagen" />
+</figure>
+
+Para poner videos seria de esta manera
+--------------------------------------------------------------
+<video controls width="600">
+  <source src="anuncio.mp4" type="video/mp4" />
+  Tu navegador no soporta la etiqueta de video.
+</video>
+(si es para poner videos de youtube seria:)
+<iframe
+  width="943"
+  height="539"
+  src="https://www.youtube.com/embed/ibJpn-RDg8U?list=RDibJpn-RDg8U"
+  title="Sailin Da South (Screwed)"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+Los articles son Contenido independiente y autosuficiente (que podría publicarse
+por separado, como una entrada de blog o
+noticia).--------------------------------------------------------------
+--------------------------------------------------------------
+<section id="servicios">
+  <h2>Nuestros Servicios Destacados</h2>
+
+  <article>
+    <h3>Reparto a Hogares</h3>
+    <p>Planifica la entrega recurrente de garrafones...</p>
+  </article>
+
+  <article>
+    <h3>Soluciones para Empresas</h3>
+    <p>Proveemos dispensadores de agua...</p>
+  </article>
+</section>
+
+--------------------------------------------------------------
+ Párrafos: <p></p>
+Enlaces: <a></a>
+Texto en Negrita: <b>, <strong></strong>
+Texto en Cursiva: <i>, <em></em>
+Citas en Bloque: <blockquote></blockquote>
+Saltos de Línea: <br>
+Líneas Horizontales: <hr>
