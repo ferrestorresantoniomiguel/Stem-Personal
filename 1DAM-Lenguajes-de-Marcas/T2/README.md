@@ -84,6 +84,26 @@ Se utiliza el blockquote, que funcionapara añadir un texto y citarlo, como si l
 
     </section>
 
+## agregar articulos (article)
+
+Son parecidos al section, pero se utiliza para encapsular contenido independiente en una página
+
+    <article id="tartaQueso">
+        <h2>Tarta de Queso</h2>
+        <figure>
+            <figcaption>Postre de queso preparado con nitrógeno líquido</figcaption>
+            <img src="img/TartaQueso.png" alt="Tarta de Queso" width="300">
+
+        </figure>
+        <ol>
+            <h3>Receta - Paso a paso</h3>
+            <li>Comprar ingredientes</li>
+            <li>Hacer molde de Tarta</li>
+            <li>Hacer Tarta</li>
+            <li>Hornearla</li>
+        </ol>
+    </article>
+
 ## lista "ul" (NO NUMERADAS)
 
     <ul>
