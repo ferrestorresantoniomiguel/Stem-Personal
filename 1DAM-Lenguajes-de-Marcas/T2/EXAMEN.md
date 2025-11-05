@@ -139,17 +139,6 @@ a: para ingresar lo que queremos descargar y para poner su nombre
 
     <p>Guía completa en PDF: <a href="manual_biocheflab.pdf" download="manual_biocheflab.pdf">DESCARGAR</a></p>
 
-### Añadir redes sociales
-
-Cuando nos piden enlazar enlaces a redes sociales
-
-    <footer>
-        <h3>Nuestras redes sociales</h3>
-        <a href="https://x.com/home">#Twitter</a> |
-        <a href="https://www.instagram.com/">#Instagram</a> |
-        <a href="https://www.facebook.com/">#Facebook</a>
-    </footer>
-
 ### Añadir ubicación real
 
     <a href="URL_DEL_MAPA_AQUI" target="_blank"
@@ -178,11 +167,11 @@ Tenemos que poner figure cuando nos piden algún comentario o escribirle algo (c
 Esta opción es cuando nos piden <video controls>
 
     <section>
-            <h2>Vídeo explicando como se hace la "Tarta de Queso" </h2>
-            <video controls width="400">
-                <source src="video/puchaina.mp4" type="video/mp4">
-            </video>
-        </section>
+        <h2>Vídeo explicando como se hace la "Tarta de Queso" </h2>
+        <video controls width="400">
+            <source src="video/puchaina.mp4" type="video/mp4">
+        </video>
+    </section>
 
 ## Video INTERNET
 
@@ -223,6 +212,18 @@ Esta opción es cuando nos piden <audio controls>
         <p>Derechos reservados &copy; 2025 BioChefLab</p>
 
     </footer>
+
+### Añadir redes sociales
+
+Cuando nos piden enlazar enlaces a redes sociales
+
+    <footer>
+        <h3>Nuestras redes sociales</h3>
+        <a href="https://x.com/home">#Twitter</a> |
+        <a href="https://www.instagram.com/">#Instagram</a> |
+        <a href="https://www.facebook.com/">#Facebook</a>
+    </footer>
+
 
 ## Correo electrónico (mailto:)
 
