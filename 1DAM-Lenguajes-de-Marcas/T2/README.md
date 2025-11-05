@@ -52,13 +52,24 @@ Normalmente dentro del main, vamos a poner "secciones", estas si que pueden tene
 
 ## section
 
-    <main>
+Se suele poner con "id" y hasta sin "id
 
+(CON ID)
+
+    <main>
+        <section id="Inicio">
+            <h2>Bienvenidos a BioChefLab</h2>
+            <p>Nos basamos en ofrecer lo mejor de lo mejor para los nuestros...</p>
+        </section>
+    </main>
+
+(SIN ID)
+
+    <main>
         <section>
             <h2>Bienvenidos a BioChefLab</h2>
             <p>Nos basamos en ofrecer lo mejor de lo mejor para los nuestros...</p>
         </section>
-
     </main>
 
 ## agregar Citas
