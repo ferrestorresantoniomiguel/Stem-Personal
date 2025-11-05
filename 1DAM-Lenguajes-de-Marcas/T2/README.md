@@ -204,6 +204,10 @@ Esta opción es cuando nos piden <audio controls>
 
     </footer>
 
+## Correo electrónico (mailto:)
+
+    <a href="mailto:ejemplo@ejemplo.com">Contáctanos por correo</a>
+
 ## Derechos reservados
 1º EJEMPLO
 
