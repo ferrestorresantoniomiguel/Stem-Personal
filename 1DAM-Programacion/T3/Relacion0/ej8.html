@@ -1,0 +1,25 @@
+<script>
+    function mayor(numero1, numero2) {
+        let numeroMayor
+        if (numero1 > numero2) {
+            numeroMayor = numero1
+        } else if (numero2 > numero1) {
+            numeroMayor = numero2
+        } else {
+            numeroMayor = "Los dos son iguales"
+        }
+        return numeroMayor
+
+    }
+    //------------------------------------------MAIN------------------------------------
+    let numeroUsuario1 = Number(prompt("Dime un primer número"))
+    let numeroUsuario2 = Number(prompt("Dime un segundo número"))
+
+    console.log("Este es el numero mayor: " + mayor(numeroUsuario1, numeroUsuario2));
+
+
+
+
+
+
+</script>

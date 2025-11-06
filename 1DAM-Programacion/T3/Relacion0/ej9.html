@@ -1,0 +1,35 @@
+<script>
+    function mayor(numero1, numero2, numero3) {
+        let numeroMenor
+
+        if (numero1 < numero2) {
+
+            if (numero1 < numero3) {
+                numeroMenor = numero1
+            }
+        } else if (numero2 < numero1) {
+            if (numero2 < numero3) {
+                numeroMenor = numero2
+            }
+        } else if (numero3 < numero1) {
+            if (numero2 < numero3) {
+                numeroMenor = numero2
+            }
+        } else{
+            numeroMenor = "ERROR"
+        }
+
+        return numeroMenor
+
+    }
+    //------------------------------------------MAIN------------------------------------
+    let numeroUsuario1 = Number(prompt("Dime un primer número"))
+    let numeroUsuario2 = Number(prompt("Dime un segundo número"))
+    let numeroUsuario3 = Number(prompt("Dime un tercer número"))
+
+    console.log("Este es el numero menor: " + mayor(numeroUsuario1, numeroUsuario2, numeroUsuario3));
+
+
+
+
+</script>
