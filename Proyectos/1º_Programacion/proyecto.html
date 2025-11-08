@@ -9,61 +9,63 @@
     let darAlimento
     let repetir = false
 
-    //Convertir Felicidad a emoji
-    let textoFelicidad = ""
-    for (let i = 0; i < felicidadAnimal; i++) {
-        textoFelicidad += "❤️"
-
-    }
-    //Convertir alimento a emoji
-    let textoAlimento = ""
-    for (let i = 0; i < alimentoAnimal; i++) {
-        textoAlimento += "🌾"
-    }
-
-    //Convertir establo a emoji
-    let textoEstablo = ""
-    for (let i = 0; i < establoAnimal; i++) {
-        textoEstablo += "💩"
-    }
-
     while (!repetir) {
+        //Convertir Felicidad a emoji
+        let textoFelicidad = ""
+        for (let i = 0; i < felicidadAnimal; i++) {
+            textoFelicidad += "❤️"
+
+        }
+        //Convertir alimento a emoji
+        let textoAlimento = ""
+        for (let i = 0; i < alimentoAnimal; i++) {
+            textoAlimento += "🌾"
+        }
+
+        //Convertir establo a emoji
+        let textoEstablo = ""
+        for (let i = 0; i < establoAnimal; i++) {
+            textoEstablo += "💩"
+        }
+
+
         //Muestra la pantalla inicial
         alert("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo)
 
-        opcion = prompt("Elige una acción: " + "\n1. 🥕 ALIMENTAR A LOS ANIMALES 🥕 " + "\n2. 🐑JUGAR CON LOS ANIMALES 🐑 " + "\n3. 💩LIMPIAR EL ESTABLO 💩 " + "\n4. 🛒 COMPRAR COMIDA 🛒 ")
-
+        opcion = prompt("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo + "\nElige una acción: " + "\n1. 🥕 ALIMENTAR A LOS ANIMALES 🥕 " + "\n2. 🐑JUGAR CON LOS ANIMALES 🐑 " + "\n3. 💩LIMPIAR EL ESTABLO 💩 " + "\n4. 🛒 COMPRAR COMIDA 🛒 ")
         //Entra en la opción "Alimentar animales"
-        if (opcion == 1) {
-            if (establoAnimal < 3)
+        if (opcion == "1") {
+            if (establoAnimal < 3) {
                 darAlimento = prompt("Dime que opcion de alimento quieres dar: " + "\n1. Dar Forraje 🌾 " + "\n2. Dar Fruta 🍎")
-            if (darAlimento == "1") {
-                alimentoAnimal -= 1
-                textoAlimento -= "🌾"
-                
+                if (darAlimento == "1") {
+                    alimentoAnimal -= 1
 
-            } else if (darAlimento == "2") {
-                alimentoAnimal -= 1
-                felicidadAnimal += 1
-                textoAlimento -= "🌾"
-                textoFelicidad += "❤️"
-                
 
+
+                } else if (darAlimento == "2") {
+                    alimentoAnimal -= 1
+
+                    felicidadAnimal += 1
+
+
+
+                }
+            } else {
+                alert("No puedes alimentar a los animales, el entrono está demasiado sucio")
             }
 
-
         } //Entra en la opción "Jugar con los animales"
-        else if (opcion == 2) {
+        else if (opcion == "2") {
             alert("Opcion 2")
             
         } //Entra en la opción "Limpiar establo"
-        else if (opcion == 3) {
+        else if (opcion == "3") {
             alert("Opcion 3")
-            
+
         } //Entra en la opción "Comprar comida"
-        else if (opcion == 4) {
-            alert("Opcion 4")
-            
+        else if (opcion == "4") {
+
+
         }
     }
 
