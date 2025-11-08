@@ -5,6 +5,7 @@
     let alimentoAnimal = 3
     let establoAnimal = 2
     let opcion
+    let acciones = 0
 
     let darAlimento
     let repetir = false
@@ -38,16 +39,26 @@
             if (establoAnimal <= 3) {
                 darAlimento = prompt("Dime que opcion de alimento quieres dar: " + "\n1. Dar Forraje 🌾 " + "\n2. Dar Fruta 🍎")
                 if (darAlimento == "1") {
-                    alimentoAnimal -= 1
+                    if (alimentoAnimal => 1) {
+                        alimentoAnimal -= 1
+                        acciones += 1
 
+                        alert(acciones)
+                    } else {
+                        alert("No tienes comida disponible")
+                    }
 
 
                 } else if (darAlimento == "2") {
-                    alimentoAnimal -= 1
+                    if (alimentoAnimal >= 1) {
+                        alimentoAnimal -= 1
+                        felicidadAnimal += 1
+                        acciones += 1
 
-                    felicidadAnimal += 1
-
-
+                        alert(acciones)
+                    } else {
+                        alert("No tienes comida disponible")
+                    }
 
                 }
             } else {
@@ -60,20 +71,37 @@
                 if (alimentoAnimal >= 1) {
                     alimentoAnimal -= 1
                     felicidadAnimal += 1
+                    acciones += 1
+                    alert(acciones)
 
+                } else {
+                    alert("No tienes comida disponible")
                 }
-            }else{
+
+                
+            } else {
                 alert("No puedes jugar con los animales, ya que el ambiente es inadecuado")
             }
 
         } //Entra en la opción "Limpiar establo"
         else if (opcion == "3") {
             establoAnimal = 0
+            acciones += 1
+            alert(acciones)
 
         } //Entra en la opción "Comprar comida"
         else if (opcion == "4") {
             alimentoAnimal = 4
+            acciones += 1
+            alert(acciones)
 
+        }
+
+        //Cuando cuente 3 acciones, se suma 1 estiercol y -1 felicidad
+        if (acciones == 3) {
+            establoAnimal += 1
+            felicidadAnimal -= 1
+            acciones = 0
         }
     }
 
