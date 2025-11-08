@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tienda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="instrumentos.xsd">
+    <origen>
+        <nombre>Tienda de Instrumentos Allegro</nombre>
+        <web>https://www.allegro-instrumentos.es</web>
+        <language>es</language>
+        <nota_legal>https://www.allegro-instrumentos.es/legal</nota_legal>
+    </origen>
+
+    <elaborado>2025-11-05T10:00:00</elaborado>
+
+    <catalogo>
+        <instrumento id="INS-001" categoria="cuerda">
+            <nombre>Guitarra clásica 4/4</nombre>
+            <marca>Alhambra</marca>
+            <precio>329.90</precio>
+            <stock>7</stock>
+        </instrumento>
+
+        <instrumento id="INS-002" categoria="viento">
+            <nombre>Flauta travesera plateada</nombre>
+            <marca>Yamaha</marca>
+            <precio>499.00</precio>
+            <stock>4</stock>
+        </instrumento>
+
+        <instrumento id="INS-003" categoria="percusion">
+            <nombre>Cajón flamenco profesional</nombre>
+            <marca>Duende</marca>
+            <precio>185.50</precio>
+            <stock>10</stock>
+        </instrumento>
+
+        <instrumento id="INS-004" categoria="teclado">
+            <nombre>Teclado electrónico 61 teclas</nombre>
+            <marca>Casio</marca>
+            <precio>259.00</precio>
+            <stock>3</stock>
+        </instrumento>
+    </catalogo>
+</tienda>
