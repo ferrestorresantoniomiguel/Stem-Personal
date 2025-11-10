@@ -1,0 +1,18 @@
+<script>
+function obtenerImpares(arrayParametro) {
+    let numerosImpares = []
+    for (const elemento of arrayParametro) {
+        if (elemento %2 != 0) {
+            numerosImpares.push(elemento)
+        }
+        
+    }
+    return numerosImpares
+}
+
+let numerosDel1al10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+console.log(obtenerImpares(numerosDel1al10));
+
+
+</script>
