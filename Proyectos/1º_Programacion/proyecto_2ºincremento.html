@@ -7,6 +7,15 @@
     let opcion
     let acciones = 0
 
+    let numeroAnimales = 1
+
+    //Array, número de animales
+    let nAnimales = []
+    for (let i = 0; i < numeroAnimales; i++) {
+        nAnimales.push("🐄")
+
+    }
+
     //Variable, para saber que alimento va a dar
     //Mientras que el bool sea negativo, el bucle no para
     let darAlimento
@@ -32,10 +41,10 @@
     }
 
     while (!repetir) {
-    //Muestra la pantalla inicial
-        alert("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo)
+        //Muestra la pantalla inicial
+        alert("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo + "\nNº Animales: " + nAnimales)
 
-        opcion = prompt("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo + "\nElige una acción: " + "\n1. 🥕 ALIMENTAR A LOS ANIMALES 🥕 " + "\n2. 🐑JUGAR CON LOS ANIMALES 🐑 " + "\n3. 💩LIMPIAR EL ESTABLO 💩 " + "\n4. 🛒 COMPRAR COMIDA 🛒 ")
+        opcion = prompt("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo + "\nNº Animales: " + nAnimales + "\nElige una acción: " + "\n1. 🥕 ALIMENTAR A LOS ANIMALES 🥕 " + "\n2. 🐑JUGAR CON LOS ANIMALES 🐑 " + "\n3. 💩LIMPIAR EL ESTABLO 💩 " + "\n4. 🛒 COMPRAR COMIDA 🛒 ")
         //Entra en la opción "Alimentar animales"
         if (opcion == "1") {
             //Comprobación del "establo"
@@ -45,10 +54,12 @@
                     if (textoAlimento.length >= 1) {
                         textoAlimento.pop()
                         acciones += 1
+                        nAnimales.push("🐄")
+                        alert("Le has dado de comer Forraje 🌾")
 
 
                     } else {
-                        alert("No tienes comida disponible")
+                        alert("No tienes comida disponible🌾🌾")
                     }
 
 
@@ -57,22 +68,25 @@
                     if (textoAlimento.length >= 1) {
                         textoAlimento.pop()
                         acciones += 1
+                        nAnimales.push("🐄")
 
                         //Comprueba que no supere el limite de "felicidad"
                         if (textoFelicidad.length < 4) {
                             textoFelicidad.push("❤️")
                         }
 
+                        alert("Le has dado de comer Fruta 🍎")
+
                         //Si no hay comida, manda alert
                     } else {
-                        alert("No tienes comida disponible")
+                        alert("No tienes comida disponible🍎🍎")
                     }
 
                 }
 
                 //alert, por si hay demasiado extiercol, caso "alimentar"
             } else {
-                alert("No puedes alimentar a los animales, el entorno está demasiado sucio")
+                alert("💩No puedes alimentar a los animales, el entorno está demasiado sucio💩")
             }
 
         } //Entra en la opción "Jugar con los animales"
@@ -83,42 +97,59 @@
                 if (textoAlimento.length >= 1) {
                     textoAlimento.pop()
                     acciones += 1
+                    nAnimales.push("🐄")
 
                     //Comprueba que no supere el limite de "felicidad"
                     if (textoFelicidad.length < 4) {
                         textoFelicidad.push('❤️')
                         textoFelicidad.join()
                     }
+                    alert("Hemos jugado con los animales🐄")
 
                     //Si no hay comida, manda alert
                 } else {
-                    alert("No tienes comida disponible")
+                    alert("No tienes comida disponible🍎🌾")
                 }
 
                 //alert, por si hay demasiado extiercol, caso "jugar"
             } else {
-                alert("No puedes jugar con los animales, ya que el ambiente es inadecuado")
+                alert("💩No puedes jugar con los animales, ya que el ambiente es inadecuado💩")
             }
 
         } //Entra en la opción "Limpiar establo"
         else if (opcion == "3") {
-            while (textoEstablo.length > 0) {
-                textoEstablo.pop()
+            if (textoEstablo.length > 0) {
+                while (textoEstablo.length > 0) {
+                    textoEstablo.pop()
+                }
+                alert("Establo limpiado🧹💩")
+                acciones += 1
+                nAnimales.push("🐄")
+            } else {
+                alert("🧹Tienes el establo limpio, no hace falta limpiar🧹")
             }
-            acciones += 1
+
 
         } //Entra en la opción "Comprar comida"
         else if (opcion == "4") {
-            while (textoAlimento.length <= 4) {
-                textoAlimento.push("🌾")
+            if (textoAlimento.length < 4) {
+                while (textoAlimento.length < 4) {
+                    textoAlimento.push("🌾")
+                }
+                alert("Comida repuesta🌾🍎")
+                acciones += 1
+                nAnimales.push("🐄")
+            } else {
+                alert("🌾No puedes comprar más comida, estas lleno🌾")
             }
-            acciones += 1
+
         }
 
         //Cuando cuente 3 acciones, se suma 1 estiercol y -1 felicidad
         //A su vez, restablece el nº de acciones
         if (acciones == 3) {
 
+            alert("Se suma (+💩) y se resta (-❤️) x cada 3 Acciones")
             textoFelicidad.pop()
             acciones = 0
 
