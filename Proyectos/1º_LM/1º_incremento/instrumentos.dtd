@@ -1,0 +1,20 @@
+<!ELEMENT tienda (origen, elaborado, catalogo)>
+<!ELEMENT origen (nombre, web, language, nota_legal)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT web (#PCDATA)>
+<!ELEMENT language (#PCDATA)>
+<!ELEMENT nota_legal (#PCDATA)>
+
+<!ELEMENT elaborado (#PCDATA)>
+
+<!ELEMENT catalogo (instrumento+)>
+
+<!ELEMENT instrumento (nombre, marca, precio, stock)>
+<!ATTLIST instrumento 
+    id CDATA #REQUIRED
+    categoria CDATA #REQUIRED
+>
+
+<!ELEMENT marca (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT stock (#PCDATA)>
