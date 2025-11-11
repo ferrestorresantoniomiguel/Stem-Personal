@@ -14,20 +14,20 @@ sudo addgroup administradores
 #### Parte B
 Creación de usuarios
 ```bash
-sudo useradd -m -g tecnicos -d /home/tecnico1 tecnico1
-sudo useradd -m -g tecnicos -d /home/tecnico2 tecnico2
-sudo useradd -m -g tecnicos -d /home/tecnico3 tecnico3
-sudo useradd -m -g tecnicos -d /home/tecnico4 tecnico4
-sudo useradd -m -g tecnicos -d /home/tecnico5 tecnico5
+sudo useradd -m -g tecnicos tecnico1
+sudo useradd -m -g tecnicos tecnico2
+sudo useradd -m -g tecnicos tecnico3
+sudo useradd -m -g tecnicos tecnico4
+sudo useradd -m -g tecnicos tecnico5
 
-sudo useradd -m -g desarrolladores -d /home/desarrollador1 desarrollador1
-sudo useradd -m -g desarrolladores -d /home/desarrollador2 desarrollador2
-sudo useradd -m -g desarrolladores -d /home/desarrollador3 desarrollador3
-sudo useradd -m -g desarrolladores -d /home/desarrollador4 desarrollador4
-sudo useradd -m -g desarrolladores -d /home/desarrollador5 desarrollador5
+sudo useradd -m -g desarrolladores desarrollador1
+sudo useradd -m -g desarrolladores desarrollador2
+sudo useradd -m -g desarrolladores desarrollador3
+sudo useradd -m -g desarrolladores desarrollador4
+sudo useradd -m -g desarrolladores desarrollador5
 
-sudo useradd -m -g administradores -d /home/administrador1 administrador1
-sudo useradd -m -g administradores -d /home/administrador2 administrador2
+sudo useradd -m -g administradores administrador1
+sudo useradd -m -g administradores administrador2
 ```
 
 
@@ -44,47 +44,47 @@ mkdir src docs config recovery
 ```
 #### Parte B
 ```bash
-chgrp administradores /config
-chmod 720 /config
+sudo chgrp administradores config
+sudo chmod 710 config
 
 ```
 #### Parte C
 ```bash
-sudo addgroup Conjunto
+sudo addgroup conjunto
 
-usermod -aG Conjunto desarrollador1
-usermod -aG Conjunto desarrollador2
-usermod -aG Conjunto desarrollador3
-usermod -aG Conjunto desarrollador4
-usermod -aG Conjunto desarrollador5
-usermod -aG Conjunto administrador1
-usermod -aG Conjunto administrador2
+sudo usermod -aG conjunto desarrollador1
+sudo usermod -aG conjunto desarrollador2
+sudo usermod -aG conjunto desarrollador3
+sudo usermod -aG conjunto desarrollador4
+sudo usermod -aG conjunto desarrollador5
+sudo usermod -aG conjunto administrador1
+sudo usermod -aG conjunto administrador2
 
-chgrp Conjunto /src
-chmod 764 /src
+sudo chgrp conjunto src
+sudo chmod 764 src
 
-chgrp administradores /recovery
-chmod 764 /recovery
+sudo chgrp administradores recovery
+sudo chmod 764 recovery
 ```
 #### Parte D
 ```bash
-sudo addgroup ConjuntoCompleto
+sudo addgroup conjuntoCompleto
 
-usermod -aG ConjuntoCompleto tecnico1
-usermod -aG ConjuntoCompleto tecnico2
-usermod -aG ConjuntoCompleto tecnico3
-usermod -aG ConjuntoCompleto tecnico4
-usermod -aG ConjuntoCompleto tecnico5
-usermod -aG ConjuntoCompleto desarrollador1
-usermod -aG ConjuntoCompleto desarrollador2
-usermod -aG ConjuntoCompleto desarrollador3
-usermod -aG ConjuntoCompleto desarrollador4
-usermod -aG ConjuntoCompleto desarrollador5
-usermod -aG ConjuntoCompleto administrador1
-usermod -aG ConjuntoCompleto administrador2
+sudo usermod -aG conjuntoCompleto tecnico1
+sudo usermod -aG conjuntoCompleto tecnico2
+sudo usermod -aG conjuntoCompleto tecnico3
+sudo usermod -aG conjuntoCompleto tecnico4
+sudo usermod -aG conjuntoCompleto tecnico5
+sudo usermod -aG conjuntoCompleto desarrollador1
+sudo usermod -aG conjuntoCompleto desarrollador2
+sudo usermod -aG conjuntoCompleto desarrollador3
+sudo usermod -aG conjuntoCompleto desarrollador4
+sudo usermod -aG conjuntoCompleto desarrollador5
+sudo usermod -aG conjuntoCompleto administrador1
+sudo usermod -aG conjuntoCompleto administrador2
 
-chgrp ConjuntoCompleto /docs
-chmod 764 /docs
+sudo chgrp conjuntoCompleto docs
+sudo chmod 764 docs
 ```
 
 ## Ejercicio 3
@@ -93,33 +93,33 @@ chmod 764 /docs
 #### Parte A
 ```bash
 #!bin/bash
-mv /opt/compartidos/*.py /opt/compartidos/src 2>/dev/null
-mv /opt/compartidos/*.c /opt/compartidos/src 2>/dev/null
-mv /opt/compartidos/*.cpp /opt/compartidos/src 2>/dev/null
-mv /opt/compartidos/*.js /opt/compartidos/src 2>/dev/null
-mv /opt/compartidos/*.sh /opt/compartidos/src 2>/dev/null
+mv *.py src/ 2>/dev/null
+mv *.c src/ 2>/dev/null
+mv *.cpp src/ 2>/dev/null
+mv *.js src/ 2>/dev/null
+mv *.sh src/ 2>/dev/null
 
 ```
 #### Parte B
 ```bash
 #!bin/bash
-mv /opt/compartidos/*.cfg /opt/compartidos/config 2>/dev/null
+mv *.cfg config/ 2>/dev/null
 
 ```
 #### Parte C
 ```bash
 #!bin/bash
-mv /opt/compartidos/*.pdf /opt/compartidos/docs 2>/dev/null
-mv /opt/compartidos/*.md /opt/compartidos/docs 2>/dev/null
-mv /opt/compartidos/*.doc /opt/compartidos/docs 2>/dev/null
-mv /opt/compartidos/*.odt /opt/compartidos/docs 2>/dev/null
-mv /opt/compartidos/*.docx /opt/compartidos/docs 2>/dev/null
-mv /opt/compartidos/*.txt /opt/compartidos/docs 2>/dev/null
+mv *.pdf docs/ 2>/dev/null
+mv *.md docs/ 2>/dev/null
+mv *.doc docs/ 2>/dev/null
+mv *.docx docs/ 2>/dev/null
+mv *.odt docs/ 2>/dev/null
+mv *.txt docs/ 2>/dev/null
 
 ```
 #### Parte D
 ```bash
 #!bin/bash
-mv /opt/compartidos/*.sql /opt/compartidos/recovery 2>/dev/null
+mv *.sql recovery/ 2>/dev/null
 
 ```
