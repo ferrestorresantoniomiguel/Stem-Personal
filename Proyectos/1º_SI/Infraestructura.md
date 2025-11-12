@@ -84,7 +84,9 @@ sudo usermod -aG conjuntoCompleto administrador1
 sudo usermod -aG conjuntoCompleto administrador2
 
 sudo chgrp conjuntoCompleto docs
-sudo chmod 764 docs
+sudo chmod 765 docs
+
+sudo chmod 764 docs/*
 ```
 
 ## Ejercicio 3
