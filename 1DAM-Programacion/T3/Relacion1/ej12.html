@@ -1,0 +1,54 @@
+<script>
+
+    //Escribe una función simularLanzamientoHastaTresCaras 
+    //que simule el lanzamiento de una moneda (cara o cruz) 
+    //hasta que obtenga 3 veces "Cara" de forma seguida. Devuelve 
+    //cuántos lanzamientos se necesitaron para llegar a tener 3 "Caras" 
+    //y el array con todos los lanzamientos.
+
+
+    function caraOCruz() {
+        let aleatorio = Math.floor(Math.random() * 2)
+        let respuesta = ""
+        //if (!aleatorio) {
+        if (aleatorio == 0) {
+            respuesta = "Cara"
+
+        } else {
+            respuesta = "Cruz"
+        }
+        return respuesta
+    }
+
+    function simularLanzamientoHastaTresCaras() {
+        let listaResultados = []
+        let contadorCara = 0
+        let contadorTiradas = 0
+        let resultado
+
+        while (contadorCara < 3) {
+            resultado = caraOCruz()
+            listaResultados.push(resultado)
+            contadorTiradas++
+            if (resultado === "Cara") {
+                contadorCara++
+
+            } else {
+                contadorCara = 0
+            }
+        }
+        let resultadoJuego = [listaResultados, contadorTiradas]
+        return resultadoJuego
+    }
+
+
+    //----------------MAIN----------
+
+    let resultado = simularLanzamientoHastaTresCaras()
+
+    alert("Número de lanzamientos: " + resultado[1] +
+        "\nTodos los lanzamientos: " + resultado[0])
+
+
+
+</script>
