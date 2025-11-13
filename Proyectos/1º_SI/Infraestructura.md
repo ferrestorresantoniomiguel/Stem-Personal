@@ -93,7 +93,7 @@ sudo chmod 764 docs/*
 ### Automatización
 
 ```bash
-#!bin/bash
+#!/bin/bash
 #### Parte A
 mv *.py src/ 2>/dev/null
 mv *.c src/ 2>/dev/null
