@@ -6,47 +6,37 @@
     const establoAnimal = 1
     let opcion
     let acciones = 0
-
     //Variables para la salud de los animales y nombre del "establo"
     let estadoEnfermo = false
     let estadoAnimal = "😊"
     let establoNombre = prompt("Dime que nombre quieres para tu establo")
-
     //Variable para contar animales dentro del establo
     let numeroAnimales = 11
-
-
     //Variable, para saber que alimento va a dar
-    //Mientras que el bool sea negativo, el bucle no para
     let darAlimento
-
 
     //Convertir Felicidad a emoji
     let textoFelicidad = []
     for (let i = 0; i < felicidadAnimal; i++) {
         textoFelicidad.push("❤️")
-
     }
     //Convertir alimento a emoji
     let textoAlimento = []
     for (let i = 0; i < alimentoAnimal; i++) {
         textoAlimento.push("🌾")
     }
-
     //Convertir establo a emoji
     let textoEstablo = []
     for (let i = 0; i < establoAnimal; i++) {
         textoEstablo.push("💩")
     }
-
+    //Bucle principal: Se detiene cuando los animales son 0 y superior de 99
     while (numeroAnimales > 0 && numeroAnimales < 99) {
         if (textoEstablo.length >= 4) {
             estadoEnfermo = true
             estadoAnimal = "🤒"
             alert("Tus animales han enfermado 🤒")
         }
-
-
         //Muestra la pantalla inicial
         alert("Felicidad: " + textoFelicidad.join(" ") + "\nAlimentos Disponibles: " + textoAlimento.join(" ") + "\nEstablo: " + textoEstablo.join(" ")
             + "\nEstado de Salud: " + estadoAnimal + "\nNº Animales: " + numeroAnimales)
@@ -69,11 +59,9 @@
                         numeroAnimales += Math.floor(Math.random() * 10) + 1
                         numeroAnimales -= Math.floor(Math.random() * 5) + 1
                         alert("Le has dado de comer Forraje 🌾")
-
                     } else {
                         alert("No tienes comida disponible🌾🌾")
                     }
-
                 } else if (darAlimento == "2") {
                     //Comprueba que haya comida disponible
                     if (textoAlimento.length >= 1 && estadoEnfermo == false) {
@@ -98,7 +86,6 @@
             } else {
                 alert("💩No puedes alimentar a los animales, el entorno está demasiado sucio💩")
             }
-
         } //Entra en la opción "Jugar con los animales"
         else if (opcion == "2") {
             //Comprobación del "establo"
@@ -116,7 +103,6 @@
                         textoFelicidad.join()
                     }
                     alert("Hemos jugado con los animales🐄")
-
                     //Si no hay comida, manda alert
                 } else {
                     alert("No tienes comida disponible🍎🌾")
@@ -125,7 +111,6 @@
             } else {
                 alert("No puedes jugar con los animales, ya que el ambiente es inadecuado o están enfermos💩🤒")
             }
-
         } //Entra en la opción "Limpiar establo"
         else if (opcion == "3") {
             if (textoEstablo.length > 0) {
@@ -136,7 +121,6 @@
                 acciones += 1
                 numeroAnimales += Math.floor(Math.random() * 10) + 1
                 numeroAnimales -= Math.floor(Math.random() * 5) + 1
-
             } else {
                 alert("🧹Tienes el establo limpio, no hace falta limpiar🧹")
             }
@@ -153,12 +137,10 @@
             } else {
                 alert("🌾No puedes comprar más comida, estas lleno🌾")
             }
-
         }//Entra en la opción "Curar Animales"
         else if (opcion == "5") {
             if (textoEstablo.length > 0) {
                 alert("Necesitas tener el establo limpio para poder curarlos🧹🧹")
-
             } else {
                 //Comprueba si esta el animal enfermo y si lo esta lo cura
                 if (estadoEnfermo == true) {
@@ -176,15 +158,12 @@
         else if (opcion == "6") {
             alert("Nombre del Establo: " + establoNombre + "\nNúmero de animales: " + numeroAnimales)
         }
-
         //Cuando cuente 3 acciones, se suma 1 estiercol y -1 felicidad
         //A su vez, restablece el nº de acciones
         if (acciones == 3) {
-
             alert("Se suma (+💩) y se resta (-❤️) x cada 3 Acciones")
             textoFelicidad.pop()
             acciones = 0
-
             //Mientras que no haya 6 extiercoles, se seguirá sumando
             if (textoEstablo.length < 6) {
                 textoEstablo.push('💩')
