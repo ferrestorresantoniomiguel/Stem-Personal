@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tienda>
+<tienda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="instrumentos.xsd">
   <origen>
     <nombre>Tienda de Instrumentos Allegro</nombre>
     <web>https://www.allegro-instrumentos.es</web>
@@ -38,4 +39,24 @@
       <stock>3</stock>
     </instrumento>
   </catalogo>
+
+  <proveedores>
+    <proveedor id="P-001">
+      <nombre>MusicPro Distribuciones</nombre>
+      <pais>España</pais>
+      <contacto>info@musicpro.es</contacto>
+    </proveedor>
+
+    <proveedor id="P-002">
+      <nombre>SoundWave Import</nombre>
+      <pais>Alemania</pais>
+      <contacto>ventas@soundwave.de</contacto>
+    </proveedor>
+
+    <proveedor id="P-003">
+      <nombre>RhythmHouse S.A.</nombre>
+      <pais>Italia</pais>
+      <contacto>info@rhythmhouse.it</contacto>
+    </proveedor>
+  </proveedores>
 </tienda>

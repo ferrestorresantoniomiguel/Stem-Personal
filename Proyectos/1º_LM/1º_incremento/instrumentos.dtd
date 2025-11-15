@@ -1,4 +1,4 @@
-<!ELEMENT tienda (origen, elaborado, catalogo)>
+<!ELEMENT tienda (origen, elaborado, catalogo, proveedores)>
 <!ELEMENT origen (nombre, web, language, nota_legal)>
 <!ELEMENT nombre (#PCDATA)>
 <!ELEMENT web (#PCDATA)>
@@ -14,7 +14,14 @@
     id CDATA #REQUIRED
     categoria CDATA #REQUIRED
 >
-
 <!ELEMENT marca (#PCDATA)>
 <!ELEMENT precio (#PCDATA)>
 <!ELEMENT stock (#PCDATA)>
+
+<!ELEMENT proveedores (proveedor+)>
+<!ELEMENT proveedor (nombre, pais, contacto)>
+<!ATTLIST proveedor 
+    id CDATA #REQUIRED
+>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT contacto (#PCDATA)>
