@@ -13,12 +13,6 @@
 
     let numeroAnimales = 1
 
-    //Array, número de animales
-    let nAnimales = []
-    for (let i = 0; i < numeroAnimales; i++) {
-        nAnimales.push("🐄")
-
-    }
 
     //Variable, para saber que alimento va a dar
     //Mientras que el bool sea negativo, el bucle no para
@@ -45,12 +39,12 @@
     }
 
     while (!repetir) {
-
         if (textoEstablo.length >= 4) {
             estadoEnfermo = true
             estadoAnimal = "🤒"
             alert("Tus animales han enfermado 🤒")
         }
+
 
         //Muestra la pantalla inicial
         alert("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo
@@ -69,6 +63,8 @@
                     if (textoAlimento.length >= 1) {
                         textoAlimento.pop()
                         acciones += 1
+                        numeroAnimales += Math.floor(Math.random() * 10) + 1
+                        numeroAnimales -= Math.floor(Math.random() * 5) + 1
 
                         alert("Le has dado de comer Forraje 🌾")
 
@@ -83,7 +79,8 @@
                     if (textoAlimento.length >= 1 && estadoEnfermo == false) {
                         textoAlimento.pop()
                         acciones += 1
-                        nAnimales.push("🐄")
+                        numeroAnimales += Math.floor(Math.random() * 10) + 1
+                        numeroAnimales -= Math.floor(Math.random() * 5) + 1
 
                         //Comprueba que no supere el limite de "felicidad"
                         if (textoFelicidad.length < 4) {
@@ -96,9 +93,7 @@
                     } else {
                         alert("No tienes comida disponible o los animales enfermos no pueden comer fruta🍎")
                     }
-
                 }
-
                 //alert, por si hay demasiado extiercol, caso "alimentar"
             } else {
                 alert("💩No puedes alimentar a los animales, el entorno está demasiado sucio💩")
@@ -112,7 +107,8 @@
                 if (textoAlimento.length >= 1) {
                     textoAlimento.pop()
                     acciones += 1
-                    nAnimales.push("🐄")
+                    numeroAnimales += Math.floor(Math.random() * 10) + 1
+                    numeroAnimales -= Math.floor(Math.random() * 5) + 1
 
                     //Comprueba que no supere el limite de "felicidad"
                     if (textoFelicidad.length < 4) {
@@ -139,7 +135,9 @@
                 }
                 alert("Establo limpiado🧹💩")
                 acciones += 1
-                nAnimales.push("🐄")
+                numeroAnimales += Math.floor(Math.random() * 10) + 1
+                numeroAnimales -= Math.floor(Math.random() * 5) + 1
+
             } else {
                 alert("🧹Tienes el establo limpio, no hace falta limpiar🧹")
             }
@@ -151,7 +149,9 @@
                 }
                 alert("Comida repuesta🌾🍎")
                 acciones += 1
-                nAnimales.push("🐄")
+                numeroAnimales += Math.floor(Math.random() * 10) + 1
+                numeroAnimales -= Math.floor(Math.random() * 5) + 1
+
             } else {
                 alert("🌾No puedes comprar más comida, estas lleno🌾")
             }
@@ -167,6 +167,8 @@
                     estadoAnimal = "😊"
                     acciones += 1
                     alert("Tus animales ya están curados 🩹🩹")
+                    numeroAnimales += Math.floor(Math.random() * 10) + 1
+                    numeroAnimales -= Math.floor(Math.random() * 5) + 1
 
                 } else {
                     alert("Tus animales ya estaban saludables, no necesitan curación 😊😊")
@@ -189,6 +191,9 @@
             if (textoEstablo.length < 6) {
                 textoEstablo.push('💩')
             }
+        }
+        if (numeroAnimales <= 0 || numeroAnimales > 99) {
+            repetir = true
         }
     }
 </script>
