@@ -3,21 +3,22 @@
     const animales = 1
     const felicidadAnimal = 4
     const alimentoAnimal = 3
-    const establoAnimal = 2
+    const establoAnimal = 1
     let opcion
     let acciones = 0
 
+    //Variables para la salud de los animales y nombre del "establo"
     let estadoEnfermo = false
     let estadoAnimal = "😊"
     let establoNombre = prompt("Dime que nombre quieres para tu establo")
 
-    let numeroAnimales = 1
+    //Variable para contar animales dentro del establo
+    let numeroAnimales = 11
 
 
     //Variable, para saber que alimento va a dar
     //Mientras que el bool sea negativo, el bucle no para
     let darAlimento
-    let repetir = false
 
 
     //Convertir Felicidad a emoji
@@ -38,7 +39,7 @@
         textoEstablo.push("💩")
     }
 
-    while (!repetir) {
+    while (numeroAnimales > 0 && numeroAnimales < 99) {
         if (textoEstablo.length >= 4) {
             estadoEnfermo = true
             estadoAnimal = "🤒"
@@ -47,10 +48,10 @@
 
 
         //Muestra la pantalla inicial
-        alert("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo
+        alert("Felicidad: " + textoFelicidad.join(" ") + "\nAlimentos Disponibles: " + textoAlimento.join(" ") + "\nEstablo: " + textoEstablo.join(" ")
             + "\nEstado de Salud: " + estadoAnimal + "\nNº Animales: " + numeroAnimales)
 
-        opcion = prompt("Felicidad: " + textoFelicidad + "\nAlimentos Disponibles: " + textoAlimento + "\nEstablo: " + textoEstablo
+        opcion = prompt("Felicidad: " + textoFelicidad.join(" ") + "\nAlimentos Disponibles: " + textoAlimento.join(" ") + "\nEstablo: " + textoEstablo.join(" ")
             + "\nEstado de Salud: " + estadoAnimal + "\nNº Animales: " + numeroAnimales + "\nElige una acción: " + "\n1. 🥕 ALIMENTAR A LOS ANIMALES 🥕 " + "\n2. 🐑JUGAR CON LOS ANIMALES 🐑 "
             + "\n3. 💩LIMPIAR EL ESTABLO 💩 " + "\n4. 🛒 COMPRAR COMIDA 🛒 " + "\n5. 🩺CURAR ANIMALES 🩺 " + "\n6. ℹ️CONSULTAR INFORMACIÓN ℹ️ ")
 
@@ -63,16 +64,15 @@
                     if (textoAlimento.length >= 1) {
                         textoAlimento.pop()
                         acciones += 1
+                        //Suma a los animales nºrandom entre 1-10
+                        //Resta a los animales nªrandom entre 1-5
                         numeroAnimales += Math.floor(Math.random() * 10) + 1
                         numeroAnimales -= Math.floor(Math.random() * 5) + 1
-
                         alert("Le has dado de comer Forraje 🌾")
-
 
                     } else {
                         alert("No tienes comida disponible🌾🌾")
                     }
-
 
                 } else if (darAlimento == "2") {
                     //Comprueba que haya comida disponible
@@ -121,8 +121,7 @@
                 } else {
                     alert("No tienes comida disponible🍎🌾")
                 }
-
-                //alert, por si hay demasiado extiercol, caso "jugar"
+                //alert, por si hay demasiado extiercol, opción "jugar"
             } else {
                 alert("No puedes jugar con los animales, ya que el ambiente es inadecuado o están enfermos💩🤒")
             }
@@ -151,7 +150,6 @@
                 acciones += 1
                 numeroAnimales += Math.floor(Math.random() * 10) + 1
                 numeroAnimales -= Math.floor(Math.random() * 5) + 1
-
             } else {
                 alert("🌾No puedes comprar más comida, estas lleno🌾")
             }
@@ -162,6 +160,7 @@
                 alert("Necesitas tener el establo limpio para poder curarlos🧹🧹")
 
             } else {
+                //Comprueba si esta el animal enfermo y si lo esta lo cura
                 if (estadoEnfermo == true) {
                     estadoEnfermo = false
                     estadoAnimal = "😊"
@@ -169,7 +168,6 @@
                     alert("Tus animales ya están curados 🩹🩹")
                     numeroAnimales += Math.floor(Math.random() * 10) + 1
                     numeroAnimales -= Math.floor(Math.random() * 5) + 1
-
                 } else {
                     alert("Tus animales ya estaban saludables, no necesitan curación 😊😊")
                 }
@@ -191,9 +189,6 @@
             if (textoEstablo.length < 6) {
                 textoEstablo.push('💩')
             }
-        }
-        if (numeroAnimales <= 0 || numeroAnimales > 99) {
-            repetir = true
         }
     }
 </script>
