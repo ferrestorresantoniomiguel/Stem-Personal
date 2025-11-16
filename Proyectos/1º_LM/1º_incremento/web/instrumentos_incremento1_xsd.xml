@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="instrumentos.xsl"?>
 <tienda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="instrumentos.xsd">
+  xsi:noNamespaceSchemaLocation="instrumentos.xsd">
   <origen>
     <nombre>Tienda de Instrumentos Allegro</nombre>
     <web>https://www.allegro-instrumentos.es</web>
