@@ -1,0 +1,58 @@
+<script>
+    let temperaturaSemana = []
+    let opcion = ""
+    let terminar = false
+    let temperaturaMayor = Number.NEGATIVE_INFINITY
+    let temperaturaBaja = Infinity
+    let temperaturaTotal = 0
+    const SEMANA = 7
+
+    for (let i = 1; i <= SEMANA; i++) {
+        let temperaturaUsuario = Number(prompt("Dime la temperatura del día " + i))
+        temperaturaTotal += temperaturaUsuario
+
+        temperaturaSemana.push(temperaturaUsuario)
+        
+    }
+
+    while (!terminar) {
+        opcion = Number(prompt("Dime que opción quieres usar: " + "\n1. Mostrar la temperatura más alta registrada"
+            + "\n2. Mostrar la temperatura más baja registrada." + "\n3. Calcular la temperatura promedio de la semana." + "\n4. Salir del programa."))
+
+        if (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4) {
+            if (opcion == 1) {
+                for (const element of temperaturaSemana) {
+                    if (element > temperaturaMayor) {
+                        temperaturaMayor = element
+                    }
+                }
+                alert("El número más alto es: " + temperaturaMayor)
+
+            }
+            else if (opcion == 2) {
+                for (const element of temperaturaSemana) {
+                    if (element < temperaturaBaja) {
+                        temperaturaBaja = element
+                    }
+                }
+                alert("El número más bajo es: " + temperaturaBaja)
+
+            }
+            else if (opcion == 3) {
+                let temperaturaPromedio= temperaturaTotal / temperaturaSemana.length
+                alert("La temperatura promedio de la semana es: " + temperaturaPromedio)
+
+            }
+
+            else if (opcion == 4) {
+                terminar = true
+
+            }
+        }
+        else {
+            alert("Opción Incorrecta")
+        }
+    }
+
+
+</script>
