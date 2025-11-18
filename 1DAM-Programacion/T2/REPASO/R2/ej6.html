@@ -1,0 +1,76 @@
+<script>
+    const tareas = ["Limpiar platos", "Fregar suelo", "Sacar al perro", "Barrer suelo"]
+    const estadoTarea = [false, true, false, true]
+    let opcion
+    let terminar = false
+
+    while (!terminar) {
+        opcion = prompt("Dime una opción: " + "\n1. Añadir una nueva tarea." + "\n2. Marcar una tarea como completada."
+            + "\n3. Ver la lista de tareas pendientes." + "\n4. Ver la lista de tareas completadas."
+            + "\n5. Salir del programa")
+
+        if (opcion == "1" || opcion == "2" || opcion == "3" || opcion == "4" || opcion == "5") {
+            if (opcion == "1") {
+                let tareaNueva
+                let tareaValida = false
+
+                while (!tareaValida) {
+                    tareaNueva = prompt("Dime la nueva tarea").trim()
+                    if (tareaNueva === "") {
+                        alert("Error, la tarea no puede estar vacía")
+                    }
+                    else if (!isNaN(tareaNueva)) {
+                        alert("Error, la tarea no puede ser un número")
+                    }
+                    else {
+                        tareas.push(tareaNueva)
+                        estadoTarea.push(false)
+                        alert("Tarea: " + tareaNueva + " añadida.")
+                        tareaValida = true
+                    }
+                }
+            }
+            else if (opcion == "2") {
+                let tareaCompletar = prompt("Dime la tarea que quieres marcar como completada")
+                let tareaEncontrada = false
+                for (let i = 0; i < tareas.length; i++) {
+                    if (tareas[i].toLowerCase() === tareaCompletar.toLowerCase()) {
+                        estadoTarea[i] = true
+                        tareaEncontrada = true
+                    }
+                }
+                if (tareaEncontrada == true) {
+                    alert("La tarea " + tareaCompletar + " ha sido marcada como completada")
+                } else {
+                    alert("Ha habido un error, la tarea no fue encontrada")
+                }
+
+            }
+            else if (opcion == "3") {
+                let tareasPendientes = []
+                for (let i = 0; i < estadoTarea.length; i++) {
+                    if (estadoTarea[i] === false) {
+                        tareasPendientes.push(tareas[i])
+                    }
+
+                }
+                alert(tareasPendientes.join(" "))
+
+            }
+            else if (opcion == "4") {
+                let tareasCompletadas = []
+                for (let i = 0; i < estadoTarea.length; i++) {
+                    if (estadoTarea[i] === true) {
+                        tareasCompletadas.push(tareas[i])
+                    }
+
+                }
+                alert(tareasCompletadas.join(" "))
+            }
+            else if (opcion == "5") {
+                terminar = true
+                alert("Terminando Programa")
+            }
+        }
+    }
+</script>
