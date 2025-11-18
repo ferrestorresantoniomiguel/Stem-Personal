@@ -1,0 +1,37 @@
+<script>
+    let posicionesMina = ["mina", "vacio", "mina", "vacio", "vacio", "vacio", "mina", "mina", "vacio", "mina"]
+    let posicionesDescubiertas = []
+    let menu
+    let opcion
+    let terminar = false
+
+    while (!terminar) {
+        menu = prompt("Opcion: " + "\n1. Dar una posición" + "\n2. Mostrar ARRAYS" + "\n3. Terminar juego")
+        if (menu == "1" || menu == "2" || menu == "3") {
+            if (menu == "1") {
+                opcion = Number(prompt("Dime una posición"))
+                for (let i = 0; i < posicionesMina.length; i++) {
+                    if (opcion == i) {
+                        posicionesDescubiertas.push(posicionesMina[i])
+                    }
+
+                }
+            }
+            else if (menu == "2") {
+                let elegir = Number(prompt("1. Array posiciones Mina" + "\n2. Array posicionesDescubierta"))
+                if (elegir == 1) {
+                    alert(posicionesMina)
+                }
+                else if (elegir == 2) {
+                    alert(posicionesDescubiertas)
+                }
+            }
+            else if (menu == "3") {
+                terminar = true
+                alert("Acabando programa")
+            }
+        }
+
+    }
+
+</script>
