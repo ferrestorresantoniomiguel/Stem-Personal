@@ -1,6 +1,57 @@
 <script>
+    const inventarioLibros = ["Harry Potter", "Geronimo Stilton", "Rueda del Tiempo"]
+    const inventarioCantidad = [10, 20, 5]
+    let terminar = false
 
+    while (!terminar) {
+        let opcion = prompt("Dime que opción quieres hacer:" + "\n1. Añadir un nuevo libro al inventario (título y cantidad)" + "\n2. Actualizar la cantidad de un libro existente."
+            + "\n3. Ver el inventario completo (título y cantidad de cada libro)." + "\n4. Salir del Programa")
 
+        if (opcion == "1" || opcion == "2" || opcion == "3" || opcion == "4") {
+            if (opcion == "1") {
+                let nuevoLibro = String(prompt("Dime un nuevo libro"))
+                let nuevoCantidad = Number(prompt("Dime la cantidad del nuevo libro"))
+                inventarioLibros.push(nuevoLibro)
+                inventarioCantidad.push(nuevoCantidad)
+            }
+            else if (opcion == "2") {
+                let libroCambiar = prompt("¿Dime que libro quieres actualizar su cantidad?")
+                let indice = inventarioLibros.findIndex(libro => libro.toLowerCase() === libroCambiar.toLowerCase());
 
-    
+                if (indice !== -1) {
+                    let cantidadCambiar
+                    let cantidadValida = false
+
+                    while (!cantidadValida) {
+                        cantidadCambiar = Number(prompt("¿Que cantidad le quieres poner?"))
+
+                        if (cantidadCambiar >= 0 && cantidadCambiar < 99) {
+                            cantidadValida = true
+                        } else {
+                            alert("Número Incorrecto, Cantidad Invalida")
+                        }
+                    }
+                    inventarioCantidad[indice] = cantidadCambiar
+                    alert("La cantidad de " + inventarioLibros[indice] + " ha sido actualizada a: " + cantidadCambiar)
+                } else {
+                    alert("Libro no encontrado")
+                }
+            }
+            else if (opcion == "3") {
+                let mensajeInventario = "-----------Inventario Actual--------------\n"
+                for (let i = 0; i < inventarioLibros.length; i++) {
+                    mensajeInventario += "Libro: " + inventarioLibros[i] + "\nCantidad: " + inventarioCantidad[i] + "\n"   
+                }
+                alert(mensajeInventario)
+            }
+            else if (opcion == "4") {
+                terminar = true
+                alert("Saliendo del programa")
+            }
+        } else {
+            alert("Opción Incorrecta")
+        }
+
+    }
+
 </script>
