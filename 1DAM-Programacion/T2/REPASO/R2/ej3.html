@@ -1,0 +1,69 @@
+<script>
+    const productos = ["Mango", "Plátano", "Sandía", "Piña", "Papaya", "Uva", "Naranja", "Fresa", "Melón", "Naranja"]
+    const precios = [12, 20, 15, 18, 22, 12, 30, 11, 19, 21]
+    let opcion
+    let terminar = false
+    let compraProductos = []
+    let precioProductos = 0
+    let productoComprado
+    let totalCompra = 0
+    let resumenProductos = []
+    let resumenCantidad = []
+
+
+    while (!terminar) {
+        opcion = prompt("Dime que opción quieres hacer: " + "\n 1. Comprar articulo" + "\n Terminar = FIN")
+        let indiceProducto = -1
+        let productoEncontrado = false
+
+
+        if (opcion == "1" || opcion.toUpperCase() === "FIN") {
+
+            if (opcion === "1") {
+                productoComprado = prompt("Dime que artículo quieres comprar: ")
+
+                for (let i = 0; i < productos.length; i++) {
+                    if (productos[i].toLowerCase() === productoComprado.toLowerCase()) {
+                        indiceProducto = i
+                        productoEncontrado = true
+                    }
+
+                }
+                if (indiceProducto !== -1 && productoEncontrado === true) {
+                    let precioUnitario = precios[indiceProducto]
+                    let cantidad
+                    let cantidadValida = false
+
+                    while (!cantidadValida) {
+                        cantidad = Number(prompt("Precio unitario: " + precios[indiceProducto] + "\n¿Que cantidad deseas comprar?"))
+
+                        if (!isNaN(cantidad) && cantidad > 0) {
+                            cantidadValida = true
+                            resumenCantidad.push(cantidad)
+                        } else {
+                            alert("Introduce una cantidad valida")
+                        }
+                    }
+
+                    let subTotal = precioUnitario * cantidad
+                    totalCompra += subTotal
+                    resumenProductos.push(productos[indiceProducto])
+                }
+            }
+            if (opcion && opcion.toUpperCase() === "FIN") {
+                terminar = true
+            }
+        }
+        else {
+            alert("Opción Incorrecta")
+        }
+    }
+
+    let mensajeFinal = "Resumen Compra\n"
+
+    alert("Productos Comprados: " + resumenProductos.join(" ") + "\nNº de veces comprado: " + resumenCantidad.join(" ") + "\nTotal a pagar: " + totalCompra)
+
+
+
+
+</script>

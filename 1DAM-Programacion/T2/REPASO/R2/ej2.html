@@ -1,6 +1,40 @@
 <script>
+    let nombresJugadores = ["Jugador1", "Jugador2", "Jugador3", "Jugador4", "Jugador5"]
+    let puntuacionesJugadores = [120, 200, 150, 180, 220]
+    let opcion
+    let terminar = false
+    let jugadorNuevo
+    let puntuacionNueva
+
+    while (!terminar) {
+        opcion = Number(prompt("Dime que opción quieres: " + "\n1. Añadir un nuevo jugador y su puntuación:"
+            + "\n2. Mostrar los jugadores y sus puntuaciones actuales:" + "\n 3. Salir del Programa"))
+
+        if (opcion == 1 || opcion == 2 || opcion == 3) {
+            if (opcion == 1) {
+                nombresJugadores.shift
+                puntuacionesJugadores.shift
+                jugadorNuevo = prompt("Dime un nuevo jugador:")
+                puntuacionNueva = Number(prompt("Dime su puntuación"))
+                nombresJugadores.push(jugadorNuevo)
+                puntuacionesJugadores.push(puntuacionNueva)
 
 
+            }
+            else if (opcion == 2) {
+                alert(nombresJugadores.join(" "))
+                alert(puntuacionesJugadores.join(" "))
+            }
+            else if (opcion == 3) {
+                terminar = true
+            }
+        }
+        else {
+            alert("Opción Incorrecta")
+        }
 
-    
+
+    }
+
+
 </script>
