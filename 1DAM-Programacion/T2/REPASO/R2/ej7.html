@@ -1,7 +1,90 @@
 <script>
-    const gastosMensuales = []
-    const 
+    const gastosNombre = ["Fregona", "Comida", "Coche", "Perro"]
+    const gastosNumero = [20, 30, 100, 30]
 
+    let opcion
+    let terminar = false
+    let gastomasAlto = Number.NEGATIVE_INFINITY
+    let gastoMasBajo = Infinity
+    let gastoTotal = 0
+
+    while (!terminar) {
+        opcion = prompt("Dime que opción quieres: " + "\n1. Añadir un nuevo gasto (nombre y cantidad)." + "\n2. Ver el total de gastos hasta el momento."
+            + "\n3. Ver los gastos más altos y más bajos del mes."
+            + "\n4. Ver el promedio de gasto diario (suponiendo un mes de 30 días)." + "\n5. Salir del programa")
+
+        if (opcion == "1" || opcion == "2" || opcion == "3" || opcion == "4" || opcion == "5") {
+            if (opcion == "1") {
+                let gastoValido = false
+                let gastoNuevo
+                while (!gastoValido) {
+                    gastoNuevo = prompt("Dime un nuevo gasto").trim()
+
+                    if (gastoNuevo == "") {
+                        alert("Error, gasto no valido")
+                    }
+                    else if (Number(gastoNuevo)) {
+                        alert("Error, gasto no valido, incluye números")
+                    } else {
+                        gastoValido = true
+                        gastosNombre.push(gastoNuevo)
+                        alert("Añadido nuevo gasto: " + gastoNuevo)
+                        let cantidadValida = false
+                        let cantidadNuevo
+                        while (!cantidadValida) {
+                            cantidadNuevo = Number(prompt("Dime la cantidad de dinero del nuevo gasto"))
+                            if (cantidadNuevo == "") {
+                                alert("No puede estar vacio la cantidad")
+                            }
+                            else if (cantidadNuevo < 0) {
+                                alert("No puede ser un número inferior de 0")
+                            } else {
+                                cantidadValida = true
+                                gastosNumero.push(cantidadNuevo)
+                                alert("Añadido nueva cantidad: " + cantidadNuevo)
+                            }
+                        }
+                    }
+                }
+            }
+            else if (opcion == "2") {
+                gastoTotal = 0
+                for (let i = 0; i < gastosNumero.length; i++) {
+                    gastoTotal += gastosNumero[i]
+
+                }
+                alert("Gastos Totales: " + gastoTotal)
+            }
+            else if (opcion == "3") {
+                gastomasAlto = Number.NEGATIVE_INFINITY
+                gastoMasBajo = Infinity
+                for (let i = 0; i < gastosNumero.length; i++) {
+                    if (gastosNumero[i] > gastomasAlto) {
+                        gastomasAlto = gastosNumero[i]
+                    }
+                    if (gastosNumero[i] < gastoMasBajo) {
+                        gastoMasBajo = gastosNumero[i]
+                    }
+                }
+                alert("Gasto más alto: " + gastomasAlto + "\nGasto más bajo: " + gastoMasBajo)
+
+            }
+            else if (opcion == "4") {
+                gastoTotal = 0
+                let promedioTotal = 0
+                for (let i = 0; i < gastosNumero.length; i++) {
+                    gastoTotal += gastosNumero[i]
+
+                }
+                promedioTotal = gastoTotal / 30
+                alert("Promedio de gasto diario " + promedioTotal)
+            }
+            else if (opcion == "5") {
+                terminar = true
+            }
+        }
+
+    }
 
 
 </script>
