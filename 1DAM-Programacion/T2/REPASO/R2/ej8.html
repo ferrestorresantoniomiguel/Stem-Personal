@@ -1,0 +1,93 @@
+<script>
+    let reservasNombres = ["Antonio", "Miguel", "Juan", "Pepe"]
+    let reservasPersonas = [3, 4, 1, 7]
+
+    let opcion
+    let terminar = false
+
+    while (!terminar) {
+        opcion = prompt("Dime las opciones: " + "\n1. Añadir una nueva reserva (nombre del cliente y número de personas)."
+            + "\n2. Ver la lista de reservas actuales." + "\n3. Calcular el total de personas reservadas para ese día."
+            + "\n4. Cancelar una reserva existente (por nombre del cliente)." + "\n5. Salir del programa")
+
+        if (opcion == "1" || opcion == "2" || opcion == "3" || opcion == "4" || opcion == "5") {
+            if (opcion == "1") {
+                let nombreValido = false
+                let nuevoNombre
+                let nuevoPersonas
+                while (!nombreValido) {
+                    nuevoNombre = prompt("Dime el nombre de la reserva").trim()
+                    if (nuevoNombre == "") {
+                        alert("Error, no has introducido nada")
+                    }
+                    else if (Number(nuevoNombre)) {
+                        alert("Error, no puedes introducir nombres")
+                    } else {
+                        nombreValido = true
+                        reservasNombres.push(nuevoNombre)
+                        let personasValido = false
+                        alert(nuevoNombre + ", añadido a la lista")
+                        while (!personasValido) {
+                            nuevoPersonas = Number(prompt("Dime cuantas personas sois"))
+                            if (nuevoPersonas <= 0) {
+                                alert("Error, el número es menor o igual a 0")
+                            } else {
+                                reservasPersonas.push(nuevoPersonas)
+                                personasValido = true
+                            }
+                        }
+                    }
+                }
+                alert("Añadido correctamente: " + "\n1. Nombre de la reserva: " + nuevoNombre
+                    + "\n2. Nº de personas: " + nuevoPersonas)
+            }
+            else if (opcion == "2") {
+                alert("Lista Actual de reservas: " + reservasNombres.join(" "))
+            }
+            else if (opcion == "3") {
+                let personasTotales = 0
+                for (let i = 0; i < reservasPersonas.length; i++) {
+                    personasTotales += reservasPersonas[i]
+
+                }
+                alert("Total de personas reservadas para ese dia: " + personasTotales)
+            }
+            else if (opcion == "4") {
+                let cancelarNombre
+                let nombreValido = false
+                while (!nombreValido) {
+                    cancelarNombre = prompt("Dime que reserva quieres cancelar según el nombre").trim()
+                    if (cancelarNombre == "") {
+                        alert("Error, nombre no puede estar vacio")
+                    }
+                    else if (Number(cancelarNombre)) {
+                        alert("Error, nombre no puede ser un número")
+                    } else {
+                        nombreValido = true
+
+                    }
+                }
+                let nombreEncontrado = false
+                for (let i = 0; i < reservasNombres.length; i++) {
+                    if (reservasNombres[i].toLowerCase() === cancelarNombre.toLowerCase()) {
+                        reservasNombres.splice(i, 1)
+                        reservasPersonas.splice(i, 1)
+                        nombreEncontrado = true
+                    }
+
+                }
+                if (nombreEncontrado == false) {
+                    alert("Error, nombre no encontrado")
+                } else {
+                    alert("Reserva eliminada para: " + cancelarNombre)
+                }
+            }
+            else if (opcion == "5") {
+                terminar = true
+                alert("Acabando programa")
+            }
+        }
+    }
+
+
+</script>
