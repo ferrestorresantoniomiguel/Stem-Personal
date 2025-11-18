@@ -129,7 +129,7 @@ useradd -e 2025-07-31 usuario3
 
 (si ya existe, así:)
 ```bash
-change -E 2025-07-31 usuario1
+chage -E 2025-07-31 usuario1
 
 ```
 
@@ -157,6 +157,12 @@ sudo useradd -M tecnico1
 
 ## Ejercicio 2
 ### Gestión y monitoreo de procesos
+top -u probr | head -n 12 | tail -n 6 > /home/desarrollador1/uso_cpu.log
+top -u probr | head -n 12 | tail -n 6 > /home/desarrollador2/uso_cpu.log
+top -u probr | head -n 12 | tail -n 6 > /home/desarrollador3/uso_cpu.log
+top -u probr | head -n 12 | tail -n 6 > /home/desarrollador4/uso_cpu.log
+top -u probr | head -n 12 | tail -n 6 > /home/desarrollador5/uso_cpu.log
+
 
 ## Ejercicio 3
 ### Programación de tareas
