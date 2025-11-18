@@ -1,0 +1,72 @@
+<script>
+    const estudiantes = ["Paco", "Miguel", "Antonio", "Manuel"]
+    const calificacionesEstudiantes = [10, 7, 3.5, 5]
+    let opcion
+    let terminar = false
+    let calificaciónValida = false
+    let totalNotas
+    let promedioNotas
+    let calificaciónAlta
+    let calificaciónBaja
+
+    while (!terminar) {
+        opcion = prompt("Dime una opción: " + "\n1. Añadir un estudiante y su calificación." + "\n2. Mostrar la calificación promedio de la clase."
+            + "\n3. Mostrar la calificación más alta y el nombre del estudiante"
+            + "\n4. Mostrar la calificación más baja y el nombre del estudiante" + "\n5. Salir del Programa")
+
+        if (opcion == "1" || opcion == "2" || opcion == "3" || opcion == "4" || opcion == "5") {
+            if (opcion == "1") {
+                let nuevoEstudiante = prompt("Dime el nuevo estudiante")
+                estudiantes.push(nuevoEstudiante)
+                while (!calificaciónValida) {
+                    let nuevaCalificación = Number(prompt("Dime su nueva calificación"))
+                    if (!isNaN(nuevaCalificación) && nuevaCalificación < 0) {
+                        alert("Calificación invalida")
+                    } else {
+                        calificaciónValida = true
+                        calificacionesEstudiantes.push(nuevaCalificación)
+                    }
+                }
+            }
+
+            else if (opcion == "2") {
+                totalNotas = 0
+                promedioNotas = 0
+                for (let i = 0; i < calificacionesEstudiantes.length; i++) {
+                    totalNotas += calificacionesEstudiantes[i]
+
+                }
+                promedioNotas = totalNotas / estudiantes.length
+                alert("Calificación promedio de la clase: " + promedioNotas)
+            }
+            else if (opcion == "3") {
+                let estudianteAlto = ""
+                calificaciónAlta = Number.NEGATIVE_INFINITY
+                for (let i = 0; i < calificacionesEstudiantes.length; i++) {
+                    if (calificacionesEstudiantes[i] > calificaciónAlta) {
+                        calificaciónAlta = calificacionesEstudiantes[i]
+                        estudianteAlto = estudiantes[i]
+                    }
+
+                }
+                alert("Calificación mas alta: " + calificaciónAlta + "\nEstudiante: " + estudianteAlto)
+            }
+            else if (opcion == "4") {
+                let estudianteBajo = ""
+                calificaciónBaja = Infinity
+                for (let i = 0; i < calificacionesEstudiantes.length; i++) {
+                    if (calificacionesEstudiantes[i] < calificaciónBaja) {
+                        calificaciónBaja = calificacionesEstudiantes[i]
+                        estudianteBajo = estudiantes[i]
+                    }
+                }
+                alert("Calificación mas baja: " + calificaciónBaja + "\nEstudiante: " + estudianteBajo)
+            }
+            else if (opcion == "5") {
+                terminar = true
+                alert("Terminando el programa")
+            }
+        }
+    }
+
+</script>
