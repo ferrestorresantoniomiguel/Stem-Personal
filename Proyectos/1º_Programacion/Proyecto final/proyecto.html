@@ -1,0 +1,217 @@
+<script>
+    //Declarar los principales estados de los animales
+    let numeroAnimales = 10
+    const felicidadAnimal = 4
+    const alimentoAnimal = 3
+    const establoAnimal = 1
+    let opcion
+    let acciones = 0
+    let dinero = 0
+    let productos = [
+        "Bebedero de Agua🚰",
+        "Refugio para animales🛖",
+        "Juguetes para animales🧸",
+        "Malla de Sombra🏖️",
+        "Sistema de Riego💧",
+        "Herramientas de Limpieza🧹",
+        "Luz Solar Artificial💡",
+        "Cercado Mejorado🔐"
+    ]
+    let productosComprados = []
+    let productosSeleccionados = 0
+    let productosTotal = productos.length
+
+    while (productosSeleccionados > 0 && productosSeleccionados < productosTotal) {
+        let indiceRandom = Math.floor(Math.random() * productosTotal)
+    }
+
+
+
+
+
+
+
+    //Variables para la salud de los animales y nombre del "establo"
+    let estadoEnfermo = false
+    let estadoAnimal = "😊"
+    let establoNombre = prompt("Dime que nombre quieres para tu establo")
+    //Variable, para saber que alimento va a dar
+    let darAlimento
+
+    //Convertir Felicidad a emoji
+    let textoFelicidad = []
+    for (let i = 0; i < felicidadAnimal; i++) {
+        textoFelicidad.push("❤️")
+    }
+    //Convertir alimento a emoji
+    let textoAlimento = []
+    for (let i = 0; i < alimentoAnimal; i++) {
+        textoAlimento.push("🌾")
+    }
+    //Convertir establo a emoji
+    let textoEstablo = []
+    for (let i = 0; i < establoAnimal; i++) {
+        textoEstablo.push("💩")
+    }
+    //Bucle principal: Se detiene cuando los animales son 0 y superior de 99
+    while (numeroAnimales > 0 && numeroAnimales < 99) {
+        if (textoEstablo.length >= 4) {
+            estadoEnfermo = true
+            estadoAnimal = "🤒"
+            alert("Tus animales han enfermado 🤒")
+        }
+        //Muestra la pantalla inicial
+        alert("Felicidad: " + textoFelicidad.join(" ") + "\nAlimentos Disponibles: " + textoAlimento.join(" ") + "\nEstablo: " + textoEstablo.join(" ")
+            + "\nEstado de Salud: " + estadoAnimal + "\nNº Animales: " + numeroAnimales + "\nDinero: " + dinero + "G")
+
+        opcion = prompt("Felicidad: " + textoFelicidad.join(" ") + "\nAlimentos Disponibles: " + textoAlimento.join(" ") + "\nEstablo: " + textoEstablo.join(" ")
+            + "\nEstado de Salud: " + estadoAnimal + "\nNº Animales: " + numeroAnimales + "\nDinero: " + dinero + "G" + "\nElige una acción: " + "\n1. 🥕 ALIMENTAR A LOS ANIMALES 🥕 " + "\n2. 🐑JUGAR CON LOS ANIMALES 🐑 "
+            + "\n3. 💩LIMPIAR EL ESTABLO 💩 " + "\n4. 🛒 COMPRAR COMIDA 🛒 " + "\n5. 🩺CURAR ANIMALES 🩺 " + "\n6. ℹ️CONSULTAR INFORMACIÓN ℹ️ " + "\n7. 🚚MERCADO🚚")
+
+        //Entra en la opción "Alimentar animales"
+        if (opcion == "1") {
+            //Comprobación del "establo"
+            if (textoEstablo.length <= 3) {
+                darAlimento = prompt("Dime que opcion de alimento quieres dar: " + "\n1. Dar Forraje 🌾 " + "\n2. Dar Fruta 🍎")
+                if (darAlimento == "1") {
+                    if (textoAlimento.length >= 1) {
+                        textoAlimento.pop()
+                        acciones += 1
+                        //Suma a los animales nºrandom entre 1-10
+                        //Resta a los animales nªrandom entre 1-5
+                        numeroAnimales += Math.floor(Math.random() * 10) + 1
+                        numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                        alert("Le has dado de comer Forraje 🌾")
+                    } else {
+                        alert("No tienes comida disponible🌾🌾")
+                    }
+                } else if (darAlimento == "2") {
+                    //Comprueba que haya comida disponible
+                    if (textoAlimento.length >= 1 && estadoEnfermo == false) {
+                        textoAlimento.pop()
+                        acciones += 1
+                        numeroAnimales += Math.floor(Math.random() * 10) + 1
+                        numeroAnimales -= Math.floor(Math.random() * 5) + 1
+
+                        //Comprueba que no supere el limite de "felicidad"
+                        if (textoFelicidad.length < 4) {
+                            textoFelicidad.push("❤️")
+                        }
+
+                        alert("Le has dado de comer Fruta 🍎")
+
+                        //Si no hay comida, manda alert
+                    } else {
+                        alert("No tienes comida disponible o los animales enfermos no pueden comer fruta🍎")
+                    }
+                }
+                //alert, por si hay demasiado extiercol, caso "alimentar"
+            } else {
+                alert("💩No puedes alimentar a los animales, el entorno está demasiado sucio💩")
+            }
+        } //Entra en la opción "Jugar con los animales"
+        else if (opcion == "2") {
+            //Comprobación del "establo"
+            if (textoEstablo.length <= 3 && estadoEnfermo == false) {
+                //Comprueba que haya comida disponible
+                if (textoAlimento.length >= 1) {
+                    textoAlimento.pop()
+                    acciones += 1
+                    numeroAnimales += Math.floor(Math.random() * 10) + 1
+                    numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                    //Nº random entre 100 y 200 para sumarselo a nuestro dinero
+                    let dineroSumar = Math.floor(Math.random() * 101) + 100
+                    dinero += dineroSumar
+
+                    //Comprueba que no supere el limite de "felicidad"
+                    if (textoFelicidad.length < 4) {
+                        textoFelicidad.push('❤️')
+                        textoFelicidad.join()
+                    }
+                    alert("Has ganado " + dineroSumar + "G")
+                    alert("Hemos jugado con los animales🐄")
+                    //Si no hay comida, manda alert
+                } else {
+                    alert("No tienes comida disponible🍎🌾")
+                }
+                //alert, por si hay demasiado extiercol, opción "jugar"
+            } else {
+                alert("No puedes jugar con los animales, ya que el ambiente es inadecuado o están enfermos💩🤒")
+            }
+        } //Entra en la opción "Limpiar establo"
+        else if (opcion == "3") {
+            if (textoEstablo.length > 0) {
+                while (textoEstablo.length > 0) {
+                    textoEstablo.pop()
+                }
+                alert("Establo limpiado🧹💩")
+                acciones += 1
+                numeroAnimales += Math.floor(Math.random() * 10) + 1
+                numeroAnimales -= Math.floor(Math.random() * 5) + 1
+            } else {
+                alert("🧹Tienes el establo limpio, no hace falta limpiar🧹")
+            }
+        } //Entra en la opción "Comprar comida"
+        else if (opcion == "4") {
+            if (dinero >= 100) {
+                dinero -= 100
+                if (textoAlimento.length < 4) {
+                    while (textoAlimento.length < 4) {
+                        textoAlimento.push("🌾")
+                    }
+                    alert("Comida repuesta🌾🍎, te ha costado 100G")
+                    acciones += 1
+                    numeroAnimales += Math.floor(Math.random() * 10) + 1
+                    numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                } else {
+                    alert("🌾No puedes comprar más comida, estas lleno🌾")
+                }
+            } else {
+                alert("No tienes suficiente dinero💲")
+            }
+
+        }//Entra en la opción "Curar Animales"
+        else if (opcion == "5") {
+            if (textoEstablo.length > 0) {
+                alert("Necesitas tener el establo limpio para poder curarlos🧹🧹")
+            } else {
+                //Comprueba si esta el animal enfermo y si lo esta lo cura
+                if (estadoEnfermo == true) {
+                    estadoEnfermo = false
+                    estadoAnimal = "😊"
+                    acciones += 1
+                    alert("Tus animales ya están curados 🩹🩹")
+                    numeroAnimales += Math.floor(Math.random() * 10) + 1
+                    numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                } else {
+                    alert("Tus animales ya estaban saludables, no necesitan curación 😊😊")
+                }
+            }
+        }//Entra en la opción "Consultar informacion"
+        else if (opcion == "6") {
+            alert("Nombre del Establo: " + establoNombre + "\nNúmero de animales: " + numeroAnimales)
+        }
+        else if (opcion == "7") {
+            alert()
+            let productoValido = false
+            while (!productoValido) {
+                productos = prompt("Dime que productos quieres comprar:" + "\n1. Bebedero de Agua - 200G " + "\n2. Refugio para animales - 500G"
+                    + "\n3. Juguetes para animales - 150G" + "\n4. Malla de Sombra - 300G" + "\n5. Sistema de Riego - 400G")
+                if (productos === "1") {
+                    alert("Has comprado Bebedero de Agua")
+                }
+            }
+        }
+        //Cuando cuente 3 acciones, se suma 1 estiercol y -1 felicidad
+        //A su vez, restablece el nº de acciones
+        if (acciones == 3) {
+            alert("Se suma (+💩) y se resta (-❤️) x cada 3 Acciones")
+            textoFelicidad.pop()
+            acciones = 0
+            //Mientras que no haya 6 extiercoles, se seguirá sumando
+            if (textoEstablo.length < 6) {
+                textoEstablo.push('💩')
+            }
+        }
+    }
+</script>
