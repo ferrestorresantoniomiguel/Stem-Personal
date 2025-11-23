@@ -1,0 +1,163 @@
+<script>
+    let palabras_lista = ["programacion", "basededatos", "entornos", "digitalizacion", "sostenibilidad"]
+    const MAXIMO_VIDAS = 6
+
+
+    let jugar = true
+
+    while (jugar) {
+        let respuestaUsuario = ""
+        let respuestaUsuarioComprobacion
+
+        //Creo un indice aleatorio, para elegir una palabra
+        let indiceAleatorio = Math.floor(Math.random() * LISTA_PALABRAS.length)
+        let palabraDescubrir = palabras_lista[indiceAleatorio]
+        let palabraLongitud = palabraDescubrir.length
+
+        //Establecemos las vidas para el usuario
+        let vidas = MAXIMO_VIDAS
+
+        //Creamos historial para "letras incorrectas", "letras buenas" y bucle para introducir posiciones de la palabra
+        let letrasMalas = []
+        let letrasBuenas = []
+        for (let i = 0; i < palabraLongitud; i++) {
+            letrasBuenas[i] = "_"
+        }
+
+        //MENSAJE INICIO, dando bienvenida
+        alert("¡Empezando juego del Ahorcado!" + "\nLongitud de la palabra: " + palabraLongitud + " letras")
+
+        //bool para controlar los turnos dentro del juego y contador de las letras que faltan por adivinar
+        let juegoFuncionando = true
+        let letrasPorAdivinar = palabraLongitud
+
+        while (juegoFuncionando) {
+
+            let estadoVida = letrasBuenas.join(" ")
+
+            //Control de errores para la letra introducida
+            let letraValida = false
+            let letra = ""
+
+            while (!letraValida) {
+                //Prompt, para mostrar informacion al usuario y pedir una letra
+                let letraUsuario = prompt("Palabra: " + estadoVida + "\n Vidas restantes: "
+                    + vidas + "\n Letras falladas: " + letrasMalas + "\n Introduce una letra: ")
+
+                if (letraUsuario === null) {
+                    juegoFuncionando = false
+                    letraValida = true
+                }
+
+                if (juegoFuncionando) {
+                    //Pasa la letra del usuario a minúscula
+                    letra = letraUsuario.toLowerCase()
+                    let letraUsada = false
+
+                    //Bucle, para comprobación de la letra, en el array de "letrasMalas"
+                    for (let i = 0; i < letrasMalas.length; i++) {
+                        if (letrasMalas[i] === letra) {
+                            letraUsada = true
+                        }
+                    }
+                    //Bucle, para comprobación de la letra, en el array de "letrasBuenas"
+                    for (let i = 0; i < letrasBuenas.length; i++) {
+                        if (letrasBuenas[i] === letra) {
+                            letraUsada = true
+                        }
+                    }
+
+                    // Tengo que hacer comprobación para saber si solo ha metido una letra
+                    let esLetra = letra.length === 1 && /[a-z]/.test(letra)
+
+                    if (letra.length === 0) { // Entrada vacía
+                        alert("Error: Introduce una letra válida (no puede estar vacío).")
+                    } else if (!esLetra) { // No es una sola letra
+                        alert("Error: Solo se permite una única letra del alfabeto.")
+                    } else if (letraUsada) { // Letra ya usada
+                        alert("Error: La letra ya fue usada.")
+                    } else {
+                        letraValida = true
+                    }
+                }
+            }
+
+
+            let letraEncontrada = false
+            let turnoAciertos = 0
+
+            for (let i = 0; i < palabraLongitud; i++) {
+                if (palabraDescubrir[i] === letra) {
+                    letraEncontrada = true
+                    letrasBuenas[i] = letra
+                    turnoAciertos++
+                }
+            }
+
+            //Opcion: Ha encontrado la letra
+            if (letraEncontrada) {
+                letrasPorAdivinar = letrasPorAdivinar - turnoAciertos
+                alert("La letra: " + letra + " ¡Está en la palabra!")
+
+                //Comprueba que haya letras por adivinar, si hay letras, el juego continua
+                if (letrasPorAdivinar > 0) {
+
+                } else {//Sino, el juego a terminado, palabra acertada
+                    jugar = false
+
+                    alert("¡Has ganado el juego!" + "\nLa palabra era: " + palabraDescubrir)
+                }
+            } else {//Opcion: La letra no es correcta
+                alert("La letra: " + letra + " ¡NO está en la palabra!")
+                letrasMalas[letrasMalas.length] = letra
+                vidas -= 1
+                //Control de vidas
+                if (vidas > 0) {
+
+                } else {//Mueres, al no tener vidas
+                    //Muestro mensaje de final de juega
+                    alert("¡GAME OVER!" + " No tienes vidas" + "\nLa palabra era: " + palabraDescubrir)
+                    juegoFuncionando = false
+                }
+            }
+        }
+
+
+        if (juegoFuncionando === false && vidas <= MAXIMO_VIDAS) {
+            let respuestaValida = false
+            while (!respuestaValida) {
+                respuestaUsuario = prompt("Quieres jugar otra vez" + "\nSI o NO")
+                respuestaUsuarioComprobacion = respuestaUsuario.toLowerCase()
+
+                if (respuestaUsuarioComprobacion === null) {
+                    jugar = false
+                    respuestaValida = true
+                    alert("¡Terminando juego!" + "\nGracias por jugar")
+                }
+                if (!isNaN(Number(respuestaUsuarioComprobacion))) {
+                    alert("Has introducido un número, introducice si o no")
+                }
+                if (respuestaUsuarioComprobacion === "no") {
+                    respuestaValida = true
+                    jugar = false
+                    volverEmpezar = false
+                    alert("¡Terminando juego!" + "\nGracias por jugar")
+                }
+                if (respuestaUsuarioComprobacion === "si") {
+                    respuestaValida = true
+                    jugar = false
+                    volverEmpezar = true
+                    alert("Reiniciando juego" + "\nVolviendo a empezar")
+                }
+            }
+
+        }
+
+
+
+
+    }
+
+
+
+</script>

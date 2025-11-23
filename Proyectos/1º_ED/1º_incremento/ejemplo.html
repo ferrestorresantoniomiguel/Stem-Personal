@@ -1,0 +1,155 @@
+<script>
+    // --- 0. Inicio (Inicialización de datos) ---
+    const LISTA_PALABRAS = ["PROGRAMACION", "JAVASCRIPT", "COMPUTADORA", "ALGORITMO", "DESARROLLO"]
+    const MAX_VIDAS = 6
+    let jugando = true // Controla el bucle principal "¿Quieres jugar?"
+
+    // --- Bucle principal del juego ---
+    while (jugando) {
+        
+        // --- 1. Genera una palabra aleatoria ---
+        const indiceAleatorio = Math.floor(Math.random() * LISTA_PALABRAS.length)
+        const palabraSecreta = LISTA_PALABRAS[indiceAleatorio]
+        const longitudPalabra = palabraSecreta.length
+
+        // --- 2. Vidas establecidas ---
+        let vidas = MAX_VIDAS
+        
+        // --- 3. Establecemos historial "letras malas" y "buenas" ---
+        let letrasMalas = []
+        let letrasCorrectas = [] // Inicializado vacío, se llena abajo
+        for (let i = 0; i < longitudPalabra; i++) {
+            letrasCorrectas[i] = '_'
+        }
+
+        let juegoEnCurso = true // Controla el bucle del turno
+        let letrasFaltantes = longitudPalabra // Contador de letras por adivinar
+
+        alert("¡Iniciando el Juego del Ahorcado!\nLa palabra tiene " + longitudPalabra + " letras")
+
+        // --- Bucle del turno (Mientras haya vidas y la palabra no esté completa) ---
+        while (juegoEnCurso) {
+
+            // --- Estado actual y Petición de letra ---
+            let estadoVisible = letrasCorrectas.join(' ')
+            let mensajeTurno = "Palabra: " + estadoVisible + "\nVidas restantes: " + vidas + "\nLetras incorrectas: " + letrasMalas.join(', ') + "\n\nInserta una letra:"
+            
+            let letraValida = false
+            let letra = ""
+
+            // Bucle de validación de entrada (Simula el 'continue' y el bucle interno de tu diagrama)
+            while (!letraValida) {
+                let input = prompt(mensajeTurno)
+
+                if (input === null) {
+                    juegoEnCurso = false
+                    jugando = false
+                }
+
+                if (juegoEnCurso) { // Solo procesar si no se canceló
+                    
+                    // Normalizar la entrada a una única mayúscula
+                    letra = input.trim().toUpperCase()
+                    let letraYaUsada = false
+                    
+                    // Comprobar si ya fue usada (simulando .includes())
+                    for (let i = 0; i < letrasMalas.length; i++) {
+                        if (letrasMalas[i] === letra) {
+                            letraYaUsada = true
+                        }
+                    }
+                    for (let i = 0; i < letrasCorrectas.length; i++) {
+                        if (letrasCorrectas[i] === letra) {
+                            letraYaUsada = true
+                        }
+                    }
+
+                    // 1. Verificar si es una sola letra y no ha sido usada
+                    if (letra.length !== 1) {
+                        alert("Por favor, introduce una única letra")
+                    } else if (letraYaUsada) {
+                        alert("La letra '" + letra + "' ya fue intentada. Prueba con otra")
+                    } else {
+                        letraValida = true
+                    }
+                }
+            }
+
+            if (!juegoEnCurso) { // Si se canceló el prompt, saltar al final del turno
+                let centinela = true // Variable temporal para salir del if/else
+                // No hay más lógica de turno, el bucle principal se encargará
+            } 
+            
+            else { // Si el turno es válido, procesamos
+                
+                // --- 4. Buscando la letra dentro de la palabra ---
+                let letraEncontrada = false
+                let aciertosEnTurno = 0
+                
+                // Recorrer la palabra secreta para buscar coincidencias
+                for (let i = 0; i < longitudPalabra; i++) {
+                    if (palabraSecreta[i] === letra) {
+                        letraEncontrada = true
+                        
+                        // --- 5. Meter la letra correcta en letras correctas ---
+                        letrasCorrectas[i] = letra
+                        aciertosEnTurno++
+                    }
+                }
+                
+                // --- IF (Letra está dentro de la palabra) ---
+                if (letraEncontrada) {
+                    
+                    // Actualizar letras faltantes
+                    letrasFaltantes = letrasFaltantes - aciertosEnTurno
+                    
+                    // --- 6. Enseñamos al usuario las letras acertadas ---
+                    alert("¡Bien hecho! La letra '" + letra + "' está en la palabra.")
+                    
+                    // --- 7. IF (Faltan letras por adivinar) ---
+                    if (letrasFaltantes > 0) {
+                        // El bucle 'while(juegoEnCurso)' continúa
+                    } else {
+                        // --- Palabra completa ---
+                        juegoEnCurso = false 
+                        // --- Le decimos al usuario, has ganado ---
+                        alert("¡Felicidades! Has adivinado la palabra: " + palabraSecreta)
+                    }
+
+                } 
+                // --- ELSE (Letra no está en la palabra) ---
+                else {
+                    // --- 8. Añadimos esa letra al historial de letras malas ---
+                    letrasMalas[letrasMalas.length] = letra // Simula .push()
+                    alert("La letra '" + letra + "' NO está en la palabra.")
+                    
+                    // --- 9. Usuario -1 vida y Se añade una extremidad ---
+                    vidas = vidas - 1
+
+                    // --- 10. IF (Vidas > 0) ---
+                    if (vidas > 0) {
+                        // El bucle 'while(juegoEnCurso)' continúa
+                    } else {
+                        // --- Vidas <= 0 ---
+                        juegoEnCurso = false
+                        // --- Le decimos al usuario, has perdido ---
+                        alert("¡Oh no! Te quedaste sin vidas. La palabra era: " + palabraSecreta)
+                    }
+                }
+            }
+        } // Fin del bucle while(juegoEnCurso)
+
+        // --- 11. ¿Quieres jugar la palabra? (Control del bucle principal) ---
+        let respuesta = prompt("¿Quieres jugar otra ronda? (Sí/No)").toUpperCase()
+        
+        // --- IF (Sí/No) ---
+        if (respuesta !== 'SI' && respuesta !== 'SÍ') {
+            jugando = false
+            alert("¡Gracias por jugar! Fin del programa.")
+        }
+        
+    } // Fin del bucle while(jugando)
+
+    // --- FIN ---
+
+</script>
