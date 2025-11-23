@@ -1,4 +1,14 @@
 <script>
+
+    function aleatorio1y10() {
+        return Number(Math.floor(Math.random() * 10) + 1)
+    }
+
+    function aleatorio1y5() {
+        return Number(Math.floor(Math.random() * 5) + 1)
+    }
+
+
     //Declarar los principales estados de los animales
     let numeroAnimales = 10
     const felicidadAnimal = 4
@@ -7,6 +17,8 @@
     let opcion
     let acciones = 0
     let dinero = 0
+
+    //Variables para "Mercado"
     let productos = [
         "Bebedero de Agua🚰",
         "Refugio para animales🛖",
@@ -17,17 +29,22 @@
         "Luz Solar Artificial💡",
         "Cercado Mejorado🔐"
     ]
+    let contadorIteraciones = 0
     let productosComprados = []
+    let prodcutosActuales = []
     let productosSeleccionados = 0
     let productosTotal = productos.length
+    
+    
 
     while (productosSeleccionados > 0 && productosSeleccionados < productosTotal) {
         let indiceRandom = Math.floor(Math.random() * productosTotal)
+        let indiceUsado = false
+        for (let i = 0; i < array.length; i++) {
+            const element = array[i];
+            
+        }
     }
-
-
-
-
 
 
 
@@ -79,8 +96,8 @@
                         acciones += 1
                         //Suma a los animales nºrandom entre 1-10
                         //Resta a los animales nªrandom entre 1-5
-                        numeroAnimales += Math.floor(Math.random() * 10) + 1
-                        numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                        numeroAnimales += aleatorio1y10()
+                        numeroAnimales -= aleatorio1y5()
                         alert("Le has dado de comer Forraje 🌾")
                     } else {
                         alert("No tienes comida disponible🌾🌾")
@@ -90,8 +107,8 @@
                     if (textoAlimento.length >= 1 && estadoEnfermo == false) {
                         textoAlimento.pop()
                         acciones += 1
-                        numeroAnimales += Math.floor(Math.random() * 10) + 1
-                        numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                        numeroAnimales += aleatorio1y10()
+                        numeroAnimales -= aleatorio1y5()
 
                         //Comprueba que no supere el limite de "felicidad"
                         if (textoFelicidad.length < 4) {
@@ -117,8 +134,8 @@
                 if (textoAlimento.length >= 1) {
                     textoAlimento.pop()
                     acciones += 1
-                    numeroAnimales += Math.floor(Math.random() * 10) + 1
-                    numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                    numeroAnimales += aleatorio1y10()
+                    numeroAnimales -= aleatorio1y5()
                     //Nº random entre 100 y 200 para sumarselo a nuestro dinero
                     let dineroSumar = Math.floor(Math.random() * 101) + 100
                     dinero += dineroSumar
@@ -146,23 +163,25 @@
                 }
                 alert("Establo limpiado🧹💩")
                 acciones += 1
-                numeroAnimales += Math.floor(Math.random() * 10) + 1
-                numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                numeroAnimales += aleatorio1y10()
+                numeroAnimales -= aleatorio1y5()
             } else {
                 alert("🧹Tienes el establo limpio, no hace falta limpiar🧹")
             }
         } //Entra en la opción "Comprar comida"
         else if (opcion == "4") {
             if (dinero >= 100) {
-                dinero -= 100
+                //La comida quitará 100 al dinero
+                let costeComida = 100
+                dinero -= costeComida
                 if (textoAlimento.length < 4) {
                     while (textoAlimento.length < 4) {
                         textoAlimento.push("🌾")
                     }
-                    alert("Comida repuesta🌾🍎, te ha costado 100G")
+                    alert("Comida repuesta🌾🍎, te ha costado " + costeComida + "G")
                     acciones += 1
-                    numeroAnimales += Math.floor(Math.random() * 10) + 1
-                    numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                    numeroAnimales += aleatorio1y10()
+                    numeroAnimales -= aleatorio1y5()
                 } else {
                     alert("🌾No puedes comprar más comida, estas lleno🌾")
                 }
@@ -181,8 +200,8 @@
                     estadoAnimal = "😊"
                     acciones += 1
                     alert("Tus animales ya están curados 🩹🩹")
-                    numeroAnimales += Math.floor(Math.random() * 10) + 1
-                    numeroAnimales -= Math.floor(Math.random() * 5) + 1
+                    numeroAnimales += aleatorio1y10()
+                    numeroAnimales -= aleatorio1y5()
                 } else {
                     alert("Tus animales ya estaban saludables, no necesitan curación 😊😊")
                 }
@@ -192,7 +211,6 @@
             alert("Nombre del Establo: " + establoNombre + "\nNúmero de animales: " + numeroAnimales)
         }
         else if (opcion == "7") {
-            alert()
             let productoValido = false
             while (!productoValido) {
                 productos = prompt("Dime que productos quieres comprar:" + "\n1. Bebedero de Agua - 200G " + "\n2. Refugio para animales - 500G"
