@@ -20,7 +20,7 @@
 
     //Variables para "Mercado"
     let contadorIteraciones = 0
-    let productos = [
+    let productosNombre = [
         "Bebedero de Agua🚰",
         "Refugio para animales🛖",
         "Juguetes para animales🧸",
@@ -30,36 +30,11 @@
         "Luz Solar Artificial💡",
         "Cercado Mejorado🔐"
     ]
+    let productosPrecio = [200, 500, 150, 300, 400, 100, 350, 600] 
     let productosComprados = []
     let productosActuales = []
     let productosSeleccionados = 0
     let productosTotal = productos.length
-    
-    
-    while (productosSeleccionados < 4) {
-        let indiceRandom = Math.floor(Math.random() * productosTotal)
-        let productoActual = productos[indiceRandom]
-        let productoComprado = false
-        let productoseleccionado = false
-
-        for (let i = 0; i < productosComprados.length; i++) {
-            if (productosComprados[i] === productoActual) {
-                productoComprado = true
-            }
-        }
-
-        for (let x = 0; x < productosActuales.length; x++) {
-            if (productosActuales[x] === productoActual) {
-                productoseleccionado = true
-            }
-        }
-
-        if (!productoComprado && !productoseleccionado) {
-            productosActuales.push(productoActual)
-            productosSeleccionados++
-        }
-    }
-
 
 
     //Variables para la salud de los animales y nombre del "establo"
@@ -86,6 +61,39 @@
     }
     //Bucle principal: Se detiene cuando los animales son 0 y superior de 99
     while (numeroAnimales > 0 && numeroAnimales < 99) {
+
+        //Check para que cambien los objetos cada 5 veces y al inicio del programa
+        if (contadorIteraciones % 5 === 0 || productosActuales.length === 0) {
+            productosActuales = []
+            productosSeleccionados = 0
+            productosTotal = productos.length
+            //Bucle para seleccionar 4 productos
+            while (productosSeleccionados < 4) {
+                let indiceRandom = Math.floor(Math.random() * productosTotal)
+                let productoActual = productos[indiceRandom]
+                let productoComprado = false
+                let productoseleccionado = false
+                //Comprobación para saber si el producto ha sido comprado
+                for (let i = 0; i < productosComprados.length; i++) {
+                    if (productosComprados[i] === productoActual) {
+                        productoComprado = true
+                    }
+                }
+                //Comprobación para saber si el producto se repite
+                for (let x = 0; x < productosActuales.length; x++) {
+                    if (productosActuales[x] === productoActual) {
+                        productoseleccionado = true
+                    }
+                }
+                //Si el producto no se ha comprado ni se ha repetido, lo pushearemos en los productos actuales
+                if (!productoComprado && !productoseleccionado) {
+                    productosActuales.push(productoActual)
+                    productosSeleccionados++
+                }
+            }
+        }
+
+
         if (textoEstablo.length >= 4) {
             estadoEnfermo = true
             estadoAnimal = "🤒"
