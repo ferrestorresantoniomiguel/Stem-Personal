@@ -31,10 +31,11 @@
         "Cercado Mejorado🔐"
     ]
     let productosPrecio = [200, 500, 150, 300, 400, 100, 350, 600] 
-    let productosComprados = []
     let productosActuales = []
+    let productoPrecioActual = []
+    let productosComprados = []
     let productosSeleccionados = 0
-    let productosTotal = productos.length
+    let productosTotal = productosNombre.length
 
 
     //Variables para la salud de los animales y nombre del "establo"
@@ -61,16 +62,17 @@
     }
     //Bucle principal: Se detiene cuando los animales son 0 y superior de 99
     while (numeroAnimales > 0 && numeroAnimales < 99) {
-
         //Check para que cambien los objetos cada 5 veces y al inicio del programa
         if (contadorIteraciones % 5 === 0 || productosActuales.length === 0) {
             productosActuales = []
+            productoPrecioActual = []
             productosSeleccionados = 0
-            productosTotal = productos.length
+            productosTotal = productosNombre.length
             //Bucle para seleccionar 4 productos
             while (productosSeleccionados < 4) {
                 let indiceRandom = Math.floor(Math.random() * productosTotal)
-                let productoActual = productos[indiceRandom]
+                let productoActual = productosNombre[indiceRandom]
+                let precioActual = productosPrecio[indiceRandom]
                 let productoComprado = false
                 let productoseleccionado = false
                 //Comprobación para saber si el producto ha sido comprado
@@ -88,6 +90,7 @@
                 //Si el producto no se ha comprado ni se ha repetido, lo pushearemos en los productos actuales
                 if (!productoComprado && !productoseleccionado) {
                     productosActuales.push(productoActual)
+                    productoPrecioActual.push(precioActual)
                     productosSeleccionados++
                 }
             }
@@ -239,14 +242,9 @@
             alert("Nombre del Establo: " + establoNombre + "\nNúmero de animales: " + numeroAnimales)
         }
         else if (opcion == "7") {
-            let productoValido = false
-            while (!productoValido) {
-                productos = prompt("Dime que productos quieres comprar:" + "\n1. Bebedero de Agua - 200G " + "\n2. Refugio para animales - 500G"
-                    + "\n3. Juguetes para animales - 150G" + "\n4. Malla de Sombra - 300G" + "\n5. Sistema de Riego - 400G")
-                if (productos === "1") {
-                    alert("Has comprado Bebedero de Agua")
-                }
-            }
+            alert(productosActuales)
+            alert(productoPrecioActual)
+            let usuarioCompra = prompt("Dime que el número del producto que quieras comprar")
         }
         //Cuando cuente 3 acciones, se suma 1 estiercol y -1 felicidad
         //A su vez, restablece el nº de acciones
