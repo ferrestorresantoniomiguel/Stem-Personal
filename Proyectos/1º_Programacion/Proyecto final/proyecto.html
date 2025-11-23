@@ -1,5 +1,5 @@
 <script>
-
+    //Funciones del programa
     function aleatorio1y10() {
         return Number(Math.floor(Math.random() * 10) + 1)
     }
@@ -8,7 +8,7 @@
         return Number(Math.floor(Math.random() * 5) + 1)
     }
 
-
+    //---------------------------MAIN-------------------------------------
     //Declarar los principales estados de los animales
     let numeroAnimales = 10
     const felicidadAnimal = 4
@@ -19,6 +19,7 @@
     let dinero = 0
 
     //Variables para "Mercado"
+    let contadorIteraciones = 0
     let productos = [
         "Bebedero de Agua🚰",
         "Refugio para animales🛖",
@@ -29,20 +30,33 @@
         "Luz Solar Artificial💡",
         "Cercado Mejorado🔐"
     ]
-    let contadorIteraciones = 0
     let productosComprados = []
-    let prodcutosActuales = []
+    let productosActuales = []
     let productosSeleccionados = 0
     let productosTotal = productos.length
     
     
-
-    while (productosSeleccionados > 0 && productosSeleccionados < productosTotal) {
+    while (productosSeleccionados < 4) {
         let indiceRandom = Math.floor(Math.random() * productosTotal)
-        let indiceUsado = false
-        for (let i = 0; i < array.length; i++) {
-            const element = array[i];
-            
+        let productoActual = productos[indiceRandom]
+        let productoComprado = false
+        let productoseleccionado = false
+
+        for (let i = 0; i < productosComprados.length; i++) {
+            if (productosComprados[i] === productoActual) {
+                productoComprado = true
+            }
+        }
+
+        for (let x = 0; x < productosActuales.length; x++) {
+            if (productosActuales[x] === productoActual) {
+                productoseleccionado = true
+            }
+        }
+
+        if (!productoComprado && !productoseleccionado) {
+            productosActuales.push(productoActual)
+            productosSeleccionados++
         }
     }
 
@@ -94,6 +108,7 @@
                     if (textoAlimento.length >= 1) {
                         textoAlimento.pop()
                         acciones += 1
+                        contadorIteraciones += 1
                         //Suma a los animales nºrandom entre 1-10
                         //Resta a los animales nªrandom entre 1-5
                         numeroAnimales += aleatorio1y10()
@@ -107,6 +122,7 @@
                     if (textoAlimento.length >= 1 && estadoEnfermo == false) {
                         textoAlimento.pop()
                         acciones += 1
+                        contadorIteraciones += 1
                         numeroAnimales += aleatorio1y10()
                         numeroAnimales -= aleatorio1y5()
 
@@ -134,6 +150,7 @@
                 if (textoAlimento.length >= 1) {
                     textoAlimento.pop()
                     acciones += 1
+                    contadorIteraciones += 1
                     numeroAnimales += aleatorio1y10()
                     numeroAnimales -= aleatorio1y5()
                     //Nº random entre 100 y 200 para sumarselo a nuestro dinero
@@ -163,6 +180,7 @@
                 }
                 alert("Establo limpiado🧹💩")
                 acciones += 1
+                contadorIteraciones += 1
                 numeroAnimales += aleatorio1y10()
                 numeroAnimales -= aleatorio1y5()
             } else {
@@ -180,6 +198,7 @@
                     }
                     alert("Comida repuesta🌾🍎, te ha costado " + costeComida + "G")
                     acciones += 1
+                    contadorIteraciones += 1
                     numeroAnimales += aleatorio1y10()
                     numeroAnimales -= aleatorio1y5()
                 } else {
@@ -199,6 +218,7 @@
                     estadoEnfermo = false
                     estadoAnimal = "😊"
                     acciones += 1
+                    contadorIteraciones += 1
                     alert("Tus animales ya están curados 🩹🩹")
                     numeroAnimales += aleatorio1y10()
                     numeroAnimales -= aleatorio1y5()
