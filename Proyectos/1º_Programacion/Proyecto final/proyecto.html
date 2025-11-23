@@ -16,22 +16,22 @@
     const establoAnimal = 1
     let opcion
     let acciones = 0
-    let dinero = 0
+    let dinero = 1000
 
     //Variables para "Mercado"
     let contadorIteraciones = 0
     let productosNombre = [
-        "Bebedero de Agua🚰",
-        "Refugio para animales🛖",
-        "Juguetes para animales🧸",
-        "Malla de Sombra🏖️",
-        "Sistema de Riego💧",
-        "Herramientas de Limpieza🧹",
-        "Luz Solar Artificial💡",
-        "Cercado Mejorado🔐"
+        "Bebedero de Agua🚰 - 200G",
+        "Refugio para animales🛖 - 500G",
+        "Juguetes para animales🧸 - 150G",
+        "Malla de Sombra🏖️ - 300G",
+        "Sistema de Riego💧 - 400G",
+        "Herramientas de Limpieza🧹 - 100G",
+        "Luz Solar Artificial💡 - 350G",
+        "Cercado Mejorado🔐 - 600G"
     ]
-    let productosPrecio = [200, 500, 150, 300, 400, 100, 350, 600] 
-    let productosActuales = []
+    let productosPrecio = [200, 500, 150, 300, 400, 100, 350, 600]
+    let productosNombreActual = []
     let productoPrecioActual = []
     let productosComprados = []
     let productosSeleccionados = 0
@@ -63,8 +63,8 @@
     //Bucle principal: Se detiene cuando los animales son 0 y superior de 99
     while (numeroAnimales > 0 && numeroAnimales < 99) {
         //Check para que cambien los objetos cada 5 veces y al inicio del programa
-        if (contadorIteraciones % 5 === 0 || productosActuales.length === 0) {
-            productosActuales = []
+        if (contadorIteraciones % 5 === 0 || productosNombreActual.length === 0) {
+            productosNombreActual = []
             productoPrecioActual = []
             productosSeleccionados = 0
             productosTotal = productosNombre.length
@@ -82,14 +82,14 @@
                     }
                 }
                 //Comprobación para saber si el producto se repite
-                for (let x = 0; x < productosActuales.length; x++) {
-                    if (productosActuales[x] === productoActual) {
+                for (let x = 0; x < productosNombreActual.length; x++) {
+                    if (productosNombreActual[x] === productoActual) {
                         productoseleccionado = true
                     }
                 }
                 //Si el producto no se ha comprado ni se ha repetido, lo pushearemos en los productos actuales
                 if (!productoComprado && !productoseleccionado) {
-                    productosActuales.push(productoActual)
+                    productosNombreActual.push(productoActual)
                     productoPrecioActual.push(precioActual)
                     productosSeleccionados++
                 }
@@ -242,9 +242,100 @@
             alert("Nombre del Establo: " + establoNombre + "\nNúmero de animales: " + numeroAnimales)
         }
         else if (opcion == "7") {
-            alert(productosActuales)
-            alert(productoPrecioActual)
-            let usuarioCompra = prompt("Dime que el número del producto que quieras comprar")
+            let compraValida = false
+            while (!compraValida) {
+                let articuloComprado = false
+                let usuarioCompra = prompt("1. " + productosNombreActual[0] + "\n2. " + productosNombreActual[1]
+                    + "\n3. " + productosNombreActual[2] + "\n4. " + productosNombreActual[3] + "\n5. SALIR"
+                    + "\nDime el nº del producto que quieras comprar")
+                if (usuarioCompra === "1") {
+                    if (dinero < 9999 && dinero > 0) {
+                        for (let i = 0; i < productosComprados.length; i++) {
+                            if (productosNombreActual[0] === productosComprados[i]) {
+                                alert("Ya lo has comprado anteriormente")
+                                articuloComprado = true
+                            }
+                        }
+                        if (dinero >= productoPrecioActual[0] && !articuloComprado) {
+                            dinero -= productoPrecioActual[0]
+                            productosComprados.push(productosNombreActual[0])
+                            compraValida = true
+                            acciones += 1
+                            contadorIteraciones += 1
+                        } else if (dinero < productoPrecioActual[0] && !articuloComprado) {
+                            alert("No tienes dinero suficiente💲")
+                        }
+                    } else {
+                        alert("No tienes dinero💲")
+                    }
+                }
+                if (usuarioCompra === "2") {
+                    if (dinero < 9999 && dinero > 0) {
+                        for (let i = 0; i < productosComprados.length; i++) {
+                            if (productosNombreActual[1] === productosComprados[i]) {
+                                alert("Ya lo has comprado anteriormente")
+                                articuloComprado = true
+                            }
+                        }
+                        if (dinero >= productoPrecioActual[1] && !articuloComprado) {
+                            dinero -= productoPrecioActual[1]
+                            productosComprados.push(productosNombreActual[1])
+                            compraValida = true
+                            acciones += 1
+                            contadorIteraciones += 1
+                        } else if (dinero < productoPrecioActual[1] && !articuloComprado) {
+                            alert("No tienes dinero suficiente💲")
+                        }
+                    } else {
+                        alert("No tienes dinero💲")
+                    }
+                }
+                if (usuarioCompra === "3") {
+                    if (dinero < 9999 && dinero > 0) {
+                        for (let i = 0; i < productosComprados.length; i++) {
+                            if (productosNombreActual[2] === productosComprados[i]) {
+                                alert("Ya lo has comprado anteriormente")
+                                articuloComprado = true
+                            }
+                        }
+                        if (dinero >= productoPrecioActual[2] && !articuloComprado) {
+                            dinero -= productoPrecioActual[2]
+                            productosComprados.push(productosNombreActual[2])
+                            compraValida = true
+                            acciones += 1
+                            contadorIteraciones += 1
+                        } else if (dinero < productoPrecioActual[2] && !articuloComprado) {
+                            alert("No tienes dinero suficiente💲")
+                        }
+                    } else {
+                        alert("No tienes dinero💲")
+                    }
+                }
+                if (usuarioCompra === "4") {
+                    if (dinero < 9999 && dinero > 0) {
+                        for (let i = 0; i < productosComprados.length; i++) {
+                            if (productosNombreActual[3] === productosComprados[i]) {
+                                alert("Ya lo has comprado anteriormente")
+                                articuloComprado = true
+                            }
+                        }
+                        if (dinero >= productoPrecioActual[3] && !articuloComprado) {
+                            dinero -= productoPrecioActual[3]
+                            productosComprados.push(productosNombreActual[3])
+                            compraValida = true
+                            acciones += 1
+                            contadorIteraciones += 1
+                        } else if (dinero < productoPrecioActual[3] && !articuloComprado) {
+                            alert("No tienes dinero suficiente💲")
+                        }
+                    } else {
+                        alert("No tienes dinero💲")
+                    }
+                }
+                if (usuarioCompra === "5") {
+                    compraValida = true
+                }
+            }
         }
         //Cuando cuente 3 acciones, se suma 1 estiercol y -1 felicidad
         //A su vez, restablece el nº de acciones
