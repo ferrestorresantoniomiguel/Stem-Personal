@@ -8,20 +8,27 @@
             </head>
             <body>
                 <h1>Catálogo de Instrumentos</h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="index.html">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="instrumentos_web.xml">Catalogo de instrumentos</a>
+                        </li>
+                        <li>
+                            <a href="proveedores_web.xml">Proveedores</a>
+                        </li>
+                    </ul>
+                </nav>
                 <table border="1">
                     <tr>
-                        <th>ID</th>
                         <th>Nombre</th>
                         <th>Marca</th>
-                        <th>Categoría</th>
-                        <th>Precio €</th>
-                        <th>Stock</th>
+                        <th>Precio (€)</th>
                     </tr>
                     <xsl:for-each select="tienda/catalogo/instrumento">
                         <tr>
-                            <td>
-                                <xsl:value-of select="@id" />
-                            </td>
                             <td>
                                 <xsl:value-of select="nombre" />
                             </td>
@@ -29,39 +36,7 @@
                                 <xsl:value-of select="marca" />
                             </td>
                             <td>
-                                <xsl:value-of select="@categoria" />
-                            </td>
-                            <td>
                                 <xsl:value-of select="precio" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="stock" />
-                            </td>
-                        </tr>
-                    </xsl:for-each>
-                </table>
-
-                <h1>Proveedores</h1>
-                <table border="1">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>País</th>
-                        <th>Contacto</th>
-                    </tr>
-                    <xsl:for-each select="tienda/proveedores/proveedor">
-                        <tr>
-                            <td>
-                                <xsl:value-of select="@id" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="nombre" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="pais" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="contacto" />
                             </td>
                         </tr>
                     </xsl:for-each>
