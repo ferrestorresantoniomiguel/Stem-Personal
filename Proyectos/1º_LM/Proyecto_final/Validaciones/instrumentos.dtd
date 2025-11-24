@@ -1,5 +1,7 @@
 <!ELEMENT tienda (origen, elaborado, catalogo, proveedores)>
+
 <!ELEMENT origen (nombre, web, language, nota_legal)>
+
 <!ELEMENT nombre (#PCDATA)>
 <!ELEMENT web (#PCDATA)>
 <!ELEMENT language (#PCDATA)>
