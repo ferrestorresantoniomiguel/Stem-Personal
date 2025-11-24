@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="instrumentos.xsl"?>
+
+<tienda>
+  <catalogo>
+    <instrumento id="1">
+      <nombre>Guitarra Eléctrica Stratocaster</nombre>
+      <marca>Fender</marca>
+      <precio>1200</precio>
+    </instrumento>
+
+    <instrumento id="2">
+      <nombre>Piano Digital P-45</nombre>
+      <marca>Yamaha</marca>
+      <precio>450</precio>
+    </instrumento>
+
+    </catalogo>
+</tienda>
