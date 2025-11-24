@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="proveedores.xsl"?>
+
+<tienda>
+    <proveedores>
+        <proveedor id="P-001">
+            <nombre>MusicPro Distribuciones</nombre>
+            <pais>España</pais>
+            <contacto>info@musicpro.es</contacto>
+        </proveedor>
+
+        <proveedor id="P-002">
+            <nombre>SoundWave Import</nombre>
+            <pais>Alemania</pais>
+            <contacto>ventas@soundwave.de</contacto>
+        </proveedor>
+
+        <proveedor id="P-003">
+            <nombre>RhythmHouse S.A.</nombre>
+            <pais>Italia</pais>
+            <contacto>info@rhythmhouse.it</contacto>
+        </proveedor>
+    </proveedores>
+</tienda>
