@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameWorld - Catálogo Avanzado</title>
+  </head>
+  <body>
+    <!-- ANCLA PARA VOLVER ARRIBA -->
+
+    <header>
+      <h1 id="arriba">🏆 Rankings y Catálogo Detallado</h1>
+
+      <!-- MENÚ DE NAVEGACIÓN -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="listas.html">Listas</a></li>
+          <li><a href="tablas.html">Tablas</a></li>
+          <li><a href="formulario.html">Formulario</a></li>
+        </ul>
+      </nav>
+    </header>
+    <hr />
+
+    <main>
+      <!-- MEJORA UD2 5.3: Índice interno -->
+      <section>
+        <h3>Índice Rápido:</h3>
+        <ul>
+          <li><a href="#compleja">Lista Avanzada (Contenido Mixto)</a></li>
+          <li><a href="#atributos">Ranking con Atributos (Start/Type)</a></li>
+          <li><a href="#anidadas">Catálogo Jerárquico</a></li>
+        </ul>
+        <hr />
+      </section>
+
+      <!-- MEJORA 1: CONTENIDO COMPLEJO DENTRO DE LI (UD3 1.3) -->
+      <section>
+        <h2 id="compleja">1. Destacados del Mes (Lista Rica)</h2>
+        <p>
+          Ejemplo avanzado: Incluir imágenes, párrafos y enlaces dentro de cada
+          <em>item</em>.
+        </p>
+
+        <ul>
+          <!-- ITEM 1: TEXTO + PÁRRAFO + ENLACE -->
+          <li>
+            <strong>The Legend of Zelda: Tears of the Kingdom</strong>
+            <p>El juego más esperado del año. Explora los cielos de Hyrule.</p>
+            <a href="formulario.html">➡ Reservar Ahora</a>
+            <br /><br />
+            <!-- Separación visual -->
+          </li>
+
+          <!-- ITEM 2: TEXTO + IMAGEN (UD3 1.3 permite esto) -->
+          <li>
+            <strong>Super Mario Wonder</strong>
+            <br />
+            <img
+              src="https://placehold.co/100"
+              alt="Caja de Mario"
+              width="100"
+            />
+            <p>Nueva aventura 2D con poderes increíbles.</p>
+          </li>
+        </ul>
+
+        <p style="text-align: right"><a href="#arriba">⬆ Volver</a></p>
+      </section>
+
+      <hr />
+
+      <!-- MEJORA 2: DOMINIO DE ATRIBUTOS (UD3 1.1) -->
+      <section>
+        <h2 id="atributos">2. Rankings Específicos</h2>
+
+        <!-- Ejemplo de Start diferente a 1 -->
+        <h3>Continuación del Top (Start="4")</h3>
+        <ol start="4">
+          <li>Cyberpunk 2077</li>
+          <li>Resident Evil 4 Remake</li>
+          <li>Baldur's Gate 3</li>
+        </ol>
+
+        <!-- Ejemplo de Números Romanos Minúscula (type="i") -->
+        <h3>Ranking Clásico (Romanos minúscula)</h3>
+        <ol type="i">
+          <li>Pac-Man</li>
+          <li>Space Invaders</li>
+          <li>Tetris</li>
+        </ol>
+
+        <p style="text-align: right"><a href="#arriba">⬆ Volver</a></p>
+      </section>
+
+      <hr />
+
+      <!-- MEJORA 3: LISTAS ANIDADAS COMPLEJAS (UD3 1.2 "Consideraciones") -->
+      <section>
+        <h2 id="anidadas">3. Estructura del Catálogo (Anidación Mixta)</h2>
+        <p>
+          Mezcla de listas ordenadas y desordenadas con estilos CSS
+          (square/circle).
+        </p>
+
+        <ul style="list-style-type: square">
+          <!-- Nivel 1: Cuadrados -->
+          <li>
+            <strong>PlayStation 5</strong>
+            <ol type="1">
+              <!-- Nivel 2: Numérico -->
+              <li>Spiderman 2 (Exclusivo)</li>
+              <li>
+                Gran Turismo 7 (Simulación)
+                <ul style="list-style-type: circle">
+                  <!-- Nivel 3: Círculos -->
+                  <li>Edición Estándar</li>
+                  <li>Edición Coleccionista 25 Aniv.</li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Nintendo Switch</strong>
+            <ol type="A">
+              <!-- Nivel 2: Letras Mayúsculas -->
+              <li>Mario Kart 8</li>
+              <li>Animal Crossing</li>
+            </ol>
+          </li>
+        </ul>
+
+        <p style="text-align: right"><a href="#arriba">⬆ Volver</a></p>
+      </section>
+    </main>
+
+    <footer>
+      <hr />
+      <p>&copy; 2024 GameWorld - Listas Mejoradas</p>
+    </footer>
+  </body>
+</html>

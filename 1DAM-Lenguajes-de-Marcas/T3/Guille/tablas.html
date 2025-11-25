@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameWorld - Tarifas Profesionales</title>
+
+    <!-- ESTILOS (UD3 2.1 y 2.3) -->
+    <style>
+      table {
+        width: 90%;
+        border-collapse: collapse; /* Para que border 1px quede sólido */
+        margin-bottom: 30px;
+      }
+      th,
+      td {
+        border: 1px solid black; /* UD3 2.1 (Forma moderna) */
+        padding: 10px; /* UD3 2.1 (Cellpadding via CSS) */
+        text-align: center; /* UD3 2.3 (Alineación) */
+      }
+      /* Estilo base para cabeceras (UD3 2.3) */
+      th {
+        background-color: #333;
+        color: white; /* Texto blanco para contraste */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>💰 Tarifas Oficiales (Mejoradas)</h1>
+
+      <!-- MENÚ DE NAVEGACIÓN -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="listas.html">Listas</a></li>
+          <li><a href="tablas.html">Tablas</a></li>
+          <li><a href="formulario.html">Formulario</a></li>
+        </ul>
+      </nav>
+    </header>
+    <hr />
+
+    <main>
+      <!-- TABLA 1: Estilo en filas (UD3 2.2) -->
+      <section>
+        <h2>Catálogo de Lanzamientos</h2>
+        <p>
+          Mejora: Uso de estilos CSS en las filas (`tr`) para destacar ofertas.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <!-- UD3 2.3: scope="col" indica encabezado de columna -->
+              <th scope="col">Título</th>
+              <th scope="col">Plataforma</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Final Fantasy VII</td>
+              <td>PS5</td>
+              <td>80€</td>
+            </tr>
+
+            <!-- UD3 2.2: "Es posible usar background-color en etiquetas <tr>" -->
+            <!-- ESTA ES LA MEJORA: Resaltamos la fila entera -->
+            <tr style="background-color: #ffffcc; font-weight: bold">
+              <td>⭐ OFERTA: Cyberpunk 2077</td>
+              <td>PC / Xbox</td>
+              <td>30€ (Rebajado)</td>
+            </tr>
+
+            <tr>
+              <td>Mario Wonder</td>
+              <td>Switch</td>
+              <td>60€</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- TABLA 2: Accesibilidad Máxima (UD3 2.3 y 2.4) -->
+      <section>
+        <h2>Suscripciones Premium</h2>
+        <p>Mejora: Uso de `scope="row"`, `tfoot` y fusiones complejas.</p>
+
+        <table style="border: 2px solid black">
+          <!-- CABECERA -->
+          <thead>
+            <tr>
+              <th scope="col">Nivel</th>
+              <th scope="col">Duración</th>
+              <!-- UD3 2.4: Colspan -->
+              <th scope="col" colspan="3">Beneficios y Coste</th>
+            </tr>
+          </thead>
+
+          <!-- PIE DE TABLA (Semántica 'Consideraciones adicionales') -->
+          <tfoot>
+            <tr>
+              <td
+                colspan="5"
+                style="
+                  background-color: #f2f2f2;
+                  font-size: 0.9em;
+                  font-style: italic;
+                "
+              >
+                * Precios sujetos a IVA. Cancelación gratuita.
+              </td>
+            </tr>
+          </tfoot>
+
+          <!-- CUERPO -->
+          <tbody>
+            <tr>
+              <!-- MEJORA UD3 2.3: scope="row" -->
+              <!-- Indica que esta celda es el encabezado de ESTA fila -->
+              <th
+                scope="row"
+                style="background-color: #eee; color: black; text-align: left"
+              >
+                Básico
+              </th>
+
+              <td>1 Mes</td>
+              <td>10€</td>
+              <td>Acceso Estándar</td>
+              <td>Prueba1</td>
+            </tr>
+
+            <tr>
+              <!-- UD3 2.4: Rowspan + Scope row -->
+              <th
+                scope="row"
+                rowspan="2"
+                style="
+                  background-color: #eee;
+                  color: black;
+                  text-align: left;
+                  vertical-align: middle;
+                "
+              >
+                Ultimate<br />(Recomendado)
+              </th>
+
+              <td>3 Meses</td>
+              <td>25€</td>
+              <td
+                rowspan="2"
+                style="vertical-align: middle; background-color: #d1e7dd"
+              >
+                <strong>Juegos en la Nube</strong><br />+ Catálogo completo
+              </td>
+              <td>prueba2</td>
+            </tr>
+
+            <tr>
+              <!-- (Celda Nivel y Beneficios ocupadas por rowspan) -->
+              <td>12 Meses</td>
+              <td>90€ (Ahorro)</td>
+              <td>prueba3</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <hr />
+      <p>&copy; 2024 GameWorld</p>
+    </footer>
+  </body>
+</html>

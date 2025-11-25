@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameWorld - Reservas</title>
+  </head>
+  <body>
+    <header>
+      <h1>📝 Formulario de Reserva</h1>
+
+      <!-- MENÚ DE NAVEGACIÓN COMÚN -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="listas.html" target="_blank">Juegos (Listas)</a></li>
+          <li><a href="tablas.html">Precios (Tablas)</a></li>
+          <li><a href="formulario.html">Reservas (Formulario)</a></li>
+        </ul>
+      </nav>
+    </header>
+    <hr />
+
+    <main>
+      <section>
+        <h2>Completa tu pedido</h2>
+
+        <!-- 
+               IMPORTANTE: 
+               1. method="POST": Para enviar datos.
+               2. enctype="multipart/form-data": OBLIGATORIO para poder enviar archivos (Input File).
+            -->
+        <form action="#" method="POST" enctype="multipart/form-data">
+          <!-- DATOS DE USUARIO -->
+          <p>
+            <label for="nombre">Nombre / Gamertag:</label><br />
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              placeholder="Tu nombre"
+            />
+          </p>
+
+          <p>
+            <label for="email">Email:</label><br />
+            <input
+              type="email"
+              id="email"
+              name="correo"
+              required
+              placeholder="correo@ejemplo.com"
+            />
+          </p>
+
+          <p>
+            <!-- CALENDARIO SOLICITADO -->
+            <label for="fecha">Fecha de recogida:</label><br />
+            <input type="date" id="fecha" name="fecha_reserva" />
+          </p>
+
+          <!-- OPCIONES (Select y Radio) -->
+          <p>
+            <label for="consola">Consola:</label><br />
+            <select id="consola" name="plataforma">
+              <option value="ps5">PlayStation 5</option>
+              <option value="xbox">Xbox Series X</option>
+              <option value="switch">Nintendo Switch</option>
+            </select>
+          </p>
+
+          <p>
+            <strong>Formato:</strong><br />
+
+            <input
+              type="radio"
+              id="fis"
+              name="formato"
+              value="fisico"
+              checked
+            />
+            <label for="fis">Físico</label>
+            <input type="radio" id="dig" name="formato" value="digital" />
+            <label for="dig">Digital</label>
+          </p>
+
+          <!-- AQUÍ ESTÁN LAS PARTES QUE HAS PEDIDO AHORA -->
+          <hr />
+
+          <!-- 1. PARTE PARA METER COMENTARIO (TEXTAREA) -->
+          <p>
+            <label for="coment">Comentarios o Instrucciones:</label><br />
+            <!-- rows="4" define la altura, cols="50" el ancho aprox -->
+            <textarea
+              id="coment"
+              name="mensaje"
+              rows="4"
+              cols="50"
+              placeholder="Escribe aquí tus comentarios..."
+            ></textarea>
+          </p>
+
+          <!-- 2. PARTE PARA AÑADIR DOCUMENTO (FILE) -->
+          <p>
+            <label for="doc">Adjuntar justificante o DNI:</label><br />
+            <input type="file" id="doc" name="archivo_adjunto" />
+          </p>
+
+          <!-- 3. BOTONES DE LIMPIAR Y ENVIAR -->
+          <p>
+            <!-- type="submit": Envía el formulario -->
+            <button type="submit">Enviar Reserva</button>
+
+            <!-- type="reset": Limpia todos los campos -->
+            <button type="reset">Limpiar Formulario</button>
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <hr />
+      <p>&copy; 2024 GameWorld - Tienda de Videojuegos</p>
+    </footer>
+  </body>
+</html>
