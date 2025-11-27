@@ -1,10 +1,27 @@
 //Funciones
+/** * 
+La función basicamente lo que hace es darnos un número aleatorio entre 1 y 3(máximo OPCIONES) 
+y nos devuelve una palabra aleatoria
+* @function
+* @returns {string} - La palabra (opción) seleccionada aleatoriamente. 
+*/
+
 function eleccionMaquina() {
   //Creamos un número random para que no sobrepase el nº de opciones
   let indiceRandom = Math.floor(Math.random() * OPCIONES.length);
   //Devolvemos la opción
   return OPCIONES[indiceRandom];
 }
+
+
+/**
+ * 
+ * jdgjkblxjngñlm
+ * 
+ * @param {null} jugadorEleccion 
+ * @param {*} maquinaEleccion uzhfbho
+ * @returns kcdkdkjvmv
+ */
 
 function determinarGanador(jugadorEleccion, maquinaEleccion) {
   let resultadoRonda;
