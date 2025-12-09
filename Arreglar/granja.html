@@ -1,0 +1,405 @@
+<script>
+    //Funciones del programa
+    function actualizarDatos() {
+        acciones += 1
+        contadorIteraciones++
+        numeroAnimales += aleatorio1y10()
+        numeroAnimales -= aleatorio1y5()
+    }
+    //Comprueba que el usuario no supero el DINEROMAXIMO del programa
+    function comprobacionDinero(dineroComprobar) {
+        let mensajeGanarDinero = ("Has ganado " + dineroComprobar + "G")
+        if (dinero + dineroComprobar > DINEROMAXIMO) {
+            mostrarAlert(MENSAJEDINERO)
+        } else {
+            dinero += dineroComprobar
+            mostrarAlert(mensajeGanarDinero)
+        }
+    }
+    //Muestra un alert
+    function mostrarAlert(mensaje) {
+        let mensajeMostrar = alert(mensaje)
+        return mensajeMostrar
+    }
+    //Devuelve numero aleatorio entre 1 y 10
+    function aleatorio1y10() {
+        return Number(Math.floor(Math.random() * 10) + 1)
+    }
+    //Devuelve numero aleatorio entre 1 y 5
+    function aleatorio1y5() {
+        return Number(Math.floor(Math.random() * 5) + 1)
+    }
+    //Funcionamiento según el alimento elegido
+    function Darcomida(opcionComida) {
+        if (opcionComida == COMIDAFORRAJE) { //Opción Fruta
+            //Comprueba comida disponible
+            if (textoAlimento.length >= 1) {
+                textoAlimento.pop()
+                actualizarDatos()
+                mostrarAlert(MENSAJEFORRAJE)
+            } else {
+                mostrarAlert(MENSAJENOHAYCOMIDA)
+            }
+        } else if (opcionComida == COMIDAFRUTA) {//Opción Fruta
+            //Comprueba que haya comida disponible y que no haya enfermado
+            if (textoAlimento.length >= 1 && estadoEnfermo == false) {
+                textoAlimento.pop()
+                actualizarDatos()
+                //Comprueba que no supere el limite de "felicidad"
+                if (textoFelicidad.length < MAXIMOFELICIDAD) {
+                    textoFelicidad.push("❤️")
+                }
+                mostrarAlert(MENSAJEFRUTA)
+
+                //Si no hay comida, manda alert
+            } else {
+                mostrarAlert("No tienes comida disponible o los animales enfermos no pueden comer fruta🍎")
+            }
+        }
+    }
+
+    //---------------------------MAIN-------------------------------------
+    //Declarar los principales estados de los animales
+    let numeroAnimales = 10
+    const FELICIDADANIMAL = 4
+    const ALIMENTOANIMAL = 4
+    const ESTABLOANIMAL = 5
+    let opcion
+    let acciones = 0
+    let dinero = 1500
+
+    //Variables para la salud de los animales y nombre del "establo"
+    let estadoEnfermo = false
+    let estadoAnimal = "😊"
+    //Variable, para saber que alimento va a dar
+    let darAlimento
+
+    //Convertir Felicidad a emoji
+    let textoFelicidad = []
+    for (let i = 0; i < FELICIDADANIMAL; i++) {
+        textoFelicidad.push("❤️")
+    }
+    //Convertir alimento a emoji
+    let textoAlimento = []
+    for (let i = 0; i < ALIMENTOANIMAL; i++) {
+        textoAlimento.push("🌾")
+    }
+    //Convertir establo a emoji
+    let textoEstablo = []
+    for (let i = 0; i < ESTABLOANIMAL; i++) {
+        textoEstablo.push("💩")
+    }
+
+    //Variables/constantes para "Mercado"
+    let contadorIteraciones = 0
+    const PRODUCTOSNOMBRES = [
+        "Bebedero de Agua🚰",
+        "Refugio para animales🛖",
+        "Juguetes para animales🧸",
+        "Malla de Sombra🏖️",
+        "Sistema de Riego💧",
+        "Herramientas de Limpieza🧹",
+        "Luz Solar Artificial💡",
+        "Cercado Mejorado🔐",
+        "Medicina"
+    ]
+    const PRODUCTOSPRECIOS = [200, 500, 150, 300, 400, 100, 350, 600, 50]
+    let productosNombreActual = []
+    let productoPrecioActual = []
+    let productosComprados = []
+    let productosSeleccionados = 0
+    //Bool que para el bucle de Mercado
+    let compraValida = false
+    //Comprueba si el producto se ha comprado antes
+    let articuloComprado = false
+    let articuloCurar = false
+    //Usuario introduce que quiere comprar
+    let usuarioCompra
+
+    //Constantes del programa
+    const ESTABLONOMBRE = prompt("Dime que nombre quieres para tu establo")
+    const MAXIMOFELICIDAD = 4
+    const MAXIMOALIMENTO = 4
+    const MAXIMOESTABLO = 6
+    const ESTABLOLIMPIO = 0
+    const MAXIMOPRODUCTOS = 4
+    const PRODUCTOSTOTALES = PRODUCTOSNOMBRES.length
+    const MINIMOANIMALES = 0
+    const MAXIMOANIMALES = 99
+    const ENFERMO = 4
+    const PRODUCTOSTIENDA = 4
+    const CAMBIOTIENDA = 6
+    const REINICIOITERACIONES = 3
+    const COSTECOMIDA = 100
+    const ENTORNOSUCIO = 3
+    const ALIMENTARANIMALES = 1
+    const JUGARANIMALES = 2
+    const LIMPIARESTABLO = 3
+    const COMPRARCOMIDA = 4
+    const CURARANIMALES = 5
+    const INFORMACION = 6
+    const MERCADO = 7
+    const PRODUCTO1 = 1
+    const PRODUCTO2 = 2
+    const PRODUCTO3 = 3
+    const PRODUCTO4 = 4
+    const SALIRMERCADO = 5
+    const COMIDAFORRAJE = 1
+    const COMIDAFRUTA = 2
+    const DINEROMAXIMO = 9999
+    const DINEROMINIMO = 0
+
+    //Constantes para mensajes
+    const MENSAJENOHAYCOMIDA = ("No tienes comida disponible🌾🌾")
+    const MENSAJEANIMALESENFERMOS = ("Tus animales han enfermado 🤒")
+    const MENSAJEFORRAJE = ("Le has dado de comer Forraje 🌾")
+    const MENSAJEFRUTA = ("Le has dado de comer Fruta 🍎")
+    const MENSAJEJUGARANIMALES = ("Hemos jugado con los animales🐄")
+    const MENSAJEESTABLOLIMPIADO = ("Establo limpiado🧹💩")
+    const MENSAJEESTABLOESTABALIMPIO = ("🧹Tienes el establo limpio, no hace falta limpiar🧹")
+    const MENSAJECOMIDAREPUESTA = ("Comida repuesta🌾🍎, te ha costado " + COSTECOMIDA + "G")
+    const MENSAJECOMIDALLENA = ("🌾No puedes comprar más comida, estas lleno🌾")
+    const MENSAJENODINERO = ("No tienes suficiente dinero💲")
+    const MENSAJEANIMALESSALUDABLES = ("Tus animales ya estaban saludables, no necesitan curación 😊😊")
+    const MENSAJEINFORMACION = ("Nombre del Establo: " + ESTABLONOMBRE + "\nNúmero de animales: " + numeroAnimales)
+    const MENSAJEPRODUCTOESTABACOMPRADO = ("Ya lo has comprado anteriormente")
+    const MENSAJEITERACIONES = ("Se suma (+💩) y se resta (-❤️) x cada 3 Acciones")
+    const MENSAJETIENDA = ("Cambiando la tienda...")
+    const MENSAJEDINERO = ("Vas a superar el maximo de dinero, no recibes dinero")
+    const MENSAJEFINAL = ("El juego ha terminado")
+    const MENSAJEANIMALESCURADOS = ("Tus animales ya están curados 🩹🩹")
+    const MENSAJENECESITASLIMPIAR = ("Necesitas tener el establo limpio para poder curarlos🧹🧹")
+    const MENSAJEERROR = ("Opción no válida, introduce un número entre 1 y 5")
+    const MENSAJEENTORNOSUCIO = ("💩No puedes alimentar a los animales, el entorno está demasiado sucio💩")
+
+    //Bucle principal: Se detiene cuando los animales son 0 y superior de 99
+    while (numeroAnimales > MINIMOANIMALES && numeroAnimales < MAXIMOANIMALES) {
+        //Check para que cambien los objetos cada 5 veces y al inicio del programa
+        if (contadorIteraciones % CAMBIOTIENDA === 0 || productosNombreActual.length === 0) {
+            productosNombreActual = []
+            productoPrecioActual = []
+            productosSeleccionados = 0
+
+            //Bucle para seleccionar 4 productos aleatorios
+            while (productosSeleccionados < PRODUCTOSTIENDA) {
+                contadorIteraciones = 0
+                let indiceRandom = Math.floor(Math.random() * PRODUCTOSTOTALES)
+                let productoActual = PRODUCTOSNOMBRES[indiceRandom]
+                let precioActual = PRODUCTOSPRECIOS[indiceRandom]
+                let productoComprado = false
+                let productoseleccionado = false
+                //Comprobación para saber si el producto ha sido comprado
+                for (let i = 0; i < productosComprados.length; i++) {
+                    if (productosComprados[i] === productoActual) {
+                        productoComprado = true
+                    }
+                }
+                //Comprobación para saber si el producto se repite
+                for (let x = 0; x < productosNombreActual.length; x++) {
+                    if (productosNombreActual[x] === productoActual) {
+                        productoseleccionado = true
+                    }
+                }
+                //Si el producto no se ha comprado ni se ha repetido, lo pushearemos en los productos actuales
+                if (!productoComprado && !productoseleccionado) {
+                    productosNombreActual.push(productoActual)
+                    productoPrecioActual.push(precioActual)
+                    productosSeleccionados++
+                }
+            }
+            if (contadorIteraciones == 0) {
+                contadorIteraciones = 1
+            }
+            //Condicional para evitar que se actualice el mercado otra vez si no se suman iteraciones
+            mostrarAlert(MENSAJETIENDA)
+        }
+
+        //Comprobación para salud de los animales
+        if (textoEstablo.length >= ENFERMO) {
+            estadoEnfermo = true
+            estadoAnimal = "🤒"
+            mostrarAlert(MENSAJEANIMALESENFERMOS)
+        }
+        //Mensaje Principal del Programa
+        let mensajePrincipal = ("Felicidad: " + textoFelicidad.join(" ") + "\nAlimentos Disponibles: " + textoAlimento.join(" ") + "\nEstablo: " + textoEstablo.join(" ")
+            + "\nEstado de Salud: " + estadoAnimal + "\nNº Animales: " + numeroAnimales + "\nDinero: " + dinero + "G" + "\nInventario: " + productosComprados.join(" "))
+        //Menu de Opciones
+        let mostrarOpciones = ("\nElige una acción: " + "\n1. 🥕 ALIMENTAR A LOS ANIMALES 🥕 " + "\n2. 🐑JUGAR CON LOS ANIMALES 🐑 "
+            + "\n3. 💩LIMPIAR EL ESTABLO 💩 " + "\n4. 🛒 COMPRAR COMIDA 🛒 " + "\n5. 🩺CURAR ANIMALES 🩺 " + "\n6. ℹ️CONSULTAR INFORMACION ℹ️ " + "\n7. 🚚MERCADO🚚")
+
+        //Muestra la pantalla inicial
+        mostrarAlert(mensajePrincipal)
+
+        opcion = prompt(mensajePrincipal + mostrarOpciones)
+
+        //Opción "Alimentar animales"
+        if (opcion == ALIMENTARANIMALES) {
+            //Comprobación del "establo"
+            if (textoEstablo.length <= ENTORNOSUCIO) {
+                Darcomida(darAlimento = Number(prompt("Dime que opcion de alimento quieres dar: " + "\n" + COMIDAFORRAJE + ". " + "Dar Forraje 🌾 " + "\n" + COMIDAFRUTA + ". " + "Dar Fruta 🍎")))
+                //alert, por si hay demasiado extiercol, caso "alimentar"
+            } else {
+                mostrarAlert(MENSAJEENTORNOSUCIO)
+            }
+        } //Opción "Jugar con los animales"
+        else if (opcion == JUGARANIMALES) {
+            //Comprobación del "establo"
+            if (textoEstablo.length <= ENTORNOSUCIO && estadoEnfermo == false) {
+                //Comprueba que haya comida disponible
+                if (textoAlimento.length >= 1) {
+                    textoAlimento.pop()
+                    actualizarDatos()
+                    //Nº random entre 100 y 200 para sumarselo a nuestro dinero
+                    let dineroSumar = Math.floor(Math.random() * 101) + 100
+                    comprobacionDinero(dineroSumar)
+
+                    //Comprueba que no supere el limite de "felicidad"
+                    if (textoFelicidad.length < MAXIMOFELICIDAD) {
+                        textoFelicidad.push('❤️')
+                        textoFelicidad.join()
+                    }
+                    mostrarAlert(MENSAJEJUGARANIMALES)
+                    //Si no hay comida, manda alert
+                } else {
+                    mostrarAlert(MENSAJENOHAYCOMIDA)
+                }
+                //alert, por si hay demasiado extiercol, opción "jugar"
+            } else {
+                mostrarAlert("No puedes jugar con los animales, ya que el ambiente es inadecuado o están enfermos💩🤒")
+            }
+        } //Opción "Limpiar establo"
+        else if (opcion == LIMPIARESTABLO) {
+            //Comprueba que haya extiercol para quitarlo o no
+            if (textoEstablo.length > 0) {
+                while (textoEstablo.length > 0) {
+                    textoEstablo.pop()
+                }
+                mostrarAlert(MENSAJEESTABLOLIMPIADO)
+                actualizarDatos()
+            } else {//No hay extiercol
+                mostrarAlert(MENSAJEESTABLOESTABALIMPIO)
+            }
+        } //Opción "Comprar comida"
+        else if (opcion == COMPRARCOMIDA) {
+            //Comprobación dinero disponible
+            if (dinero >= COSTECOMIDA) {
+                //Comprueba la comida y añade hasta el maximo
+                if (textoAlimento.length < MAXIMOALIMENTO) {
+                    while (textoAlimento.length < MAXIMOALIMENTO) {
+                        textoAlimento.push("🌾")
+                    }
+                    //La comida quitará 100 al dinero
+                    dinero -= COSTECOMIDA
+                    mostrarAlert(MENSAJECOMIDAREPUESTA)
+                    actualizarDatos()
+                } else {//Tenía el maximo
+                    mostrarAlert(MENSAJECOMIDALLENA)
+                }
+            } else {//No hay dinero para comprar comida
+                mostrarAlert(MENSAJENODINERO)
+            }
+
+        }//Opción "Curar Animales"
+        else if (opcion == CURARANIMALES) {
+            //Comprobación del establo
+            if (textoEstablo.length > ESTABLOLIMPIO && !articuloCurar) {
+                mostrarAlert(MENSAJENECESITASLIMPIAR)
+            } else {//Comprueba si esta el animal enfermo y si lo esta lo cura
+                if (estadoEnfermo == true) {
+                    estadoEnfermo = false
+                    estadoAnimal = "😊"
+                    mostrarAlert(MENSAJEANIMALESCURADOS)
+                    actualizarDatos()
+                } else {//Los animales no estaban enfermos
+                    mostrarAlert(MENSAJEANIMALESSALUDABLES)
+                }
+            }
+            if (articuloCurar) {
+                articuloCurar = false
+                estadoEnfermo = false
+                estadoAnimal = "😊"
+                mostrarAlert(MENSAJEANIMALESCURADOS)
+                actualizarDatos()
+                mostrarAlert("Has usado el objeto medicina")
+            }
+
+        }//Opción "Consultar informacion"
+        else if (opcion == INFORMACION) {
+            mostrarAlert(MENSAJEINFORMACION)
+        }//Opción "Mercado"
+        else if (opcion == MERCADO) {
+            compraValida = false
+            while (!compraValida) {
+                articuloComprado = false
+                if (textoFelicidad.length >= 4) {
+                    
+                }
+                let mensajeProductosDisponibles = ("1. " + productosNombreActual[0] + " - " + productoPrecioActual[0] + "G"
+                    + "\n2. " + productosNombreActual[1] + " - " + productoPrecioActual[1] + "G"
+                    + "\n3. " + productosNombreActual[2] + " - " + productoPrecioActual[2] + "G"
+                    + "\n4. " + productosNombreActual[3] + " - " + productoPrecioActual[3] + "G"
+                    + "\n5. SALIR"
+                    + "\nDime el nº del producto que quieras comprar")
+                usuarioCompra = Number(prompt(mensajeProductosDisponibles))
+                //Condicional para saber si usuario introduce número valido
+                if (usuarioCompra >= PRODUCTO1 && usuarioCompra <= PRODUCTO4) {
+                    let productoElegido = usuarioCompra
+                    let indice = usuarioCompra - 1
+                    let productoNombre = productosNombreActual[indice]
+                    let productoPrecio = productoPrecioActual[indice]
+                    //Otra condicional para comprobar valor del usuario
+                    if (usuarioCompra > 0) {
+                        //Bucle para buscar dentro de tu inventario
+                        for (let i = 0; i < productosComprados.length; i++) {
+                            //Si lo ha comprado no podrá comprarlo de nuevo
+                            if (productoNombre === productosComprados[i]) {
+                                mostrarAlert(MENSAJEPRODUCTOESTABACOMPRADO)
+                                articuloComprado = true
+                            }
+                        }//Comprobación para saber si puede comprar objeto
+                        if (dinero >= productoPrecio && !articuloComprado) {
+                            dinero -= productoPrecio
+                            productosComprados.push(productoNombre)
+                            let mensajeProductoComprado = ("Felicidades, Has comprado " + productoNombre + " por " + productoPrecio + "G")
+                            compraValida = true
+                            actualizarDatos()
+                            mostrarAlert(mensajeProductoComprado)
+                        }//No tiene dinero para comprar el objeto
+                        else if (dinero < productoPrecio && !articuloComprado) {
+                            mostrarAlert(MENSAJENODINERO)
+                            compraValida = true
+                        }//Si no puede comprar el objeto, llegara a este if, para poder salir
+                        if (articuloComprado || dinero < productoPrecio) {
+                            compraValida = true
+                        }
+                    }
+                    //Sale del programa
+                } else if (usuarioCompra === SALIRMERCADO) {
+                    compraValida = true
+                } else {//No ha introducido respuesta valida
+                    mostrarAlert(MENSAJEERROR)
+                }
+            }
+        } else {
+            mostrarAlert("Opción no válida")
+        }
+        //Cuando cuente 3 acciones, se suma 1 estiercol y -1 felicidad
+        //A su vez, restablece el nº de acciones
+        if (acciones == REINICIOITERACIONES) {
+            mostrarAlert(MENSAJEITERACIONES)
+            textoFelicidad.pop()
+            acciones = 0
+            //Mientras que no haya 6 extiercoles, se seguirá sumando
+            if (textoEstablo.length < MAXIMOESTABLO) {
+                textoEstablo.push('💩')
+            }
+        }
+        for (let i = 0; i < productosComprados.length; i++) {
+            if ("Medicina" === productosComprados[i]) {
+                articuloCurar = true
+            }
+        }
+
+    }
+    mostrarAlert(MENSAJEFINAL)
+</script>
