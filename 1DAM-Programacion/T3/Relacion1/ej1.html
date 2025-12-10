@@ -1,0 +1,26 @@
+<script>
+    function crearNombreUsuario(nombre, apellidos) {
+        const MAXIMOLETRASNOMBRE = 3
+        const MAXIMOLETRASAPELLIDOS = 3
+        const MAXIMONUMEROS= 3
+        
+        let usuarioFinal = []
+        for (let i = 0; i < MAXIMOLETRASNOMBRE; i++) {
+            usuarioFinal += nombre[i]
+        }
+        for (let i = 0; i < MAXIMOLETRASAPELLIDOS; i++) {
+            usuarioFinal += apellidos[i]
+        }
+        for (let i = 0; i < MAXIMONUMEROS; i++) {
+            let indiceAletorio = Math.floor(Math.random() * 10)
+            usuarioFinal += indiceAletorio
+        }
+        return usuarioFinal
+    }
+
+
+//---------------MAIN-----------------
+    let miNombreUsario = crearNombreUsuario("Antonio", "Torres")
+    console.log(miNombreUsario.toLowerCase());
+    
+</script>
