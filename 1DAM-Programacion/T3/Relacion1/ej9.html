@@ -1,0 +1,57 @@
+<script>
+    function calcularTemp(rangoMin, rangoMax) {
+        return Math.floor(Math.random() * (rangoMax - rangoMin + 1)) + rangoMin
+    }
+
+    //Calcular nº random entre dos valores
+    //Math.floor(Math.random() * (max - min + 1)) + min
+
+    function simularDia(estacionSimular) {
+        let mensaje
+        let tempMinRangoMin = 0
+        let tempMinRangoMax = 0
+        let tempMaxRangoMin = 0
+        let tempMaxRangoMax = 0
+        let probLluviaRangoMin = 0
+        let probLluviaRangoMax = 0
+        let temperaturaMinima = 0
+        let temperaturaMaxima = 0
+        let probabilidadLluvia = 0
+
+        if (estacionSimular === "verano") {
+            tempMinRangoMin = 15
+            tempMinRangoMax = 25
+            tempMaxRangoMin = 25
+            tempMaxRangoMax = 40
+            probLluviaRangoMin = 0
+            probLluviaRangoMax = 50
+            temperaturaMaxima = calcularTemp(tempMaxRangoMin, tempMaxRangoMax)
+            temperaturaMinima = calcularTemp(tempMinRangoMin, tempMinRangoMax)
+            probabilidadLluvia = calcularTemp(probLluviaRangoMin, probLluviaRangoMax)
+
+        } else if (estacionSimular === "invierno") {
+            tempMinRangoMin = -15
+            tempMinRangoMax = 5
+            tempMaxRangoMin = -5
+            tempMaxRangoMax = 15
+            probLluviaRangoMin = 50
+            probLluviaRangoMax = 100
+            temperaturaMaxima = calcularTemp(tempMaxRangoMin, tempMaxRangoMax)
+            temperaturaMinima = calcularTemp(tempMinRangoMin, tempMinRangoMax)
+            probabilidadLluvia = calcularTemp(probLluviaRangoMin, probLluviaRangoMax)
+
+        } else {
+            mensaje = "No has introducido ninguna estación valida"
+        }
+
+        return [temperaturaMaxima, temperaturaMinima, probabilidadLluvia]
+
+    }
+
+
+    let estacion = "verano"
+    let resultado = simularDia(estacion)
+    console.log(resultado);
+    
+
+</script>
