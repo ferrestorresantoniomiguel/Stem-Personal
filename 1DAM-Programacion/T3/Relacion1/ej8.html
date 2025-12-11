@@ -1,0 +1,27 @@
+<script>
+    function clientesCola(clientes) {
+        let clientesNombres = ["Antonio", "Cristina", "Marino", "Amadeo", "Juan de dios"]
+        let clientesApellidos = ["Ferres", "Torres", "Sabio", "Alaminos", "Romero", "Kain"]
+        let tiempoCola = 0
+        let matrizClientes = []
+        while (clientes > 0) {
+            tiempoCola = Math.floor(Math.random() * 20) + 1
+            let clienteActualNombre = clientesNombres.splice((Math.random() * clientesNombres.length), 1)[0]
+            let clienteActualApellido = clientesApellidos.splice((Math.random() * clientesApellidos.length), 1)[0]
+            let clienteNombreCompleto = clienteActualNombre + " " + clienteActualApellido
+            let clienteActual =[clienteNombreCompleto, tiempoCola]
+            matrizClientes.push(clienteActual)
+            clientes--
+        }
+        return matrizClientes
+    }
+    
+//-------------------MAIN----------------------
+
+    let numeroClientes = 3
+    let resultado = clientesCola(numeroClientes)
+    console.log("Cliente 1: " + resultado[0]);
+    console.log("Cliente 2: " + resultado[1]);
+    console.log("Cliente 3: " + resultado[2]);
+    
+</script>
