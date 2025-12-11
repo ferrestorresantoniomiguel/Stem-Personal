@@ -1,0 +1,32 @@
+<script>
+    function emparejarAmigos(nombres) {
+        let bolsa = []
+        for (let i = 0; i < nombres.length; i++) {
+            bolsa.push(nombres[i])
+        }
+        let matrizParejas = []
+        let amigo1
+        let amigo2
+        while (bolsa.length > 0) {
+            amigo1 = bolsa.splice(0, 1)[0]
+            let indiceAletorio = Math.floor(Math.random() * bolsa.length)
+            amigo2 = bolsa.splice(indiceAletorio, 1)[0]
+            let pareja = [amigo1, amigo2]
+            matrizParejas.push(pareja)
+        }
+        return matrizParejas
+    }
+
+
+
+
+    const amigos = ["Ana", "Luis", "Marta", "Pedro", "Elena", "Antonio"]
+    if (amigos.length % 2 == 0) {
+        let resultado = emparejarAmigos(amigos)
+        console.log(resultado)
+
+    } else{
+        alert("Necesitas que las parejas sean un número par")
+    }
+
+</script>
