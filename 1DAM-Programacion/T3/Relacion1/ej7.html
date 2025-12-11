@@ -1,0 +1,17 @@
+<script>
+    function analizarTexto(textoAnalizar) {
+        let numPalabras = textoAnalizar.split(" ").length
+        let numCaracteres = textoAnalizar.length - (numPalabras - 1)
+        let longitPromedio = numCaracteres/numPalabras
+        return [numPalabras, numCaracteres, longitPromedio]
+    }
+
+    const texto = "Hola mundo mundo programacion es increible increible increible";
+    let resultado = analizarTexto(texto)
+    console.log("Nº de palabras: " + resultado[0]);
+    console.log("Nº de caracteres: " + resultado[1]);
+    console.log("Longitud promedio: " + resultado[2]);
+    
+    
+    
+</script>
