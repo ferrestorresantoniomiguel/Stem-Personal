@@ -1,10 +1,21 @@
 <script>
+
+    function hacerSemana(estacionUsu) {
+        let semana = []
+        for (let i = 0; i < 7; i++) {
+            let accion = simularDia(estacion)
+            semana.push(accion)
+        }
+        return semana
+    }
+
     function calcularTemp(rangoMin, rangoMax) {
         return Math.floor(Math.random() * (rangoMax - rangoMin + 1)) + rangoMin
     }
 
     //Calcular nº random entre dos valores
     //Math.floor(Math.random() * (max - min + 1)) + min
+
 
     function simularDia(estacionSimular) {
         let mensaje
@@ -48,10 +59,9 @@
 
     }
 
-
-    let estacion = "verano"
-    let resultado = simularDia(estacion)
-    console.log(resultado);
+    const estacion = "verano"
+    hacerSemana(estacion)
+    console.log(semana);
     
 
 </script>
