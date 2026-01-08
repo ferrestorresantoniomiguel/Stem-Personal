@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba Técnica 3 - Juego del Gordo de Navidad</title>
+</head>
+
+<body>
+    <h1>Prueba Técnica 3: Juego del Gordo de Navidad</h1>
+    <a href="https://classroom.github.com/a/RQJeSrro">Enlace al repo</a>
+    <script>
+
+        // =============================== FUNCIONES =============================== //
+
+        /**
+         * 1. Selecciona un décimo (String) aleatorio de la lista de décimos.
+         * @param {string[]} listaDecimos - El array de décimos disponibles.
+         * @returns {string} El décimo secreto seleccionado.
+         */
+        function seleccionarDecimo(listaDecimos) {
+            // Analogía: Es como sacar un papelito al azar de una bolsa.
+            const indiceAleatorio = Math.floor(Math.random() * listaDecimos.length);
+            return listaDecimos[indiceAleatorio];
+        }
+
+
+        /**
+         * 2. Comprueba si un dígito ya se encuentra en un array de dígitos.
+         * @param {string} digito - El dígito (String) a buscar.
+         * @param {string[]} listaDigitos - El array de dígitos (acertados o erróneos) donde buscar.
+         * @returns {boolean} True si el dígito está en la lista, False en caso contrario.
+         */
+        function comprobarDigitoEnLista(digito, listaDigitos) {
+            // El método .includes() es perfecto para esto.
+            // Si el dígito es, por ejemplo, "5", buscará si existe el "5" en el array.
+            return listaDigitos.includes(digito);
+        }
+
+
+        /**
+         * 3. Crea una cadena que muestra el progreso del número.
+         * Los dígitos acertados se muestran, los no acertados se ocultan con un '_'.
+         * @param {string} decimoSecreto - El décimo completo (ej: "20250").
+         * @param {string[]} digitosAdivinados - Array de dígitos únicos acertados (ej: ["2", "5"]).
+         * @returns {string} La cadena de progreso (ej: "2 _ 2 5 _").
+         */
+        function mostrarProgresoNumero(decimoSecreto, digitosAdivinados) {
+            // Analogía: Es el cartel de "Ahorcado" que solo muestra las letras acertadas.
+            let progreso = "";
+            for (let i = 0; i < decimoSecreto.length; i++) {
+                const digito = decimoSecreto[i];
+                
+                // Si el dígito actual SÍ está en la lista de adivinados...
+                if (comprobarDigitoEnLista(digito, digitosAdivinados)) {
+                    progreso += digito; // Lo revelamos
+                } else {
+                    progreso += "_"; // Lo ocultamos
+                }
+
+                // Añadimos un espacio para que se vea mejor (opcional)
+                if (i < decimoSecreto.length - 1) {
+                    progreso += " ";
+                }
+            }
+            return progreso;
+        }
+
+
+        /**
+         * 4. Comprueba si el jugador ha ganado, es decir, si todos los dígitos del décimo 
+         * se han adivinado.
+         * @param {string} decimoSecreto - El décimo completo (ej: "20250").
+         * @param {string[]} digitosAdivinados - Array de dígitos únicos acertados (ej: ["2", "0", "5"]).
+         * @returns {boolean} True si todos los dígitos del décimo están en el array de adivinados.
+         */
+        function comprobarGanador(decimoSecreto, digitosAdivinados) {
+            // Analogía: Tienes una lista de ingredientes de una receta. 
+            // ¿Están *todos* los ingredientes ya en tu despensa?
+            
+            // Recorremos el décimo secreto dígito por dígito
+            for (let i = 0; i < decimoSecreto.length; i++) {
+                const digitoSecreto = decimoSecreto[i];
+                
+                // Si encontramos UN SOLO dígito del secreto que *NO* está en la lista de adivinados,
+                // significa que AÚN no ha ganado.
+                if (!comprobarDigitoEnLista(digitoSecreto, digitosAdivinados)) {
+                    return false; // Sale de la función y devuelve false inmediatamente
+                }
+            }
+            
+            // Si el loop termina, significa que *todos* los dígitos se encontraron.
+            return true;
+        }
+
+
+        // =============================== MAIN =============================== //
+
+        let listaDecimos = [
+            "00001", "12345", "54321", "77777", "20240", "15024",
+            "86531", "99999", "11111", "24568", "60012", "20250"
+        ]
+
+        // 1. Usamos la función para inicializar la variable
+        let decimoSecreto = seleccionarDecimo(listaDecimos); 
+        
+        let arrayDigitosDecimoSecreto = decimoSecreto.split("")
+        let digitosAdivinados = [], digitosErroneos = []
+        let maxIntentos = 6, intentosRestantes = maxIntentos
+        let ganador = false
+
+        let entrada = "", digito = "", digitoYaUsado = false
+
+        console.log("🎄 ¡Bienvenido al juego del Gordo de Navidad! 🎄")
+        console.log("Se ha seleccionado un décimo premiado de 5 cifras.")
+        console.log("Tienes " + maxIntentos + " intentos para descubrir el número premiado.")
+
+        // Solo para debug:
+        // console.log("(DEBUG: Décimo Secreto es: " + decimoSecreto + ")"); 
+
+        while (intentosRestantes > 0 && !ganador) {
+
+            // 3. Usamos la función para mostrar el progreso
+            console.log("\nProgreso del décimo: " + mostrarProgresoNumero(decimoSecreto, digitosAdivinados)) 
+            console.log("Intentos restantes: " + intentosRestantes)
+            console.log("Dígitos erróneos: " + digitosErroneos.sort().join(", ")) // Uso .sort().join(", ") para que se vea mejor
+
+            entrada = prompt("Introduce un dígito del 0 al 9:")
+            digito = ""
+            digitoYaUsado = false
+
+            if (entrada != null) {
+                // trim() elimina espacios en blanco al principio y al final
+                digito = entrada.trim()
+            }
+
+            // isNaN() devuelve true si el valor NO es un número.
+            if (digito == null || digito.length != 1 || isNaN(Number(digito))) {
+                console.log("Entrada no válida. Debes introducir EXACTAMENTE un dígito (0-9). No pierdes intento.")
+            } else {
+                
+                // 2. Usamos la función dos veces:
+                // Comprobamos si el dígito ya está en la lista de acertados O en la de erróneos.
+                digitoYaUsado = comprobarDigitoEnLista(digito, digitosAdivinados) || comprobarDigitoEnLista(digito, digitosErroneos)
+
+                if (digitoYaUsado == true) {
+                    console.log("Ese dígito ya lo intentaste antes.")
+                } else {
+
+                    // 2. Aquí comprobamos si el dígito está en el décimo secreto
+                    if (comprobarDigitoEnLista(digito, arrayDigitosDecimoSecreto) == true) { 
+                        console.log("¡Correcto! Ese dígito aparece en el décimo premiado.")
+                        digitosAdivinados.push(digito)
+                    } else {
+                        console.log("Dígito incorrecto.")
+                        digitosErroneos.push(digito)
+                        intentosRestantes -= 1
+                    }
+                }
+            }
+
+            // 4. Usamos la función para ver si el juego ha terminado en victoria
+            ganador = comprobarGanador(decimoSecreto, digitosAdivinados) 
+        }
+
+        if (ganador == true) {
+            console.log("\n🎉 ¡ENHORABUENA! Has descubierto el décimo premiado: " + decimoSecreto + " 🎉")
+        } else {
+            console.log("\n❌ Te has quedado sin intentos.")
+            console.log("El número premiado era: " + decimoSecreto)
+        }
+
+    </script>
+</body>
+
+</html>
