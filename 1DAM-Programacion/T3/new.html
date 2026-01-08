@@ -1,0 +1,157 @@
+<script>
+    // =============================== FUNCIONES =============================== //
+
+    /**
+     * 1. Selecciona un décimo (String) aleatorio de la lista de décimos.
+     * @param {string[]} listaDecimos - El array de décimos disponibles.
+     * @returns {string} El décimo secreto seleccionado.
+     */
+    function seleccionarDecimo(listaDecimos) {
+        // Para elegir algo al azar de un array, multiplicamos un número random [0, 1) 
+        // por la longitud del array, y usamos Math.floor para obtener un índice entero.
+        const indiceAleatorio = Math.floor(Math.random() * listaDecimos.length);
+        return listaDecimos[indiceAleatorio];
+    }
+
+
+    /**
+     * 2. Comprueba si un dígito ya se encuentra en un array de dígitos.
+     * ESTA FUNCIÓN ES CLAVE PARA LA REUTILIZACIÓN.
+     * @param {string} digito - El dígito (String) a buscar.
+     * @param {string[]} listaDigitos - El array de dígitos donde buscar (acertados, erróneos o el décimo secreto).
+     * @returns {boolean} True si el dígito está en la lista, False en caso contrario.
+     */
+    function comprobarDigitoEnLista(digito, listaDigitos) {
+        // Usamos el método .includes(), el más limpio para ver si un elemento existe.
+        return listaDigitos.includes(digito);
+    }
+
+
+    /**
+     * 3. Crea una cadena que muestra el progreso del número.
+     * @param {string} decimoSecreto - El décimo completo (ej: "20250").
+     * @param {string[]} digitosAdivinados - Array de dígitos únicos acertados (ej: ["2", "5"]).
+     * @returns {string} La cadena de progreso (ej: "2 _ 2 5 _").
+     */
+    function mostrarProgresoNumero(decimoSecreto, digitosAdivinados) {
+        // Analogía: Imagina que el décimo es un muro y solo pintamos los ladrillos (dígitos) que hemos acertado.
+        let progreso = "";
+        
+        // Recorremos el décimo completo.
+        for (let i = 0; i < decimoSecreto.length; i++) {
+            const digito = decimoSecreto[i];
+            
+            // Reutilizamos la función 2 para comprobar.
+            if (comprobarDigitoEnLista(digito, digitosAdivinados)) {
+                progreso += digito; // Si lo hemos adivinado, lo mostramos.
+            } else {
+                progreso += "_"; // Si no, lo ocultamos.
+            }
+
+            // Añadimos un espacio para que se vea más claro en la consola.
+            if (i < decimoSecreto.length - 1) {
+                progreso += " ";
+            }
+        }
+        return progreso;
+    }
+
+
+    /**
+     * 4. Comprueba si el jugador ha ganado.
+     * @param {string} decimoSecreto - El décimo completo.
+     * @param {string[]} digitosAdivinados - Array de dígitos únicos acertados.
+     * @returns {boolean} True si todos los dígitos del décimo están en el array de adivinados.
+     */
+    function comprobarGanador(decimoSecreto, digitosAdivinados) {
+        // Recorremos el décimo secreto.
+        for (let i = 0; i < decimoSecreto.length; i++) {
+            const digitoSecreto = decimoSecreto[i];
+            
+            // Si encontramos UN SOLO dígito del número premiado que no hayamos adivinado aún,
+            // devolvemos FALSE inmediatamente.
+            if (!comprobarDigitoEnLista(digitoSecreto, digitosAdivinados)) {
+                return false; 
+            }
+        }
+        
+        // Si el bucle termina sin devolver false, es que se acertaron todos.
+        return true; 
+    }
+
+
+    // =============================== MAIN =============================== //
+
+    let listaDecimos = [
+        "00001", "12345", "54321", "77777", "20240", "15024",
+        "86531", "99999", "11111", "24568", "60012", "20250"
+    ]
+
+    // Llama a la función 1: seleccionarDecimo
+    let decimoSecreto = seleccionarDecimo(listaDecimos)
+
+    // OJO: Esta línea debe ir DESPUÉS de seleccionarDecimo, si no, daría un error (decimoSecreto no estaría definida).
+    let arrayDigitosDecimoSecreto = decimoSecreto.split("")
+    let digitosAdivinados = [], digitosErroneos = []
+    let maxIntentos = 6, intentosRestantes = maxIntentos
+    let ganador = false
+
+    let entrada = "", digito = "", digitoYaUsado = false
+
+    console.log("🎄 ¡Bienvenido al juego del Gordo de Navidad! 🎄")
+    console.log("Se ha seleccionado un décimo premiado de 5 cifras.")
+    console.log("Tienes " + maxIntentos + " intentos para descubrir el número premiado.")
+
+    while (intentosRestantes > 0 && !ganador) {
+
+        // Llama a la función 3: mostrarProgresoNumero
+        console.log("\nProgreso del décimo: " + mostrarProgresoNumero(decimoSecreto, digitosAdivinados))
+        console.log("Intentos restantes: " + intentosRestantes)
+        // Uso .join(", ") para que el array se muestre mejor.
+        console.log("Dígitos erróneos: " + digitosErroneos.join(", ")) 
+
+        entrada = prompt("Introduce un dígito del 0 al 9:")
+        digito = ""
+        digitoYaUsado = false
+
+        if (entrada != null) {
+            // trim() elimina espacios en blanco al principio y al final
+            digito = entrada.trim()
+        }
+
+        // isNaN() devuelve true si el valor NO es un número.
+        if (digito == null || digito.length != 1 || isNaN(Number(digito))) {
+            console.log("Entrada no válida. Debes introducir EXACTAMENTE un dígito (0-9). No pierdes intento.")
+        } else {
+            // Llama a la función 2 dos veces (o con el operador ||)
+            // ¿El dígito ya está en la lista de adivinados O en la de erróneos?
+            digitoYaUsado = comprobarDigitoEnLista(digito, digitosAdivinados) || comprobarDigitoEnLista(digito, digitosErroneos)
+
+            if (digitoYaUsado == true) {
+                console.log("Ese dígito ya lo intentaste antes.")
+            } else {
+
+                // Llama a la función 2 de nuevo (para el décimo secreto)
+                if (comprobarDigitoEnLista(digito, arrayDigitosDecimoSecreto) == true) {
+                    console.log("¡Correcto! Ese dígito aparece en el décimo premiado.")
+                    digitosAdivinados.push(digito)
+                } else {
+                    console.log("Dígito incorrecto.")
+                    digitosErroneos.push(digito)
+                    intentosRestantes -= 1
+                }
+            }
+        }
+
+        // Llama a la función 4: comprobarGanador
+        ganador = comprobarGanador(decimoSecreto, digitosAdivinados)
+    }
+
+    if (ganador == true) {
+        console.log("\n🎉 ¡ENHORABUENA! Has descubierto el décimo premiado: " + decimoSecreto + " 🎉")
+    } else {
+        console.log("\n❌ Te has quedado sin intentos.")
+        console.log("El número premiado era: " + decimoSecreto)
+    }
+
+</script>
