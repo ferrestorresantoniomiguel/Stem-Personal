@@ -30,9 +30,8 @@ public class ejercicio7 {
             } else {
                 System.out.println("Error: No se puede dividir por cero.");
             }
-        } else {// Finaliza el programa si el operador falla
+        } else {// Finaliza el programa si el operador es incorrecto
             System.out.println("Operador incorrecto");
-            return;
         }
         teclado.close();
 

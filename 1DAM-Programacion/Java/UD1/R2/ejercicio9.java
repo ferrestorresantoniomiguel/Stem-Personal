@@ -6,10 +6,11 @@ public class ejercicio9 {
 
         System.out.print("¿Cuántos caramelos tienes? ");
         int numeroDeCaramelos = teclado.nextInt();
+        teclado.nextLine();
 
         System.out.print("¿Cuántos niños hay? ");
         int numeroDeNinios = teclado.nextInt();
-        
+
         int carameloPorNinio = numeroDeCaramelos / numeroDeNinios;
         int restoDeCaramelos = numeroDeCaramelos % numeroDeNinios;
         System.out.println("A cada niño le tocan " + carameloPorNinio + " caramelos y han sobrado " + restoDeCaramelos);
