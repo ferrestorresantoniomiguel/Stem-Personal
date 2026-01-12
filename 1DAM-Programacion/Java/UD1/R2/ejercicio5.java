@@ -5,9 +5,13 @@ public class ejercicio5 {
     Scanner scanner1 = new Scanner(System.in);
     
     System.out.print("Introduzca su peso: ");
-    String pesoEnLaTierra = scanner1.nextLine();
+    double pesoEnLaTierra = scanner1.nextDouble();
 
+    double pesoEnLaLuna = pesoEnLaTierra * 0.165;
+
+    System.out.println("En la Luna pesarías: " + pesoEnLaLuna + "kg");
     
+    scanner1.close();
 
 
     }
