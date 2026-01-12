@@ -12,8 +12,6 @@ public class ejercicio9 {
         // Comprobamos si tiene dos cifras (entre 10 y 99)
         if (numero >= 10 && numero <= 99) {
             
-            // En Java, int / int ya nos da el cociente entero (las decenas)
-            // No hace falta el parseInt(numero / 10) de JS
             int digitoDecenas = numero / 10;
             
             // El resto nos da las unidades
