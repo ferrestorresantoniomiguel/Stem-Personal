@@ -8,12 +8,15 @@ public class ejercicio7 {
 
         System.out.print("Introduzca un número: ");
         double numero1 = teclado.nextDouble();
+        teclado.nextLine();
 
         System.out.print("Introduzca otro número: ");
         double numero2 = teclado.nextDouble();
+        teclado.nextLine();
 
         System.out.print("Introduzca el operador (+, -, *, /): ");
         String operador = teclado.next();
+        teclado.nextLine();
 
         if (operador.equals("+")) {
             resultado = numero1 + numero2;
