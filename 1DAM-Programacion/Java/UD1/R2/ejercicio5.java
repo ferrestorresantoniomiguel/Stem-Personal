@@ -6,8 +6,9 @@ public class ejercicio5 {
     
     System.out.print("Introduzca su peso: ");
     double pesoEnLaTierra = scanner1.nextDouble();
+    double conversion = 0.165;
 
-    double pesoEnLaLuna = pesoEnLaTierra * 0.165;
+    double pesoEnLaLuna = pesoEnLaTierra * conversion;
 
     System.out.println("En la Luna pesarías: " + pesoEnLaLuna + "kg");
     
