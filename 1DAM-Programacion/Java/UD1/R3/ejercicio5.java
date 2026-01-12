@@ -7,6 +7,7 @@ public class ejercicio5 {
         // Pedir número
         System.out.print("Introduzca el numero: ");
         int numero = teclado.nextInt();
+        teclado.close();
 
         // Booleano para identificar el numero
         boolean estaEntre10y20 = (numero >= 10 && numero <= 20);
@@ -17,7 +18,6 @@ public class ejercicio5 {
             System.out.println("El número NO está entre 10 y 20");
         }
 
-        teclado.close();
     }
 
 }

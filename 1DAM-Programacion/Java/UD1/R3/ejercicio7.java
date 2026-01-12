@@ -4,7 +4,7 @@ public class ejercicio7 {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         
-        double resultado = 0; 
+        double resultado = 0.0; 
 
         System.out.print("Introduzca un número: ");
         double numero1 = teclado.nextDouble();
@@ -17,6 +17,7 @@ public class ejercicio7 {
         System.out.print("Introduzca el operador (+, -, *, /): ");
         String operador = teclado.next();
         teclado.nextLine();
+        teclado.close();
 
         if (operador.equals("+")) {
             resultado = numero1 + numero2;
@@ -33,7 +34,6 @@ public class ejercicio7 {
         } else {// Finaliza el programa si el operador es incorrecto
             System.out.println("Operador incorrecto");
         }
-        teclado.close();
 
         System.out.println("El resultado de " + numero1 + " " + operador + " " + numero2 + " es " + resultado);
         

@@ -14,7 +14,6 @@ public class ejercicio9 {
             
             int digitoDecenas = numero / 10;
             
-            // El resto nos da las unidades
             int digitoUnidades = numero % 10;
             
             int suma = digitoDecenas + digitoUnidades;
