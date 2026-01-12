@@ -1,3 +1,34 @@
+import java.util.Scanner;
 public class ejercicio9 {
-    
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("Introduzca un número de dos dígitos: ");
+        int numero = teclado.nextInt();
+        
+        String mensaje = "";
+
+        // Comprobamos si tiene dos cifras (entre 10 y 99)
+        if (numero >= 10 && numero <= 99) {
+            
+            // En Java, int / int ya nos da el cociente entero (las decenas)
+            // No hace falta el parseInt(numero / 10) de JS
+            int digitoDecenas = numero / 10;
+            
+            // El resto nos da las unidades
+            int digitoUnidades = numero % 10;
+            
+            int suma = digitoDecenas + digitoUnidades;
+            
+            mensaje = "El número tiene dos cifras, la suma de sus cifras es: " + suma;
+            
+        } else {
+            mensaje = "El número no tiene dos cifras";
+        }
+
+        System.out.println(mensaje);
+        
+        teclado.close();
+    }
 }
