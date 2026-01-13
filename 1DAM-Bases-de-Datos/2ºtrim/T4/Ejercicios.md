@@ -66,9 +66,14 @@ FROM empleado;
 
 ### -- 7. Muestra el número total de ventas y la suma total de importes.
 
+SELECT COUNT(*) AS numero_ventas, SUM(importe) AS suma_importes
+FROM venta;
 
 ### -- 8. Encuentra el/los cliente/clientes con la venta más baja.
 
+SELECT cliente, importe
+FROM venta
+WHERE importe = (SELECT MIN(importe) FROM venta);
 
 ### -- 9. Encuentra el cliente que realizó la venta de mayor importe.
 
@@ -77,15 +82,57 @@ FROM empleado;
 
 -- Ejercicios de Subconsultas
 
--- 1. Lista los nombres de empleados que trabajan en departamentos existentes en la tabla departamento.
+### -- 1. Lista los nombres de empleados que trabajan en departamentos existentes en la tabla departamento.
 
--- 2. Encuentra todos los empleados cuyo salario sea mayor a 4000 y muestra su nombre y salario.
-
-
--- 3. Encuentra el nombre del empleado con el salario más alto.
+### -- 2. Encuentra todos los empleados cuyo salario sea mayor a 4000 y muestra su nombre y salario.
 
 
--- 4. Calcula el promedio de salarios por departamento y muestra los departamentos con un salario promedio mayor a 5000.
+### -- 3. Encuentra el nombre del empleado con el salario más alto.
 
 
--- 5. Encuentra los clientes que han realizado ventas superiores al promedio de todas las ventas.
+### -- 4. Calcula el promedio de salarios por departamento y muestra los departamentos con un salario promedio mayor a 5000.
+
+
+### -- 5. Encuentra los clientes que han realizado ventas superiores al promedio de todas las ventas.
+
+
+## Ejercicio5
+
+-- Ejercicios de Funciones de Texto
+### -- 1. Concatenar nombres y apellidos de los ciudadanos en un único campo "nombre_completo".
+
+### -- 2. Obtener las primeras 3 letras de los nombres de los ciudadanos.
+
+### -- 3. Calcular la longitud de los nombres de los ciudadanos.
+
+### -- 4. Reemplazar la palabra "hospitales" por "clínicas" en las descripciones de actividades.
+
+### -- 5. Eliminar espacios al inicio y al final de los nombres de los ministerios.
+
+
+-- Ejercicios de Funciones NuEXTRACTméricas
+### -- 6. Redondear el presupuesto de las actividades a millones.
+
+### -- 7. Calcular la diferencia entre los ingresos anuales de cada ciudadano y el promedio de ingresos.
+
+### -- 8. Obtener el entero más cercano hacia abajo y hacia arriba de los presupuestos de los ministerios.
+
+### -- 9. Generar un número aleatorio para asignar un identificador único temporal a cada actividad.
+
+-- Ejercicios de Funciones de Fecha y Hora
+### -- 10. Calcular la antigüedad de cada ministerio en años.
+
+-- Para mi esta es la mejor:
+
+### -- 11. Formatear las fechas de inicio y fin de las actividades en formato "DD-MM-YYYY".
+
+### -- 12. Calcular cuántos días faltan para que termine cada actividad.
+
+### -- 13. Extraer el mes y el año de las fechas de nacimiento de los ciudadanos.
+
+-- Para mi la mejor es:
+
+### -- 14. Filtrar ciudadanos nacidos después del año 1990.
+
+
+### -- 15. Calcular el tiempo total en días que dura cada actividad gubernamental.
