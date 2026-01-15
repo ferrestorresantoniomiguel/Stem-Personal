@@ -8,25 +8,26 @@ sudo apt update && sudo apt install acl -y
 ----------------------------------------------------
 
 - Creamos grupos editores, cámaras y promotores
-groupadd editores
-groupadd camaras
-groupadd promotores
+sudo groupadd editores
+sudo groupadd camaras
+sudo groupadd promotores
+
+- Creamos grupo común "empleados" para gestionar el acceso a la raíz de forma segura
+sudo groupadd empleados_gr
 
 -----
 - Creamos sus carpetas
-mkdir -p /opt/compartido/recursos
-mkdir -p /opt/compartido/videos_finales
-mkdir -p /opt/compartido/estadísticas
+sudo mkdir -p /opt/compartido/recursos
+sudo mkdir -p /opt/compartido/videos_finales
+sudo mkdir -p /opt/compartido/estadísticas
 
 --------
-- Permisos de la carpeta raíz (/opt/compartido): Queremos que solo estos tres grupos entren.
-Usaremos un grupo común o permisos detallados.
+- Permisos de la carpeta raíz (/opt/compartido): 
+# El PDF exige que NO sea legible para otros usuarios. 
+# Usamos 750: root(rwx), grupo(r-x), otros(---)
 
-chgrp -R editores /opt/compartido
-
-
-## Para que los otros grupos también entren, daremos permisos de ejecución a otros pero controlaremos dentro
-chmod 771 /opt/compartido
+sudo chgrp empleados_gr /opt/compartido
+sudo chmod 750 /opt/compartido
 
 -----------------------------------------------------
 2. Gestión de Usuarios y Contraseñas
@@ -37,54 +38,59 @@ chmod 771 /opt/compartido
 	· Promotores: Con home y cambio cada 30 días (chage -M 30).
 
 ## Para un editor (repetir para editor1, editor2...)
-useradd -M -g editores -s /bin/bash editor1
-chage -M 15 editor1
+sudo useradd -M -g editores -G empleados_gr -s /bin/bash editor1
+sudo chage -M 15 editor1
 
 ## Para un cámara (repetir para camara1, camara2...)
-useradd -M -g camaras -s /bin/bash camara1
-chage -M 15 camara1
+sudo useradd -M -g camaras -G empleados_gr -s /bin/bash camara1
+sudo chage -M 15 camara1
 
 ## Para un promotor (repetir para promotor1, promotor2...)
-useradd -m -g promotores -s /bin/bash promotor1
-chage -M 30 promotor1
+sudo useradd -m -g promotores -G empleados_gr -s /bin/bash promotor1
+sudo chage -M 30 promotor1
 
 -----------------------------------------------------
 3. Permisos Específicos (ACLs)
 ----------------------------------------------------
 
-La lógica de "quién puede tocar qué". Lo más profesional es usar ACLs (setfacl) para no liarnos con los dueños de grupo.
+1. **Recursos**: Cámaras rwx (escriben bruto), editores r-x (leen para editar).
 	1. Recursos: Cámaras escriben, editores leen.
-setfacl -m g:camaras:rwx /opt/compartido/recursos
-setfacl -m g:editores:rx /opt/compartido/recursos
 
-	2. Videos_finales: Editores escriben, el resto lee.
-setfacl -m g:editores:rwx /opt/compartido/videos_finales
-setfacl -m o::r /opt/compartido/videos_finales
+sudo setfacl -m g:camaras:rwx /opt/compartido/recursos
+sudo setfacl -m g:editores:rx /opt/compartido/recursos
 
-	3. Estadísticas: Solo promotores.
-chmod 770 /opt/compartido/estadisticas
-chgrp promotores /opt/compartido/estadísticas
+2. **Videos_finales**: Editores rwx (suben final), cámaras y promotores r-x (revisan).
+sudo chmod 750 /opt/compartido/videos_finales
+    
+sudo chmod 750 /opt/compartido/videos_finales 
+sudo setfacl -m g:editores:rwx /opt/compartido/videos_finales
+sudo setfacl -m g:camaras:rx /opt/compartido/videos_finales
+sudo setfacl -m g:promotores:rx /opt/compartido/videos_finales
+
+3. **Estadísticas**: SOLO promotores.
+
+sudo chgrp promotores /opt/compartido/estadisticas
+sudo chmod 770 /opt/compartido/estadisticas
 
 -----------------------------------------------------
 4. Script de Organización de Archivos
 ----------------------------------------------------
 
-Este script debe ejecutarse cada 2 días para mover archivos a su sitio según su extensión.   
-
-Archivo: /usr/local/bin/mover_extensiones.sh
+Archivo: `/usr/local/bin/mover_extensiones.sh` (Ejecución cada 2 días vía Cron)
 
 ````
 #!/bin/bash
-# Movemos según extensiones del PDF [cite: 29, 30, 31]
+# Movemos según extensiones del PDF
+DEST="/opt/compartido"
 
-	# De cualquier sitio a Recursos (RAW, WAV)
-find /opt/compartido -name "*.RAW" -o -name "*.WAV" -exec mv {} /opt/compartido/recursos/ \;
+# RAW, WAV -> Recursos
+find $DEST -maxdepth 2 -type f \( -name "*.RAW" -o -name "*.WAV" \) -exec mv {} $DEST/recursos/ \;
 
-	# De cualquier sitio a Videos Finales (mp3, mp4, jpg, svg)
-find /opt/compartido -name "*.mp3" -o -name "*.mp4" -o -name "*.jpg" -o -name "*.svg" -exec mv {} /opt/compartido/videos_finales/ \;
+# mp3, mp4, jpg, svg -> Videos Finales
+find $DEST -maxdepth 2 -type f \( -name "*.mp3" -o -name "*.mp4" -o -name "*.jpg" -o -name "*.svg" \) -exec mv {} $DEST/videos_finales/ \;
 
-	# De cualquier sitio a Estadísticas (xls, doc, py, etc.)
-find /opt/compartido -name "*.xls*" -o -name "*.doc*" -o -name "*.py" -o -name "*.csv" -o -name "*.json" -exec mv {} /opt/compartido/estadisticas/ \;
+# xls, doc, py, etc -> Estadísticas
+find $DEST -maxdepth 2 -type f \( -name "*.xls*" -o -name "*.doc*" -o -name "*.py" -o -name "*.csv" -o -name "*.json" \) -exec mv {} $DEST/estadisticas/ \;
 ````
 
 
@@ -106,7 +112,7 @@ find "$RECURSOS_DIR" -maxdepth 1 -type f | while read -r archivo; do
     MES=$(date -r "$archivo" +%B)
     TAMANO_BYTES=$(stat -c%s "$archivo")
     
-    # [cite_start]Lógica de carpetas de tamaño [cite: 34]
+    # Lógica de carpetas de tamaño [cite: 34]
     if [ $TAMANO_BYTES -lt 10485760 ]; then RANGO="menos_10MB" # Opcional
     elif [ $TAMANO_BYTES -lt 104857600 ]; then RANGO="10-100MB"
     elif [ $TAMANO_BYTES -lt 1073741824 ]; then RANGO="100MB-1GB"
@@ -132,15 +138,17 @@ Para automatizar todo, editamos el cron (crontab -e)
 # Diariamente: Script de clasificación
 0 1 * * * /bin/bash /usr/local/bin/clasificar_recursos.sh
 
+# Cada miércoles a las 9:00
+0 9 * * 3 /bin/bash /usr/local/bin/monitorizarEditores.sh
+
 # Cada miércoles a las 9:00: Monitorizar editores [cite: 40]
 ````
 #!/bin/bash
-# [cite_start]Lista de editores según el PDF [cite: 13, 15]
+# Lista de editores según el PDF [cite: 13, 15]
 EDITORES=("editor1" "editor2" "editor3" "editor4")
 
 for usuario in "${EDITORES[@]}"
 do
-    # [cite_start]El PDF pide: pid, %mem, %cpu, user, command de los 5 procesos que más consumen [cite: 40]
     ps -u "$usuario" -o pid,%mem,%cpu,user,comm --sort=-%mem | head -n 6 > "/opt/compartido/$usuario"
 done
 ````
