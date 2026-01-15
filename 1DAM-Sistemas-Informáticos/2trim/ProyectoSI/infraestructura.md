@@ -1,4 +1,4 @@
-    Proyecto Diciembre SI
+# Proyecto Diciembre SI
 
 - Para instalar herramientas de ACL:
 sudo apt update && sudo apt install acl -y
@@ -25,7 +25,7 @@ Usaremos un grupo común o permisos detallados.
 chgrp -R editores /opt/compartido
 
 
-# Para que los otros grupos también entren, daremos permisos de ejecución a otros pero controlaremos dentro
+## Para que los otros grupos también entren, daremos permisos de ejecución a otros pero controlaremos dentro
 chmod 771 /opt/compartido
 
 -----------------------------------------------------
@@ -36,15 +36,15 @@ chmod 771 /opt/compartido
 	· Editores/Cámaras: Sin home (-M) y cambio cada 15 días (chage -M 15).
 	· Promotores: Con home y cambio cada 30 días (chage -M 30).
 
-# Para un editor (repetir para editor1, editor2...)
+## Para un editor (repetir para editor1, editor2...)
 useradd -M -g editores -s /bin/bash editor1
 chage -M 15 editor1
 
-# Para un cámara (repetir para camara1, camara2...)
+## Para un cámara (repetir para camara1, camara2...)
 useradd -M -g camaras -s /bin/bash camara1
 chage -M 15 camara1
 
-# Para un promotor (repetir para promotor1, promotor2...)
+## Para un promotor (repetir para promotor1, promotor2...)
 useradd -m -g promotores -s /bin/bash promotor1
 chage -M 30 promotor1
 
