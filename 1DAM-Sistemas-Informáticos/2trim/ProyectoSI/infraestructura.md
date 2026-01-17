@@ -19,7 +19,7 @@ sudo groupadd empleados_gr
 - Creamos sus carpetas
 sudo mkdir -p /opt/compartido/recursos
 sudo mkdir -p /opt/compartido/videos_finales
-sudo mkdir -p /opt/compartido/estadísticas
+sudo mkdir -p /opt/compartido/estadisticas
 
 --------
 - Permisos de la carpeta raíz (/opt/compartido): 
@@ -89,7 +89,7 @@ find $DEST -maxdepth 2 -type f \( -name "*.RAW" -o -name "*.WAV" \) -exec mv {} 
 # mp3, mp4, jpg, svg -> Videos Finales
 find $DEST -maxdepth 2 -type f \( -name "*.mp3" -o -name "*.mp4" -o -name "*.jpg" -o -name "*.svg" \) -exec mv {} $DEST/videos_finales/ \;
 
-# xls, doc, py, etc -> Estadísticas
+# xls, doc, py, etc -> Estadisticas
 find $DEST -maxdepth 2 -type f \( -name "*.xls*" -o -name "*.doc*" -o -name "*.py" -o -name "*.csv" -o -name "*.json" \) -exec mv {} $DEST/estadisticas/ \;
 ````
 
