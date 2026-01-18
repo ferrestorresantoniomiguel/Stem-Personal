@@ -4,8 +4,7 @@
 sudo apt update && sudo apt install acl -y
 
 ----------------------INICIO------------------------
-1. Estructura de Carpetas y Grupos
-----------------------------------------------------
+## 1. Estructura de Carpetas y Grupos
 
 - Creamos grupos editores, cámaras y promotores
 sudo groupadd editores
@@ -23,35 +22,51 @@ sudo mkdir -p /opt/compartido/estadisticas
 
 --------
 - Permisos de la carpeta raíz (/opt/compartido): 
-# El PDF exige que NO sea legible para otros usuarios. 
-# Usamos 750: root(rwx), grupo(r-x), otros(---)
+# El PDF dice que NO sea legible para otros usuarios. 
+(Usamos 750: root(rwx), grupo(r-x), otros(---))
 
 sudo chgrp empleados_gr /opt/compartido
 sudo chmod 750 /opt/compartido
 
 -----------------------------------------------------
-2. Gestión de Usuarios y Contraseñas
-----------------------------------------------------
+## 2. Gestión de Usuarios y Contraseñas
 
 - 4 Usuarios por grupo con políticas de contraseña distintas
 	· Editores/Cámaras: Sin home (-M) y cambio cada 15 días (chage -M 15).
 	· Promotores: Con home y cambio cada 30 días (chage -M 30).
 
-## Para un editor (repetir para editor1, editor2...)
+## Para los editores
 sudo useradd -M -g editores -G empleados_gr -s /bin/bash editor1
 sudo chage -M 15 editor1
+sudo useradd -M -g editores -G empleados_gr -s /bin/bash editor2
+sudo chage -M 15 editor2
+sudo useradd -M -g editores -G empleados_gr -s /bin/bash editor3
+sudo chage -M 15 editor3
+sudo useradd -M -g editores -G empleados_gr -s /bin/bash editor4
+sudo chage -M 15 editor4
 
-## Para un cámara (repetir para camara1, camara2...)
+## Para las cámaras
 sudo useradd -M -g camaras -G empleados_gr -s /bin/bash camara1
 sudo chage -M 15 camara1
+sudo useradd -M -g camaras -G empleados_gr -s /bin/bash camara2
+sudo chage -M 15 camara2
+sudo useradd -M -g camaras -G empleados_gr -s /bin/bash camara3
+sudo chage -M 15 camara3
+sudo useradd -M -g camaras -G empleados_gr -s /bin/bash camara4
+sudo chage -M 15 camara4
 
-## Para un promotor (repetir para promotor1, promotor2...)
+## Para los promotores
 sudo useradd -m -g promotores -G empleados_gr -s /bin/bash promotor1
 sudo chage -M 30 promotor1
+sudo useradd -m -g promotores -G empleados_gr -s /bin/bash promotor2
+sudo chage -M 30 promotor2
+sudo useradd -m -g promotores -G empleados_gr -s /bin/bash promotor3
+sudo chage -M 30 promotor3
+sudo useradd -m -g promotores -G empleados_gr -s /bin/bash promotor4
+sudo chage -M 30 promotor4
 
 -----------------------------------------------------
-3. Permisos Específicos (ACLs)
-----------------------------------------------------
+## 3. Permisos Específicos (ACLs)
 
 1. **Recursos**: Cámaras rwx (escriben bruto), editores r-x (leen para editar).
 	1. Recursos: Cámaras escriben, editores leen.
@@ -73,8 +88,7 @@ sudo chgrp promotores /opt/compartido/estadisticas
 sudo chmod 770 /opt/compartido/estadisticas
 
 -----------------------------------------------------
-4. Script de Organización de Archivos
-----------------------------------------------------
+## 4. Script de Organización de Archivos
 
 Archivo: `/usr/local/bin/mover_extensiones.sh` (Ejecución cada 2 días vía Cron)
 
@@ -95,8 +109,7 @@ find $DEST -maxdepth 2 -type f \( -name "*.xls*" -o -name "*.doc*" -o -name "*.p
 
 
 --------------------------------------------------------
-5. Script de Clasificación por Mes y Tamaño
-----------------------------------------------------
+## 5. Script de Clasificación por Mes y Tamaño
 
 Este es el más complejo. Se ejecuta a diario y organiza lo que hay dentro de recursos.   
 
@@ -127,8 +140,7 @@ done
 
 
 --------------------------------------------------
-6. Monitorización (Cron)
-----------------------------------------------------
+## 6. Monitorización (Cron)
 
 Para automatizar todo, editamos el cron (crontab -e)
 
