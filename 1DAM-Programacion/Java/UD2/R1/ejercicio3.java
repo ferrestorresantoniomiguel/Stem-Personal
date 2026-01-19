@@ -12,7 +12,7 @@ public class ejercicio3 {
         System.out.println("Estoy son mis colores: " + colores);
         String colorBorrado = colores.remove(0);
 
-        System.out.println("Número eliminado: " + colorBorrado);
+        System.out.println("Color eliminado: " + colorBorrado);
         System.out.println("Colores restantes: " + colores);
     }
 }

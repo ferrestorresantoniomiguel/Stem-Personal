@@ -9,6 +9,6 @@ public class ejercicio2 {
         colores.add("verde");
         colores.add("azul");
 
-        System.out.println("Estoy son mis colores: " + colores);
+        System.out.println("Estos son mis colores: " + colores);
     }
 }
