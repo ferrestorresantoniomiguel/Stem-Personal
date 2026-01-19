@@ -14,7 +14,7 @@ public class ejercicio7 {
         dias.add("D");
         System.out.println("Vº1 Semana: " + dias);
 
-        String diaBorrado = dias.remove(dias.size()-1);
+        dias.remove(dias.size()-1);
         dias.add("Domingo (fin de semana)");
 
         System.out.println("Vº2 Semana: " + dias);
