@@ -14,7 +14,6 @@ public class ejercicio6 {
         ArrayList<Boolean> estadoTareas = new ArrayList<>(Arrays.asList(false, true, false, true));
 
         int opcion = 0;
-        final String MENSAJEERROR = "Debes elegir una opción entre 1-5";
         final String MENSAJEOPCIONES = "\"1. Añadir tarea.\r\n" + //
                 "2. Marcar completada.\r\n" + //
                 "3. Ver pendientes.\r\n" + //
@@ -23,6 +22,8 @@ public class ejercicio6 {
         final String MENSAJETAREANUEVA = "Introduce una nueva tarea";
         final String MENSAJEBUSCARTAREA = "Dime que tarea quieres completar";
         final String MENSAJENOENCONTRADA = "Tarea no encontrada";
+        final String MENSAJEERROR = "Debes elegir una opción entre 1-5";
+        
         boolean funcionar = true;
 
         while (!funcionar) {
@@ -38,11 +39,14 @@ public class ejercicio6 {
             } else if (opcion == 2) {
                 mostrarMensaje(MENSAJEBUSCARTAREA);
                 String tareaBuscar = teclado.nextLine();
+                teclado.close();
                 boolean encontrado = false;
                 for (int i = 0; i < tareas.size(); i++) {
-                    if (tareas.equalsIgnoreCase(i) == tareaBuscar) {
+                    if (tareas.get(i).equalsIgnoreCase(tareaBuscar)) {
                         encontrado = true;
-                        estadoTareas.get(i) = true;
+                        estadoTareas.set(i, encontrado);
+                    } else {
+                        mostrarMensaje(MENSAJENOENCONTRADA);
                     }
                 }
             } else if (opcion == 3) {
