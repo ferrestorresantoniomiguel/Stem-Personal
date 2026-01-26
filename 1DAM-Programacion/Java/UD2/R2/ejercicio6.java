@@ -14,21 +14,21 @@ public class ejercicio6 {
         ArrayList<Boolean> estadoTareas = new ArrayList<>(Arrays.asList(false, true, false, true));
 
         int opcion = 0;
-        final String MENSAJEOPCIONES = "\"1. Añadir tarea.\r\n" + //
-                "2. Marcar completada.\r\n" + //
-                "3. Ver pendientes.\r\n" + //
-                "4. Ver completadas.\r\n" + //
+        final String MENSAJEOPCIONES = "1. Añadir tarea.\r\n" +
+                "2. Marcar completada.\r\n" +
+                "3. Ver pendientes.\r\n" +
+                "4. Ver completadas.\r\n" +
                 "5. Salir.\"";
         final String MENSAJETAREANUEVA = "Introduce una nueva tarea";
         final String MENSAJEBUSCARTAREA = "Dime que tarea quieres completar";
         final String MENSAJENOENCONTRADA = "Tarea no encontrada";
         final String MENSAJEERROR = "Debes elegir una opción entre 1-5";
-        
+
         boolean funcionar = true;
 
-        while (!funcionar) {
+        while (funcionar) {
             mostrarMensaje(MENSAJEOPCIONES);
-            opcion = Integer.parseInt(teclado.nextLine());
+            opcion = teclado.nextInt();
             teclado.nextLine();
 
             if (opcion == 1) {
@@ -39,7 +39,6 @@ public class ejercicio6 {
             } else if (opcion == 2) {
                 mostrarMensaje(MENSAJEBUSCARTAREA);
                 String tareaBuscar = teclado.nextLine();
-                teclado.close();
                 boolean encontrado = false;
                 for (int i = 0; i < tareas.size(); i++) {
                     if (tareas.get(i).equalsIgnoreCase(tareaBuscar)) {
@@ -50,19 +49,27 @@ public class ejercicio6 {
                     }
                 }
             } else if (opcion == 3) {
-                ArrayList<String> tareasMostrar = new ArrayList<>(
+                ArrayList<String> tareasMostrarFalse = new ArrayList<>(
                         Arrays.asList());
                 for (int i = 0; i < estadoTareas.size(); i++) {
                     if (estadoTareas.get(i) == false) {
-                        tareasMostrar.add(tareas.get(i));
+                        tareasMostrarFalse.add(tareas.get(i));
                     }
-
                 }
+                System.out.println(tareasMostrarFalse);
             } else if (opcion == 4) {
-                
+                ArrayList<String> tareasMostrarTrue = new ArrayList<>(
+                        Arrays.asList());
+                for (int i = 0; i < estadoTareas.size(); i++) {
+                    if (estadoTareas.get(i) == true) {
+                        tareasMostrarTrue.add(tareas.get(i));
+                    }
+                }
+                System.out.println(tareasMostrarTrue);
             } else if (opcion == 5) {
                 funcionar = false;
             }
+            teclado.close();
 
         }
 
