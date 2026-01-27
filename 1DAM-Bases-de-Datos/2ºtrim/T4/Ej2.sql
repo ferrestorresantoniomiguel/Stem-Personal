@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS EJERCICIO42;
-CREATE DATABASE EJERCICIO42;
-USE EJERCICIO42;
+CREATE DATABASE EJERCICIO2;
+USE EJERCICIO2;
 
 
 -- Creación de la tabla equipos
@@ -111,34 +111,35 @@ VALUES
 
 
 -- 3. Obtener los partidos con más de 4 goles en total.
-
+select id_partido from partidos where (goles_local + goles_visitante) > 4
 -- 4. Mostrar jugadores de un equipo con ID conocido (por ejemplo, equipos de Madrid).
-
+select nombre_jugador, id_equipo from jugadores where id_equipo = 1
 -- 5. Listar partidos donde el equipo local marcó más goles que el visitante.
-
+select id_partido from partidos where goles_local > goles_visitante
 -- 6. Ordenar equipos por ciudad alfabéticamente.
-
+select nombre_equipo from equipos order by ciudad asc
 -- 7. Filtrar jugadores que juegan como "Delantero" y tienen más de 20 goles.
-
+select nombre_jugador from jugadores where posicion = "delantero" and goles >= 20
 -- 8. Obtener el promedio de goles por partido para un equipo con un ID específico.
 
 -- 9. Mostrar partidos jugados en enero de 2023.
-
+select id_partido from partidos where fecha like "2023-01-%"
 -- 10. Contar jugadores de un equipo con ID específico.
-
+select count(nombre_jugador) from jugadores where id_equipo = "1"
 
 -- 11. Ordenar equipos por ciudad alfabéticamente y despues por año de fundacion descendente.
-
+select * from equipos order by ciudad asc, fundado desc
 
 -- 12. Calcular la edad promedio de los jugadores y asignarle un alias, agrupado por ID de equipo y edad promedio de forma descendente.
-
+select id_equipo, avg(edad) as promedio_edad from jugadores group by id_equipo order by id_equipo, promedio_edad desc
 
 -- 13. Mostrar el promedio de goles y asistencias de cada equipo, con alias "promedio_goles" y "promedio_asistencias", ordenados por promedio de goles descendente y promedio de asistencias ascendente.
-
+select id_equipo, avg(goles) as promedio_goles, avg(asistencias) as promedio_asistencias from jugadores group by id_equipo order by promedio_goles desc, promedio_asistencias asc
 
 -- 14. Obtener los equipos con el total de goles anotados en sus partidos como local, usando alias "total_goles", ordenados total de goles como local descendente.
-
+select sum(goles_local + goles_visitante) as total_goles from partidos group by id_equipo_local order by total_goles desc 
 
 -- 15. Contar la cantidad de partidos jugados por cada equipo local, con alias "partidos_local", cantidad de partidos descendente.
-
+select  distinct id_equipo_local, count(id_equipo_local) as partidos_locales from partidos group by id_equipo_local order by partidos_locales desc
 -- 16. Calcular la cantidad de partidos en los que el equipo local ganó, usando alias "victorias_local", ordenados por cantidad de victorias y goles locales promedio en orden descendente.
+select  distinct id_equipo_local, count(goles_local > goles_visitante) as victorias_local from partidos group by id_equipo_local order by victorias_local desc, avg(goles_local) desc
