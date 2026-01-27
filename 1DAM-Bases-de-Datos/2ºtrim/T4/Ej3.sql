@@ -63,11 +63,11 @@ insert into jugadores values
 -- Ejercicios para practicar AS y ORDER BY
 
 -- 1. Recupera los nombres de los equipos y su ciudad, usando alias para los nombres de las columnas.
-
+select nombre as Equipo, ciudad as Localización from equipos
 -- 2. Muestra los nombres de los jugadores y puntos por juego, ordenados de mayor a menor.
-
+select nombre, puntos_por_juego from jugadores order by puntos_por_juego desc
 
 -- 3. Recupera los nombres de los equipos y la longitud de sus nombres, ordenados por esta longitud de mayor a menor.
-
+select nombre, char_length(nombre) as longitud_nombre from equipos order by longitud_nombre desc
 -- 4. Muestra los nombres de las ciudades y la suma total de campeonatos ganados por equipos en cada ciudad, ordenados por la suma de mayor a menor.
-
+select ciudad, campeonatos from equipos order by campeonatos desc
