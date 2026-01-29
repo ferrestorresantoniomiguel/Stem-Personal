@@ -1,4 +1,9 @@
 public class ejercicio1 {
+
+    /**
+     * <p> Este es un comentario de prueba<p>
+     * @param args
+     */
     public static void main(String[] args) {
         
         // 1. Creamos el array de números enteros

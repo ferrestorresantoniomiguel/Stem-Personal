@@ -73,9 +73,9 @@ INSERT INTO venta VALUES
 -- Relación de ejercicios prácticos
 
 -- 1. Encuentra el número total de empleados por departamento.
-
+select count(id),departamento from Empleado group by departamento;
 -- 2. Calcula el salario promedio por ciudad, mostrando solo las ciudades con un salario promedio mayor a 4000.
-
+select avg(salario) as salario_promedio , ciudad from empleado group by ciudad having salario_promedio > 4000
 -- 3. Encuentra el total de ventas por cada cliente.
 
 
