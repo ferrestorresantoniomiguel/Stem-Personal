@@ -1,8 +1,11 @@
 ## Ejercicios tabla personas
 
 1. Muestra la media de salario agrupada por ocupación
+select ocupacion, avg(ingresos_anuales) from personas group by ocupacion
 2. Muestra la media de salarios en cada provincia
+select provincia, avg(ingresos_anuales) from personas group by provincia
 3. Muestra la media de edad de cada nivel socioeconómico
+select avg(datediff(now(), fecha_nacimiento)/365.25) as edad_media from personas group by ocupacion
 4. Dime la edad de las personas de menos de 60 años ordenadas por situación laboral.
 5. Muestra el nombre de la persona jubilada de más edad.
 6. Dime la provincia con la máxima edad media.
