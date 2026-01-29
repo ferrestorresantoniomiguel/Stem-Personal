@@ -78,76 +78,76 @@ INSERT INTO itinerario (id_procesion, punto, hora_paso) VALUES
 -- Soluciones a los ejercicios
 
 -- 1. Listar todos los nombres de las procesiones.
-
+select nombre from procesion
 
 -- 2. Mostrar los barrios donde se realizan las procesiones, sin repetir.
-
+select distinct(barrio) from procesion
 
 -- 3. Obtener el nombre y la hora de inicio de todas las procesiones que comienzan después de las 18:00.
-
+select nombre, hora_inicio from procesion where hora_inicio > "18:00:00"
 -- 4. Seleccionar el nombre y estilo de todos los pasos.
-
+select nombre, estilo from paso
 
 -- 5. Mostrar el nombre de las hermandades que tienen más de 100 costaleros.
-
+select nombre, numero_costaleros from hermandad where numero_costaleros > 100
 
 -- 6. Listar las procesiones que ocurren el Viernes Santo.
-
+select * from procesion where dia_semana = "Viernes Santo"
 
 -- 7. Mostrar los puntos de paso de las procesiones que pasan por 'Catedral'.
 
 -- 8. Obtener las procesiones que tienen lugar en el barrio 'Centro'.
-
+select * from procesion where barrio = "Centro"
 -- 9. Listar los estilos de pasos únicos.
-
+select distinct estilo from paso
 -- 10. Mostrar los nombres de los pasos que pesan más de 1900 kg.
-
+select nombre from paso where peso > 1900
 
 -- 11. Listar los pasos cuyo peso esté entre 1800 y 2200 kg.
-
+select nombre from paso where peso > 1800 and peso < 2200
 
 -- 12. Mostrar las hermandades fundadas antes del año 1600.
-
+select * from hermandad where antiguedad < 1600
 
 -- 13. Seleccionar las procesiones que comienzan después de las 19:00 y están en el barrio 'Realejo'.
-
+select * from procesion where hora_inicio > "19:00:00" and barrio = "Realejo"
 
 -- 14. Listar las hermandades que tienen más de 80 costaleros o fueron fundadas después de 1900.
-
+select * from hermandad where numero_costaleros > 80 and antiguedad > 1900
 
 -- 15. Mostrar las procesiones que no se realizan el Domingo de Ramos.
-
+select * from procesion where dia_semana not like "Domingo de Ramos"
 
 -- 16. Mostrar todas las procesiones ordenadas por la hora de inicio en orden ascendente.
-
+select * from procesion order by hora_inicio asc
 -- 17. Listar las hermandades ordenadas por antigüedad de forma descendente.
-
+select * from hermandad order by antiguedad desc
 
 -- 18. Seleccionar los pasos ordenados por peso y, en caso de empate, por estilo alfabético.
-
+select * from paso order by peso desc, estilo desc
 
 -- 20. Mostrar los puntos de paso de las procesiones ordenados por hora de paso en orden descendente.
-
+select * from itinerario order by hora_paso desc
 -- 21. Contar cuántas procesiones hay en total.
-
+select count(nombre) from procesion
 
 -- 22. Obtener el peso promedio de todos los pasos.
-
+select avg(peso) from paso
 
 -- 23. Calcular el número máximo de costaleros en una hermandad.
-
+select max(numero_costaleros) from hermandad
 
 -- 24. Obtener el número de procesiones que se realizan en el barrio 'Albaicín'.
-
+select count(nombre) from procesion where barrio = "Albaicín"
 
 -- 25. Sumar el peso de todos los pasos.
-
+select sum(peso) from paso
 
 -- 26. Agrupar las procesiones por barrio y contar cuántas procesiones hay en cada uno.
-
+select count(nombre) from procesion group by barrio
 
 -- 27. Calcular el peso total de los pasos agrupados por estilo.
-
+select sum(peso), estilo from paso group by estilo
 
 -- 28. Mostrar las hermandades agrupadas por número de costaleros, filtrando aquellas con más de 100 costaleros.
 
