@@ -1,4 +1,3 @@
-package Ejercicios.PTs;
 import java.util.Scanner;
 
 public class pt1V2 {

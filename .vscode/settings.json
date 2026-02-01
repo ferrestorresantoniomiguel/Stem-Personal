@@ -1,3 +1,9 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "java.project.sourcePaths": [
+        "1DAM-Programacion/Java/UD3/R0",
+        "1DAM-Programacion/Java/UD2/R1",
+        "1DAM-Programacion/Java/PT1",
+        "1DAM-Programacion/Java/EJ_Resueltos"
+    ]
 }
