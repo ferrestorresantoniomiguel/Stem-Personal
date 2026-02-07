@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+### Crear Scanner
+Scanner sc = new Scanner(System.in);
+
+### Crear ARRAYS
+ArrayList<String> marcas = new ArrayList<>();
+ArrayList<Integer> potencias = new ArrayList<>();
+
 
 ## Funciones importantes
 ## 1. Ingresar entero
@@ -25,7 +32,16 @@ static int leerEntero(Scanner sc) {
         return numero;
     }
 
-## 2. Ingresar entero > 0
+## 2. Muestra menu y pide opción
+### Muestra un menu y pide una opción válida
+static int mostrarMenuYLeerOpcion(Scanner sc, String menu) {
+        imprimirMensaje(menu);
+        imprimirPrompt("Opción: ");
+        int opcion = leerEntero(sc);
+        return opcion;
+    }
+
+## 2.1 Ingresar entero > 0
 ### Comprobación para que el entero sea superior a 0
 static int leerEnteroMayorQueCero(Scanner sc, String prompt) {
         int numero = 0;
