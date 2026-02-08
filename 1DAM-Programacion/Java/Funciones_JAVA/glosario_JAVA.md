@@ -402,3 +402,35 @@ static void evaluarTractor(Scanner sc,
             imprimirMensaje(mensajeResultado(resultado));
         }
     }
+### Doubles
+    // 1. Lee cualquier número (permite decimales como 10.5)
+    static double leerDouble(Scanner sc) {
+        double numero = 0.0;
+        boolean numeroValido = false;
+
+        while (!numeroValido) {
+            String texto = sc.nextLine().trim();
+            try {
+                // Cambiamos Integer por Double
+                numero = Double.parseDouble(texto); 
+                numeroValido = true;
+            } catch (NumberFormatException e) {
+                imprimirPrompt("Debes introducir un número (puedes usar decimales): ");
+            }
+        }
+        return numero;
+    }
+
+    // 2. Se asegura de que el número sea positivo (ej. para precios o potencias)
+    static double leerDoubleMayorQueCero(Scanner sc, String prompt) {
+        double numero = 0.0;
+
+        while (numero <= 0) {
+            imprimirPrompt(prompt);
+            numero = leerDouble(sc); // Llamamos a nuestra nueva función leerDouble
+            if (numero <= 0) {
+                imprimirMensaje("El valor debe ser mayor que 0.");
+            }
+        }
+        return numero;
+    }
