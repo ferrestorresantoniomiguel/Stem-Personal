@@ -53,6 +53,7 @@ public class tallerTractor {
             eleccion = mostrarMenuYLeerOpcion(sc, menu);
             if (eleccion == 0) {
                 funcionar = false;
+                imprimirMensaje("Saliendo del programa...");
             } else if (eleccion == 1) {
                 
             } else if (eleccion == 2) {
