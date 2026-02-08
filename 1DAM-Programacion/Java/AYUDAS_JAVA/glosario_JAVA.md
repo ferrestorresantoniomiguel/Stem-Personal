@@ -12,6 +12,13 @@ Scanner sc = new Scanner(System.in);
 ArrayList<String> marcas = new ArrayList<>();
 ArrayList<Integer> potencias = new ArrayList<>();
 
+### Crear MENU
+String menu = "-------Menu Opcion---------\n"
+                + "0. Salir\n"
+                + "1. Añadir tractor\n"
+                + "2. Listar tractores\n"
+                + "3. Evaluar tractor (por índice)\n"
+                + "4. Eliminar tractor\n";
 
 ## Funciones importantes
 ## 1. Ingresar entero
