@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cheatsheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .property-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .property-desc {
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+
+        .selector-type {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+
+        .box-model {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .box-visual {
+            background: #fed7d7;
+            border: 20px solid #fc8181;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .box-content {
+            background: #bee3f8;
+            padding: 20px;
+            border: 3px dashed #4299e1;
+        }
+
+        .flexbox-demo {
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border: 2px solid #667eea;
+        }
+
+        .flex-item {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .value-list {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .value-item {
+            padding: 5px 0;
+            color: #2d3748;
+        }
+
+        .value-item code {
+            background: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: #e53e3e;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📘 CSS Cheatsheet</h1>
+            <p>Unidad Didáctica 4 - Guía Rápida de Referencia</p>
+        </header>
+
+        <div class="content">
+            <!-- FORMAS DE APLICAR CSS -->
+            <div class="section">
+                <h2 class="section-title">🔗 Formas de Aplicar CSS</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">1. CSS Externo (RECOMENDADO)</div>
+                        <div class="property-desc">Archivo .css separado vinculado al HTML</div>
+                        <div class="code-example">
+&lt;!-- En el HTML (dentro del &lt;head&gt;) --&gt;<br>
+&lt;link rel="stylesheet" href="estilos.css"&gt;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">✅ Reutilizable en múltiples páginas</div>
+                            <div class="value-item">✅ Fácil mantenimiento</div>
+                            <div class="value-item">✅ Mejor rendimiento (cacheable)</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">2. CSS Interno</div>
+                        <div class="property-desc">Estilos dentro del &lt;head&gt; del HTML</div>
+                        <div class="code-example">
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;style&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p { color: blue; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.boton { background: red; }<br>
+&nbsp;&nbsp;&lt;/style&gt;<br>
+&lt;/head&gt;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">⚠️ Solo afecta a esa página</div>
+                            <div class="value-item">💡 Útil para estilos específicos de una página</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">3. CSS en Línea (Inline)</div>
+                        <div class="property-desc">Estilos directamente en el elemento HTML</div>
+                        <div class="code-example">
+&lt;p style="color: blue; font-size: 16px;"&gt;<br>
+&nbsp;&nbsp;Texto azul<br>
+&lt;/p&gt;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">❌ NO recomendado (difícil de mantener)</div>
+                            <div class="value-item">⚠️ Mayor prioridad (sobreescribe otros estilos)</div>
+                            <div class="value-item">💡 Solo para casos muy específicos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 30px; background: #fff5f5; border-left: 4px solid #e53e3e;">
+                    <div class="property-name">📁 Estructura de Archivos Recomendada</div>
+                    <div class="code-example">
+mi-proyecto/<br>
+│<br>
+├── index.html<br>
+├── css/<br>
+│   ├── estilos.css<br>
+│   └── responsive.css<br>
+├── img/<br>
+│   └── logo.png<br>
+└── js/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── script.js
+                    </div>
+                    <div class="property-desc" style="margin-top: 15px;">
+                        Enlazar desde index.html: <code style="background: white; padding: 3px 8px; border-radius: 3px;">&lt;link rel="stylesheet" href="css/estilos.css"&gt;</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SINTAXIS BÁSICA -->
+            <div class="section">
+                <h2 class="section-title">📝 Sintaxis Básica de CSS</h2>
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+                    <div class="code-example" style="font-size: 1.1em; color: #68d391;">
+selector {<br>
+&nbsp;&nbsp;propiedad: valor;<br>
+&nbsp;&nbsp;propiedad2: valor2;<br>
+}
+                    </div>
+                </div>
+
+                <div class="grid" style="margin-top: 30px;">
+                    <div class="card">
+                        <div class="property-name">Selector</div>
+                        <div class="property-desc">Define QUÉ elementos se van a estilizar</div>
+                        <div class="code-example">p, .clase, #id, div > p</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Propiedad</div>
+                        <div class="property-desc">Define QUÉ característica se va a modificar</div>
+                        <div class="code-example">color, font-size, margin, width</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Valor</div>
+                        <div class="property-desc">Define CÓMO se va a modificar</div>
+                        <div class="code-example">blue, 16px, 20px, 100%</div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 30px; background: #e6fffa; border-left: 4px solid #38b2ac;">
+                    <div class="property-name">💡 Ejemplo Completo</div>
+                    <div class="code-example">
+/* Esto es un comentario en CSS */<br><br>
+p {<br>
+&nbsp;&nbsp;color: blue;           /* Color del texto */<br>
+&nbsp;&nbsp;font-size: 16px;       /* Tamaño de fuente */<br>
+&nbsp;&nbsp;margin: 10px;          /* Margen exterior */<br>
+}
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 20px;">
+                    <div class="property-name">Comentarios en CSS</div>
+                    <div class="property-desc">Se usan para documentar el código (no se ven en la página)</div>
+                    <div class="code-example">/* Esto es un comentario */<br>/* Los comentarios pueden ocupar<br>&nbsp;&nbsp;&nbsp;múltiples líneas */</div>
+                </div>
+            </div>
+
+            <!-- SELECTORES -->
+            <div class="section">
+                <h2 class="section-title">🎯 Selectores</h2>
+                <div class="grid">
+                    <div class="card">
+                        <span class="selector-type">ELEMENTO</span>
+                        <div class="property-name">Selector por elemento</div>
+                        <div class="property-desc">Aplica estilos a todos los elementos del mismo tipo</div>
+                        <div class="code-example">p { color: blue; }</div>
+                        <div class="property-desc">Selecciona todos los &lt;p&gt;</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">CLASE</span>
+                        <div class="property-name">.clase</div>
+                        <div class="property-desc">Aplica estilos a elementos con una clase específica</div>
+                        <div class="code-example">.boton { background: red; }</div>
+                        <div class="property-desc">Selecciona class="boton"</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">ID</span>
+                        <div class="property-name">#identificador</div>
+                        <div class="property-desc">Aplica estilos a un único elemento con ID específico</div>
+                        <div class="code-example">#encabezado { font-size: 24px; }</div>
+                        <div class="property-desc">Selecciona id="encabezado"</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">UNIVERSAL</span>
+                        <div class="property-name">*</div>
+                        <div class="property-desc">Selecciona TODOS los elementos</div>
+                        <div class="code-example">* { margin: 0; padding: 0; }</div>
+                        <div class="property-desc">Útil para resetear estilos</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">MÚLTIPLE</span>
+                        <div class="property-name">elemento1, elemento2</div>
+                        <div class="property-desc">Aplica los mismos estilos a varios elementos</div>
+                        <div class="code-example">h1, h2, p { color: #333; }</div>
+                        <div class="property-desc">Selecciona h1, h2 y p</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">HIJO DIRECTO</span>
+                        <div class="property-name">padre > hijo</div>
+                        <div class="property-desc">Selecciona solo hijos directos</div>
+                        <div class="code-example">div > p { color: green; }</div>
+                        <div class="property-desc">Solo &lt;p&gt; hijos directos de &lt;div&gt;</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">HERMANO ADYACENTE</span>
+                        <div class="property-name">elemento + hermano</div>
+                        <div class="property-desc">Selecciona el siguiente hermano inmediato</div>
+                        <div class="code-example">h1 + p { font-size: 18px; }</div>
+                        <div class="property-desc">Primer &lt;p&gt; después de &lt;h1&gt;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLORES Y FONDOS -->
+            <div class="section">
+                <h2 class="section-title">🎨 Colores y Fondos</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">color</div>
+                        <div class="property-desc">Define el color del texto</div>
+                        <div class="code-example">color: blue;<br>color: #ff0000;<br>color: rgb(255, 0, 0);</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">background-color</div>
+                        <div class="property-desc">Define el color de fondo del elemento</div>
+                        <div class="code-example">background-color: yellow;<br>background-color: #ffd700;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">background-image</div>
+                        <div class="property-desc">Establece una imagen como fondo</div>
+                        <div class="code-example">background-image: url('imagen.jpg');</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIPOGRAFÍA -->
+            <div class="section">
+                <h2 class="section-title">✍️ Tipografía</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">font-family</div>
+                        <div class="property-desc">Define el tipo de fuente</div>
+                        <div class="code-example">font-family: Arial, sans-serif;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">font-size</div>
+                        <div class="property-desc">Define el tamaño del texto</div>
+                        <div class="code-example">font-size: 18px;<br>font-size: 1.5em;<br>font-size: 120%;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">font-weight</div>
+                        <div class="property-desc">Controla el grosor del texto</div>
+                        <div class="code-example">font-weight: normal;<br>font-weight: bold;<br>font-weight: 700;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>normal</code> - peso normal</div>
+                            <div class="value-item"><code>bold</code> - negrita</div>
+                            <div class="value-item"><code>100-900</code> - valores numéricos</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">text-align</div>
+                        <div class="property-desc">Alineación horizontal del texto</div>
+                        <div class="code-example">text-align: center;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>left</code> - izquierda</div>
+                            <div class="value-item"><code>center</code> - centro</div>
+                            <div class="value-item"><code>right</code> - derecha</div>
+                            <div class="value-item"><code>justify</code> - justificado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIMENSIONES -->
+            <div class="section">
+                <h2 class="section-title">📏 Dimensiones</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">width</div>
+                        <div class="property-desc">Define el ancho del elemento</div>
+                        <div class="code-example">width: 400px;<br>width: 50%;<br>width: 20em;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">height</div>
+                        <div class="property-desc">Define la altura del elemento</div>
+                        <div class="code-example">height: 300px;<br>height: 100vh;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">max-width / min-width</div>
+                        <div class="property-desc">Limita el ancho máximo/mínimo</div>
+                        <div class="code-example">max-width: 800px;<br>min-width: 200px;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">max-height / min-height</div>
+                        <div class="property-desc">Limita la altura máxima/mínima</div>
+                        <div class="code-example">max-height: 600px;<br>min-height: 100px;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESPACIADO -->
+            <div class="section">
+                <h2 class="section-title">📦 Espaciado</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">margin</div>
+                        <div class="property-desc">Espacio EXTERIOR alrededor del elemento</div>
+                        <div class="code-example">margin: 20px;<br>margin: 10px 20px;<br>margin-top: 15px;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>margin: 20px;</code> - todos los lados</div>
+                            <div class="value-item"><code>margin: 10px 20px;</code> - vertical | horizontal</div>
+                            <div class="value-item"><code>margin: 5px 10px 15px 20px;</code> - arriba | derecha | abajo | izquierda</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">padding</div>
+                        <div class="property-desc">Espacio INTERIOR entre contenido y borde</div>
+                        <div class="code-example">padding: 15px;<br>padding: 10px 25px;<br>padding-left: 30px;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>padding: 15px;</code> - todos los lados</div>
+                            <div class="value-item"><code>padding: 10px 20px;</code> - vertical | horizontal</div>
+                            <div class="value-item"><code>padding: 5px 10px 15px 20px;</code> - arriba | derecha | abajo | izquierda</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">border</div>
+                        <div class="property-desc">Borde alrededor del elemento</div>
+                        <div class="code-example">border: 2px solid black;<br>border: 3px dashed red;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>grosor</code> - 1px, 2px, etc.</div>
+                            <div class="value-item"><code>estilo</code> - solid, dashed, dotted</div>
+                            <div class="value-item"><code>color</code> - black, #000, etc.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODELO DE CAJA -->
+            <div class="section">
+                <h2 class="section-title">📦 Modelo de Caja (Box Model)</h2>
+                <div class="box-model">
+                    <div class="box-visual" style="background: #fff5f5;">
+                        <div style="padding: 10px; background: #fed7d7; margin-bottom: 10px;">
+                            <strong>MARGIN</strong> (Margen exterior)
+                        </div>
+                        <div style="padding: 10px; background: #fc8181; margin-bottom: 10px;">
+                            <strong>BORDER</strong> (Borde)
+                        </div>
+                        <div style="padding: 10px; background: #f6ad55; margin-bottom: 10px;">
+                            <strong>PADDING</strong> (Relleno interior)
+                        </div>
+                        <div class="box-content">
+                            <strong>CONTENT</strong><br>(Contenido)
+                        </div>
+                    </div>
+                    
+                    <div class="code-example" style="margin-top: 20px;">
+.contenedor {<br>
+&nbsp;&nbsp;width: 300px;        /* ancho del contenido */<br>
+&nbsp;&nbsp;padding: 20px;       /* espacio interior */<br>
+&nbsp;&nbsp;border: 5px solid;   /* borde */<br>
+&nbsp;&nbsp;margin: 30px;        /* espacio exterior */<br>
+}<br><br>
+/* Tamaño total: */<br>
+/* Ancho: 300 + 20(izq) + 20(der) + 5(izq) + 5(der) + 30(izq) + 30(der) = 410px */
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px; margin-bottom: 15px; color: #2d3748;">Unidades de Medida</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">Unidades Absolutas</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>px</code> - píxeles (valor fijo)</div>
+                            <div class="value-item"><code>pt</code> - puntos (1/72 pulgada)</div>
+                            <div class="value-item"><code>cm, mm, in</code> - unidades físicas</div>
+                        </div>
+                        <div class="code-example">width: 400px;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Unidades Relativas</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>%</code> - porcentaje del contenedor padre</div>
+                            <div class="value-item"><code>em</code> - relativo al tamaño de fuente del padre</div>
+                            <div class="value-item"><code>rem</code> - relativo al tamaño de fuente raíz</div>
+                            <div class="value-item"><code>vw</code> - 1% del ancho de la ventana</div>
+                            <div class="value-item"><code>vh</code> - 1% de la altura de la ventana</div>
+                        </div>
+                        <div class="code-example">width: 80%;<br>padding: 2em;<br>margin: 5vh;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLEXBOX -->
+            <div class="section">
+                <h2 class="section-title">🔄 Flexbox</h2>
+                
+                <div class="card" style="margin-bottom: 30px;">
+                    <div class="property-name">display: flex</div>
+                    <div class="property-desc">Activa Flexbox en el contenedor (OBLIGATORIO para usar flexbox)</div>
+                    <div class="code-example">.contenedor { display: flex; }</div>
+                </div>
+
+                <h3 style="margin-bottom: 20px; color: #2d3748;">Propiedades del Contenedor</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">flex-direction</div>
+                        <div class="property-desc">Define la dirección del flujo de elementos</div>
+                        <div class="code-example">flex-direction: row;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>row</code> - fila (horizontal, izq→der) ⮕</div>
+                            <div class="value-item"><code>row-reverse</code> - fila inversa (der→izq) ⬅</div>
+                            <div class="value-item"><code>column</code> - columna (vertical, arriba→abajo) ⬇</div>
+                            <div class="value-item"><code>column-reverse</code> - columna inversa ⬆</div>
+                        </div>
+                        <div class="flexbox-demo">
+                            <strong>Ejemplo: row</strong>
+                            <div class="flex-container" style="flex-direction: row;">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">justify-content</div>
+                        <div class="property-desc">Alineación horizontal (en el eje principal)</div>
+                        <div class="code-example">justify-content: space-between;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>flex-start</code> - inicio</div>
+                            <div class="value-item"><code>flex-end</code> - final</div>
+                            <div class="value-item"><code>center</code> - centro</div>
+                            <div class="value-item"><code>space-between</code> - espacio entre elementos</div>
+                            <div class="value-item"><code>space-around</code> - espacio alrededor</div>
+                            <div class="value-item"><code>space-evenly</code> - espacio uniforme</div>
+                        </div>
+                        <div class="flexbox-demo">
+                            <strong>Ejemplo: space-between</strong>
+                            <div class="flex-container" style="justify-content: space-between;">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">align-items</div>
+                        <div class="property-desc">Alineación vertical (en el eje transversal)</div>
+                        <div class="code-example">align-items: center;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>stretch</code> - estirar (por defecto)</div>
+                            <div class="value-item"><code>flex-start</code> - arriba</div>
+                            <div class="value-item"><code>flex-end</code> - abajo</div>
+                            <div class="value-item"><code>center</code> - centro</div>
+                            <div class="value-item"><code>baseline</code> - línea base del texto</div>
+                        </div>
+                        <div class="flexbox-demo">
+                            <strong>Ejemplo: center</strong>
+                            <div class="flex-container" style="align-items: center; height: 100px;">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item" style="height: 60px;">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 20px; color: #2d3748;">Propiedades de los Elementos Flexibles</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">flex-grow</div>
+                        <div class="property-desc">Capacidad de CRECER (ocupa espacio disponible)</div>
+                        <div class="code-example">flex-grow: 1;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>0</code> - no crece (por defecto)</div>
+                            <div class="value-item"><code>1</code> - crece proporcionalmente</div>
+                            <div class="value-item"><code>2</code> - crece el doble que flex-grow: 1</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">flex-shrink</div>
+                        <div class="property-desc">Capacidad de REDUCIRSE (si falta espacio)</div>
+                        <div class="code-example">flex-shrink: 1;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>1</code> - se reduce (por defecto)</div>
+                            <div class="value-item"><code>0</code> - NO se reduce</div>
+                            <div class="value-item"><code>2</code> - se reduce el doble</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">flex-basis</div>
+                        <div class="property-desc">Tamaño base INICIAL del elemento</div>
+                        <div class="code-example">flex-basis: 200px;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>auto</code> - basado en contenido</div>
+                            <div class="value-item"><code>200px</code> - tamaño fijo</div>
+                            <div class="value-item"><code>30%</code> - porcentaje</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">flex (ATAJO)</div>
+                        <div class="property-desc">Combina grow, shrink y basis en una propiedad</div>
+                        <div class="code-example">flex: 1 1 auto;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>flex: 1;</code> = flex-grow: 1</div>
+                            <div class="value-item"><code>flex: 1 1 auto;</code> - crece | reduce | auto</div>
+                            <div class="value-item"><code>flex: 2 1 300px;</code> - crece x2 | reduce | 300px</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VENTAJAS CSS -->
+            <div class="section">
+                <h2 class="section-title">✨ Ventajas de CSS</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">Separación de Contenido y Presentación</div>
+                        <div class="property-desc">El HTML contiene la estructura, CSS la apariencia</div>
+                    </div>
+                    <div class="card">
+                        <div class="property-name">Reutilización de Estilos</div>
+                        <div class="property-desc">Un archivo CSS puede aplicarse a múltiples páginas</div>
+                    </div>
+                    <div class="card">
+                        <div class="property-name">Mantenimiento Eficiente</div>
+                        <div class="property-desc">Cambiar un archivo CSS actualiza todo el sitio</div>
+                    </div>
+                    <div class="card">
+                        <div class="property-name">Mejor Rendimiento</div>
+                        <div class="property-desc">Reduce el tamaño del HTML y mejora la carga</div>
+                    </div>
+                    <div class="card">
+                        <div class="property-name">Diseño Responsivo</div>
+                        <div class="property-desc">Adaptable a diferentes dispositivos y pantallas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
