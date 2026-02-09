@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+}
+
+.header {
+    background-color: #4b79a1;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-list li {
+    margin: 0 10px;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-list a.active {
+    font-weight: bold;
+}
+
+.hero {
+    background-image: url('https://picsum.photos/1200/400');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
+}
+
+.hero-button {
+    padding: 10px 20px;
+    background-color: #27496d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
