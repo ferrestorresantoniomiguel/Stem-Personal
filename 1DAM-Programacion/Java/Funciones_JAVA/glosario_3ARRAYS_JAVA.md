@@ -11,8 +11,9 @@ Scanner sc = new Scanner(System.in);
 ### Crear ARRAYS
 ArrayList<String> marcas = new ArrayList<>();
 ArrayList<Integer> potencias = new ArrayList<>();
+ArrayList<Boolean> potencias = new ArrayList<>();
 
-### Crear MENU
+### Crear MENU con su opciones
 String menu = "-------Menu Opcion---------\n"
                 + "0. Salir\n"
                 + "1. Añadir tractor\n"
@@ -65,7 +66,7 @@ static int leerEnteroMayorQueCero(Scanner sc, String prompt) {
 
 ## 3. Añade elementos a Arrays
 ### Se encarga de control de errores a través de funciones auxiliares y lo añade a cada array
-static void anadirTractor(Scanner sc,
+static void anadirElemento(Scanner sc,
             ArrayList<String> marcas,
             ArrayList<Integer> potencias,
             ArrayList<String> trabajos) {
@@ -74,7 +75,7 @@ static void anadirTractor(Scanner sc,
         String marca = sc.nextLine().trim();
 
         int potencia = leerEnteroMayorQueCero(sc, "Potencia (CV): ");
-        String trabajo = leerTrabajoValido(sc);
+        String trabajo = leerPalabraValida(sc);
 
         marcas.add(marca);
         potencias.add(potencia);
@@ -86,7 +87,7 @@ static void anadirTractor(Scanner sc,
 ## 4. Lista Array Completo
 ### Comprueba si hay elementos en el ARRAY y muestra el ARRAY completo
 
-static void listarTractores(ArrayList<String> marcas,
+static void listarElementos(ArrayList<String> marcas,
             ArrayList<Integer> potencias,
             ArrayList<String> trabajos) {
 
@@ -122,7 +123,7 @@ static int pedirIndiceValido(Scanner sc, int tam, String prompt) {
 
 ## 6. Elimina elemento ARRAY
 ### Basado en comprobar tamaño del array, y si es posible, lista el array y pide indice para eliminar
-static void eliminarTractor(Scanner sc,
+static void eliminarElemento(Scanner sc,
             ArrayList<String> marcas,
             ArrayList<Integer> potencias,
             ArrayList<String> trabajos) {
@@ -130,7 +131,7 @@ static void eliminarTractor(Scanner sc,
         if (marcas.isEmpty()) {
             imprimirMensaje("No hay tractores para eliminar.");
         } else {
-            listarTractores(marcas, potencias, trabajos);
+            listarElementos(marcas, potencias, trabajos);
             int indice = pedirIndiceValido(sc, marcas.size(), "Índice a eliminar: ");
             marcas.remove(indice);
             potencias.remove(indice);
@@ -214,10 +215,10 @@ static int leerEnteroMayorQueCero(Scanner sc, String prompt) {
     }
 
 ## (No necesita funciones auxiliares)
-## FUNCION ESTRABAJOVALIDO()
+## FUNCION ESPalabraVALIDa()
 ## Recibe un "String· para compararlo con una lista
 ## 2. Guarda strings para comprobar y devuelve un bool
-static boolean esTrabajoValido(String trabajo) {
+static boolean esPalabraValida(String trabajo) {
         boolean resultado = trabajo.equals("arado") ||
                 trabajo.equals("transporte") ||
                 trabajo.equals("siembra");
@@ -225,18 +226,18 @@ static boolean esTrabajoValido(String trabajo) {
     }
 
 
-## (Necesita funciones imprimirMensaje(), imprimirPrompt() y esTrabajoValido())
-## FUNCION LEERTRABAJOVALIDO()
+## (Necesita funciones imprimirMensaje(), imprimirPrompt() y esPalabraValida())
+## FUNCION LEERPalabraVALIDa()
 ## Recibe como parámetro "Scanner" 
 ## 3. Pide opción y comprueba "string" a través de otra función
-static String leerTrabajoValido(Scanner sc) {
+static String leerPalabraValida(Scanner sc) {
         String trabajo = "";
         boolean valido = false;
 
         while (!valido) {
             imprimirPrompt("Trabajo (arado / transporte / siembra): ");
             trabajo = sc.nextLine().trim().toLowerCase();
-            valido = esTrabajoValido(trabajo);
+            valido = esPalabraValida(trabajo);
             if (!valido) {
                 imprimirMensaje("Trabajo no válido.");
             }
@@ -244,11 +245,11 @@ static String leerTrabajoValido(Scanner sc) {
         return trabajo;
     }
 
-## (Necesita funciones imprimirPrompt(), leerEnteroMayorQueCero() y leerTrabajoValido())
+## (Necesita funciones imprimirPrompt(), leerEnteroMayorQueCero() y leerPalabraValida())
 ## FUNCION AÑADIRTRACTOR()
 ## Recibe como parámetros "Scanner" y varios ARRAYS
 ## 4. Se encarga de control de errores a través de funciones auxiliares y lo añade a cada array
-static void anadirTractor(Scanner sc,
+static void anadirElemento(Scanner sc,
             ArrayList<String> marcas,
             ArrayList<Integer> potencias,
             ArrayList<String> trabajos) {
@@ -257,7 +258,7 @@ static void anadirTractor(Scanner sc,
         String marca = sc.nextLine().trim();
 
         int potencia = leerEnteroMayorQueCero(sc, "Potencia (CV): ");
-        String trabajo = leerTrabajoValido(sc);
+        String trabajo = leerPalabraValida(sc);
 
         marcas.add(marca);
         potencias.add(potencia);
@@ -270,11 +271,11 @@ static void anadirTractor(Scanner sc,
 # Listar elementos de ARRAY
 
 ## (Necesita función imprimirMensaje())
-## FUNCION LISTARTRACTORES()
+## FUNCION LISTARElementos()
 ## Recibe como parámetros varios ARRAYS
 ## 1. Comprueba si hay elementos en el array y muestra el array completo
 
-static void listarTractores(ArrayList<String> marcas,
+static void listarElementos(ArrayList<String> marcas,
             ArrayList<Integer> potencias,
             ArrayList<String> trabajos) {
 
@@ -312,11 +313,11 @@ static int pedirIndiceValido(Scanner sc, int tam, String prompt) {
         return indice;
     }
 
-## (Necesita funciones imprimirMensaje(), listarTractores() y pedirIndiceValido())
-## FUNCION ELIMINARTRACTOR()
+## (Necesita funciones imprimirMensaje(), listarElementos() y pedirIndiceValido())
+## FUNCION ELIMINARElemento()
 ## Recibe como parámetros "Scanner" y varios ARRAYS
 ## 2. Basado en comprobar tamaño del array, y si es posible, lista el array y pide indice para eliminar
-static void eliminarTractor(Scanner sc,
+static void eliminarElemento(Scanner sc,
             ArrayList<String> marcas,
             ArrayList<Integer> potencias,
             ArrayList<String> trabajos) {
@@ -324,7 +325,7 @@ static void eliminarTractor(Scanner sc,
         if (marcas.isEmpty()) {
             imprimirMensaje("No hay tractores para eliminar.");
         } else {
-            listarTractores(marcas, potencias, trabajos);
+            listarElementos(marcas, potencias, trabajos);
             int indice = pedirIndiceValido(sc, marcas.size(), "Índice a eliminar: ");
             marcas.remove(indice);
             potencias.remove(indice);
@@ -382,12 +383,12 @@ static String mensajeResultado(String resultado) {
         return mensaje;
     }
 
-## (Necesita funciones imprimirMensaje(), listarTractores(), pedirIndiceValido(), calcularResultado() y mensajeResultado())
-## FUNCION EVALUARTRACTOR()
+## (Necesita funciones imprimirMensaje(), listarElementos(), pedirIndiceValido(), calcularResultado() y mensajeResultado())
+## FUNCION EVALUARElemento()
 ## Recibe como parámetros "Scanner" y varios ARRAYS
 ## 3. Comprueba el tamaño del array y a través de funciones auxiliares recoge un índice, comprueba sus valores y da un mensaje
 
-static void evaluarTractor(Scanner sc,
+static void evaluarElemento(Scanner sc,
             ArrayList<String> marcas,
             ArrayList<Integer> potencias,
             ArrayList<String> trabajos) {
@@ -395,7 +396,7 @@ static void evaluarTractor(Scanner sc,
         if (marcas.isEmpty()) {
             imprimirMensaje("No hay tractores para evaluar.");
         } else {
-            listarTractores(marcas, potencias, trabajos);
+            listarElementos(marcas, potencias, trabajos);
             int indice = pedirIndiceValido(sc, marcas.size(), "Índice del tractor: ");
             String resultado = calcularResultado(trabajos.get(indice), potencias.get(indice));
             imprimirMensaje("Resultado: " + resultado);
@@ -403,7 +404,7 @@ static void evaluarTractor(Scanner sc,
         }
     }
 ### Doubles
-    // 1. Lee cualquier número (permite decimales como 10.5)
+### 1. Lee cualquier número (permite decimales como 10.5)
     static double leerDouble(Scanner sc) {
         double numero = 0.0;
         boolean numeroValido = false;
@@ -421,7 +422,7 @@ static void evaluarTractor(Scanner sc,
         return numero;
     }
 
-    // 2. Se asegura de que el número sea positivo (ej. para precios o potencias)
+### 2. Se asegura de que el número sea positivo (ej. para precios o potencias)
     static double leerDoubleMayorQueCero(Scanner sc, String prompt) {
         double numero = 0.0;
 
