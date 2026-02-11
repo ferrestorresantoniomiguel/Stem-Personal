@@ -1,0 +1,177 @@
+/* Estilos globales */
+* {
+    margin: 0; /* Reseteo de márgenes y paddings */
+    padding: 0; 
+    box-sizing: border-box; /* Ajuste del modelo de caja */
+}
+
+/* Estilo general de la página */
+body { /* Estilo general del cuerpo */
+    background-color: #121212; /*Color de fondo "general" acorde */
+    color: #ffffff; /* Color general de la letra */
+    font-family: Arial, Helvetica, sans-serif; /*Fuente de letra*/
+    line-height: 1.6; /*Espaciado general coherente */
+}
+
+h1, h2, h3 { /* Estilo general de los títulos de la página */
+    /* Tipográfia diferenciada para títulos y textos */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    text-transform: uppercase;
+}
+
+/* Estilo del encabezado */
+#main-nav {
+    display: flex; /* Activa flex, para alineear en una línea */
+    justify-content: space-between; /* Separación entre los elementos */
+    align-items: center; /* Alineación en el centro */
+    padding: 20px; /* Separación vertical para dar espaciado */
+    background-color: #000; /* Diferenciación con el fondo del body */
+}
+/* Estilo de las listas encabezado  */
+.nav-list {
+    display: flex;/* Alineea horizontalmente*/
+    list-style: none; /* Elimina los estilos de lista  */
+}
+/* Estilo para los enlaces del encabezado  */
+.nav-list li a {
+    color: white;/* Color de la letra */
+    text-decoration: none; /* Se quita toda la decoración */
+    padding: 10px 15px; /* Padding general, separación entre enlaces */
+    font-weight: bold;/* Letra en negrita */
+}
+/* Estilo cuando estas sobre un enlace  */
+.nav-list li a:hover {
+    color: red;/* Color de la letra */
+}
+/* Estilo para el primer enlace del encabezado */
+.nav-list li:first-child a {
+    border: 1px solid red; /* Se aplica borde */
+    color: red; /* Letra en rojo */
+}
+
+/* Sección general de la página (hero) */
+.hero-impact {
+    height: 60vh; /* "Altura destacada" del contenedor */
+    display: flex; /* flexbox */
+    flex-direction: column; /* Alinea todo el contenido al centro */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+/* Título dentro del contenedor */
+.hero-impact h2 {
+    font-size: 3rem; /* Tamaño para que sea protagonista */
+    color: #ff0000; /* Color letra rojo */
+}
+/* Estilo para boton dentro del contenedor */
+.hero-impact button {
+    margin-top: 20px; /* Margén superior */
+    padding: 15px 30px; /* Margén interior del botón */
+    background-color: red; /* Color fondo "destacar" */
+    color: white; /* Color letra */
+    border: none; /* Sin borde */
+    font-weight: bold; /* Efecto negrita */
+    cursor: pointer; /* Puntero aplica "modo click"*/
+}
+/* Estilo para cuando estas sobre el botón  */
+.hero-impact button:hover {
+    transform: scale(1.1); /* Se convierte un 10% porciento más grande  */
+    background-color: white; /* Color fondo "destacar" */
+    color: red; /* Color letra */
+}
+
+/* Sección "Casos reales de piratería" */
+.resources-grid {
+    display: flex; /* flexbox */
+    justify-content: space-around;
+    flex-wrap: wrap; /* Se adapta a la pantalla */
+    padding: 50px 20px; /* Separación entre ellas */
+}
+/* Estilo oara cada tarjeta */
+.card {
+    background: #1e1e1e; /* fondo oscuro */
+    width: 30%; /* Cada tarjeta ocupa casi un tercio del ancho. */
+    min-width: 250px; /* No deja que se encojan demasiado. */
+    margin: 10px; /* Espacio entre tarjetas. */
+    padding: 20px; /* Espacio dentro de la tarjeta. */
+    border: 1px solid #333; /* Borde sutil para definir la caja. */
+    text-align: center; /* Centra el texto de la tarjeta. */
+}
+/* Estilo para imagén dentro de las tarjetas */
+.card img {
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta. */
+    border-radius: 15px; /* Redondea las esquinas de la imagen. */
+}
+/* Todos los h3 hijos directos de "tarjeta" */
+.card > h3 {
+    margin: 15px 0; /* Selector de hijo directo: separa el título. */
+    color: red; /* Títulos en rojo. */
+}
+
+/* Contenedor general "Amenazas frecuentes" */
+.threats-flex {
+    display: flex; /* Alineación horizontal. */
+    gap: 20px; /* Nueva forma de dar espacio entre elementos flexibles. */
+    padding: 40px; /* Margén exterior de las amenazas */
+    background-color: #0a0a0a; /* Fondo diferente */
+}
+/* Estilo para cuando tocas la imagén, cambie el título */
+.threat-card img:hover + h3 {
+    color: yellow; /* Cambia a amarillo para alertar. */
+    letter-spacing: 2px; /* Separa las letras para dar efecto. */
+}
+
+/* Contenedor general "Campañas de concienciación" */
+.events-container ul {
+    list-style: none; /* Fuera estilo de lista */
+    padding: 40px; /* Separador vertical entre elementos de la lista */
+}
+
+/* Selector de tipo combinado (ul > li), selecciona los li que son hijos de ul. */
+.events-container ul > li {
+    background: #222; /* Fondo oscuro. */
+    margin-bottom: 15px; /* Separa un evento de otro verticalmente. */
+    padding: 20px;
+    border-left: 5px solid red; /* Añade una barra roja decorativa a la izquierda. */
+}
+
+/* Selecciona solo el último elemento de la lista para destacarlo. */
+.events-container ul li:last-child {
+    background: red; /* Fondo especial para destacar. */
+    color: black; /* Letra negra. */
+}
+
+/* Fecha como elemento destacado */
+time {
+    display: block;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #ff4444;
+}
+
+/* Sección general pie de página */
+#main-footer {
+    display: flex; /* Alineación horizontal */
+    flex-wrap: wrap; /* Adaptable si la pantalla es pequeña. */
+    justify-content: space-between; /* Texto a la izquierda, redes a la derecha. */
+    padding: 30px 5%;
+    background-color: #000;
+    color: #ccc;
+}
+/* Pie de página lista desordenada*/
+#main-footer ul {
+    display: flex;
+    list-style: none; /* Quitado estilo lista, se quita*/
+}
+/* Estilo para los enlaces "redes sociales"*/
+#main-footer a {
+    color: red;
+    margin-left: 15px;
+    text-decoration: none;
+}
+/* Estilo (cuando tocas) los enlaces "redes sociales"*/
+#main-footer a:hover {
+    text-decoration: underline;
+    color: white;
+}
