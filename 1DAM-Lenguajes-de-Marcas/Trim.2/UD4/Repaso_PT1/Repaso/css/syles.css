@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+}
+
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+}
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.nav-list li a:hover {
+    color: red;
+}
+
+.nav-list li:first-child a {
+    border: 1px solid red;
+    color: red;
+}
+
+.hero-impact {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.hero-impact h2 {
+    font-size: 3rem;
+    color: #ff0000;
+}
+.hero-impact button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: red;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hero-impact button:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: red;
+}
+
+.resources-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+}
+
+.card {
+    background: #1e1e1e;
+    width: 30%;
+    min-width: 250px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card > h3 {
+    margin: 15px 0;
+    color: red;
+}
+
+.threats-flex {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    background-color: #0a0a0a;
+}
+
+.threat-card img:hover + h3 {
+    color: yellow;
+    letter-spacing: 2px;
+}
+
+.events-container ul {
+    list-style: none; /* Sin viñetas */
+    padding: 40px;
+}
+
+/* Selector de tipo combinado (ul > li) */
+.events-container ul > li {
+    background: #222;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-left: 5px solid red;
+}
+
+/* Tercer evento con estilo diferente (usando clase si se añade al HTML) */
+.events-container ul li:last-child {
+    background: red;
+    color: black;
+}
+
+/* Fecha como elemento destacado */
+time {
+    display: block;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #ff4444;
+}
+
+#main-footer {
+    display: flex; /* Alineación horizontal */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 5%;
+    background-color: #000;
+    color: #ccc;
+}
+
+#main-footer ul {
+    display: flex;
+    list-style: none;
+}
+
+#main-footer a {
+    color: red;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+#main-footer a:hover {
+    text-decoration: underline;
+    color: white;
+}
