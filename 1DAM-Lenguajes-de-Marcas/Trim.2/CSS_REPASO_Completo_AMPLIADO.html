@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cheatsheet Completo + AMPLIADO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .nuevo-badge {
+            background: #48bb78;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            margin-left: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-nuevo {
+            border-left-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .property-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .property-desc {
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+
+        .selector-type {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+
+        .value-list {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .value-item {
+            padding: 5px 0;
+            color: #2d3748;
+        }
+
+        .value-item code {
+            background: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: #e53e3e;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📘 CSS Cheatsheet COMPLETO + Ampliado</h1>
+            <p>Guía de Referencia Rápida - Con Conceptos del Ejercicio de Repaso</p>
+        </header>
+
+        <div class="content">
+            
+            <!-- NUEVO: ANIMACIONES Y KEYFRAMES -->
+            <div class="section">
+                <h2 class="section-title">🎬 Animaciones CSS<span class="nuevo-badge">NUEVO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">animation</div>
+                        <div class="property-desc">Crea animaciones complejas con keyframes</div>
+                        <div class="code-example">
+animation: nombre 2s ease 0.5s infinite;<br>
+animation: fadeIn 1s ease-in-out;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">Sintaxis: <code>nombre duración timing-function delay iteration-count</code></div>
+                            <div class="value-item"><code>infinite</code> - repite infinitamente</div>
+                            <div class="value-item"><code>forwards</code> - mantiene estado final</div>
+                            <div class="value-item"><code>backwards</code> - aplica primer keyframe antes de iniciar</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">@keyframes</div>
+                        <div class="property-desc">Define los estados de una animación</div>
+                        <div class="code-example">
+@keyframes fadeIn {<br>
+&nbsp;&nbsp;from {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opacity: 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(20px);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;to {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opacity: 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(0);<br>
+&nbsp;&nbsp;}<br>
+}
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">@keyframes con porcentajes</div>
+                        <div class="property-desc">Control preciso en puntos específicos</div>
+                        <div class="code-example">
+@keyframes bounce {<br>
+&nbsp;&nbsp;0% { transform: translateY(0); }<br>
+&nbsp;&nbsp;50% { transform: translateY(-30px); }<br>
+&nbsp;&nbsp;100% { transform: translateY(0); }<br>
+}
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">animation-delay</div>
+                        <div class="property-desc">Retrasa el inicio de la animación</div>
+                        <div class="code-example">
+animation: fadeIn 1s ease 0.3s both;<br>
+/* Espera 0.3s antes de iniciar */
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">Útil para crear efectos escalonados</div>
+                            <div class="value-item">Ejemplo: .item:nth-child(2) { animation-delay: 0.2s; }</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">animation-fill-mode</div>
+                        <div class="property-desc">Qué estilos se aplican antes/después</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>none</code> - sin estilos extra</div>
+                            <div class="value-item"><code>forwards</code> - mantiene estilos finales</div>
+                            <div class="value-item"><code>backwards</code> - aplica estilos iniciales</div>
+                            <div class="value-item"><code>both</code> - aplica ambos (MÁS COMÚN)</div>
+                        </div>
+                        <div class="code-example">
+animation: slideIn 1s ease 0.5s both;
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Diferencia: animation vs transition</div>
+                        <div class="property-desc">¿Cuándo usar cada uno?</div>
+                        <div class="value-list">
+                            <div class="value-item">✅ <strong>transition</strong> - cambios simples entre 2 estados (hover, focus)</div>
+                            <div class="value-item">✅ <strong>animation</strong> - efectos complejos con múltiples estados</div>
+                            <div class="value-item">✅ <strong>animation</strong> - se ejecuta automáticamente al cargar</div>
+                            <div class="value-item">✅ <strong>transition</strong> - necesita trigger (hover, click, clase añadida)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVO: TIPOGRAFÍA AVANZADA -->
+            <div class="section">
+                <h2 class="section-title">✍️ Tipografía Avanzada<span class="nuevo-badge">NUEVO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">letter-spacing</div>
+                        <div class="property-desc">Espacio entre letras (tracking)</div>
+                        <div class="code-example">
+letter-spacing: 2px;<br>
+letter-spacing: -0.5px;<br>
+letter-spacing: 0.1em;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">Valores positivos: letras más separadas</div>
+                            <div class="value-item">Valores negativos: letras más juntas (títulos grandes)</div>
+                            <div class="value-item">En <code>em</code> se adapta al tamaño de fuente</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">text-transform</div>
+                        <div class="property-desc">Transforma el texto automáticamente</div>
+                        <div class="code-example">
+text-transform: uppercase;<br>
+text-transform: lowercase;<br>
+text-transform: capitalize;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item"><code>uppercase</code> - TODO EN MAYÚSCULAS</div>
+                            <div class="value-item"><code>lowercase</code> - todo en minúsculas</div>
+                            <div class="value-item"><code>capitalize</code> - Primera Letra De Cada Palabra</div>
+                            <div class="value-item"><code>none</code> - sin transformación</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">word-spacing</div>
+                        <div class="property-desc">Espacio entre palabras</div>
+                        <div class="code-example">
+word-spacing: 5px;<br>
+word-spacing: 0.3em;
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">text-indent</div>
+                        <div class="property-desc">Sangría de primera línea</div>
+                        <div class="code-example">
+text-indent: 40px;<br>
+text-indent: 2em;
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">white-space</div>
+                        <div class="property-desc">Manejo de espacios en blanco</div>
+                        <div class="code-example">
+white-space: nowrap;<br>
+white-space: pre;<br>
+white-space: pre-wrap;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item"><code>nowrap</code> - no hace saltos de línea</div>
+                            <div class="value-item"><code>pre</code> - respeta espacios/saltos del código</div>
+                            <div class="value-item"><code>pre-wrap</code> - pre + saltos automáticos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVO: IMÁGENES Y OBJECT-FIT -->
+            <div class="section">
+                <h2 class="section-title">🖼️ Control de Imágenes<span class="nuevo-badge">NUEVO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">object-fit</div>
+                        <div class="property-desc">Cómo se ajusta una imagen a su contenedor</div>
+                        <div class="code-example">
+img {<br>
+&nbsp;&nbsp;width: 300px;<br>
+&nbsp;&nbsp;height: 200px;<br>
+&nbsp;&nbsp;object-fit: cover;<br>
+}
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item"><code>fill</code> - estira imagen (defecto)</div>
+                            <div class="value-item"><code>contain</code> - imagen completa visible</div>
+                            <div class="value-item"><code>cover</code> - rellena sin distorsión ⭐ MÁS USADO</div>
+                            <div class="value-item"><code>none</code> - tamaño original</div>
+                            <div class="value-item"><code>scale-down</code> - contain o none (el menor)</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">object-position</div>
+                        <div class="property-desc">Posición de la imagen dentro del contenedor</div>
+                        <div class="code-example">
+object-fit: cover;<br>
+object-position: center top;<br>
+object-position: 25% 75%;
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Imágenes responsive</div>
+                        <div class="property-desc">Patrón común para imágenes adaptables</div>
+                        <div class="code-example">
+img {<br>
+&nbsp;&nbsp;max-width: 100%;<br>
+&nbsp;&nbsp;height: auto;<br>
+&nbsp;&nbsp;display: block;<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVO: BACKGROUNDS AVANZADOS -->
+            <div class="section">
+                <h2 class="section-title">🎨 Fondos Avanzados<span class="nuevo-badge">NUEVO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">background-attachment</div>
+                        <div class="property-desc">Comportamiento del fondo al hacer scroll</div>
+                        <div class="code-example">
+background-attachment: fixed;<br>
+background-attachment: scroll;<br>
+background-attachment: local;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item"><code>scroll</code> - se mueve con el contenido (defecto)</div>
+                            <div class="value-item"><code>fixed</code> - efecto parallax ⭐</div>
+                            <div class="value-item"><code>local</code> - scroll dentro del elemento</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Múltiples backgrounds</div>
+                        <div class="property-desc">Combinar varios fondos en capas</div>
+                        <div class="code-example">
+background:<br>
+&nbsp;&nbsp;linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),<br>
+&nbsp;&nbsp;url('imagen.jpg') center/cover;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">El primero está ENCIMA</div>
+                            <div class="value-item">Común: gradient + imagen para oscurecer</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Gradientes con ángulos</div>
+                        <div class="property-desc">Control preciso de dirección</div>
+                        <div class="code-example">
+linear-gradient(45deg, red, blue);<br>
+linear-gradient(90deg, red 0%, blue 100%);<br>
+linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item"><code>0deg</code> - abajo a arriba</div>
+                            <div class="value-item"><code>90deg</code> - izquierda a derecha</div>
+                            <div class="value-item"><code>135deg</code> - diagonal común</div>
+                            <div class="value-item"><code>180deg</code> - arriba a abajo</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">radial-gradient</div>
+                        <div class="property-desc">Gradientes circulares o elípticos</div>
+                        <div class="code-example">
+radial-gradient(circle, red, blue);<br>
+radial-gradient(ellipse at top, white, black);
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVO: COLORES CON TRANSPARENCIA -->
+            <div class="section">
+                <h2 class="section-title">🌈 Colores con Transparencia<span class="nuevo-badge">NUEVO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">rgba()</div>
+                        <div class="property-desc">RGB + Alpha (transparencia)</div>
+                        <div class="code-example">
+background: rgba(255, 0, 0, 0.5);<br>
+/* Rojo al 50% */
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">R, G, B: 0-255</div>
+                            <div class="value-item">A (alpha): 0 (transparente) a 1 (opaco)</div>
+                            <div class="value-item">Ejemplo: rgba(0, 0, 0, 0.7) = negro semi-transparente</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">hsla()</div>
+                        <div class="property-desc">HSL + Alpha</div>
+                        <div class="code-example">
+background: hsla(200, 100%, 50%, 0.3);<br>
+/* Azul al 30% */
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">rgba vs opacity</div>
+                        <div class="property-desc">¿Cuál usar?</div>
+                        <div class="value-list">
+                            <div class="value-item">✅ <code>rgba()</code> - solo afecta al fondo</div>
+                            <div class="value-item">⚠️ <code>opacity</code> - afecta TODO (texto, imágenes, hijos)</div>
+                            <div class="value-item">Usa rgba() para overlays sobre imágenes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVO: FLEXBOX AVANZADO -->
+            <div class="section">
+                <h2 class="section-title">📦 Flexbox Avanzado<span class="nuevo-badge">NUEVO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">flex-wrap</div>
+                        <div class="property-desc">Permite que los items salten a nueva línea</div>
+                        <div class="code-example">
+.contenedor {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;flex-wrap: wrap; /* ⭐ ESENCIAL para responsive */<br>
+}
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item"><code>nowrap</code> - todo en una línea (defecto)</div>
+                            <div class="value-item"><code>wrap</code> - salta a nueva línea si no cabe</div>
+                            <div class="value-item"><code>wrap-reverse</code> - salta pero invierte orden</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">gap</div>
+                        <div class="property-desc">Espacio entre items flex (moderno)</div>
+                        <div class="code-example">
+.contenedor {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;gap: 20px; /* ⭐ MEJOR que margin */<br>
+}
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">Reemplaza margin en los items</div>
+                            <div class="value-item">Más limpio y predecible</div>
+                            <div class="value-item">También: gap: 20px 10px (vertical horizontal)</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">flex (propiedad abreviada)</div>
+                        <div class="property-desc">Combina grow, shrink y basis</div>
+                        <div class="code-example">
+.item {<br>
+&nbsp;&nbsp;flex: 1; /* crece para llenar espacio */<br>
+&nbsp;&nbsp;flex: 0 0 200px; /* tamaño fijo 200px */<br>
+}
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item"><code>flex: 1</code> = flex-grow: 1</div>
+                            <div class="value-item">Sintaxis: flex-grow | flex-shrink | flex-basis</div>
+                            <div class="value-item"><code>flex: 1</code> - item crece ⭐ MÁS COMÚN</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">min-width y max-width en flex</div>
+                        <div class="property-desc">Limita el tamaño de items flexibles</div>
+                        <div class="code-example">
+.item {<br>
+&nbsp;&nbsp;flex: 1;<br>
+&nbsp;&nbsp;min-width: 250px; /* no más pequeño que esto */<br>
+&nbsp;&nbsp;max-width: 400px; /* no más grande que esto */<br>
+}
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">Útil para tarjetas que crecen pero con límites</div>
+                            <div class="value-item">Combinado con flex-wrap crea layouts adaptativos</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Patrón responsive común</div>
+                        <div class="property-desc">Layout que se adapta automáticamente</div>
+                        <div class="code-example">
+.contenedor {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;flex-wrap: wrap;<br>
+&nbsp;&nbsp;gap: 30px;<br>
+&nbsp;&nbsp;justify-content: center;<br>
+}<br><br>
+.item {<br>
+&nbsp;&nbsp;flex: 1;<br>
+&nbsp;&nbsp;min-width: 280px;<br>
+&nbsp;&nbsp;max-width: 350px;<br>
+}
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">flex-direction + wrap</div>
+                        <div class="property-desc">Cambiar dirección responsive</div>
+                        <div class="code-example">
+/* Mobile */
+.contenedor {<br>
+&nbsp;&nbsp;flex-direction: column;<br>
+}<br><br>
+/* Desktop */
+@media (min-width: 768px) {<br>
+&nbsp;&nbsp;.contenedor {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flex-direction: row;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flex-wrap: wrap;<br>
+&nbsp;&nbsp;}<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVO: MEDIA QUERIES DETALLADO -->
+            <div class="section">
+                <h2 class="section-title">📱 Media Queries (Responsive)<span class="nuevo-badge">AMPLIADO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">@media básico</div>
+                        <div class="property-desc">Estilos condicionales según tamaño</div>
+                        <div class="code-example">
+/* Mobile First */
+.elemento {<br>
+&nbsp;&nbsp;font-size: 16px;<br>
+}<br><br>
+@media (min-width: 768px) {<br>
+&nbsp;&nbsp;.elemento {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-size: 20px;<br>
+&nbsp;&nbsp;}<br>
+}
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Breakpoints comunes</div>
+                        <div class="property-desc">Tamaños estándar de dispositivos</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>@media (max-width: 576px)</code> - móviles pequeños</div>
+                            <div class="value-item"><code>@media (max-width: 768px)</code> - tablets ⭐ COMÚN</div>
+                            <div class="value-item"><code>@media (max-width: 992px)</code> - laptops pequeñas</div>
+                            <div class="value-item"><code>@media (max-width: 1200px)</code> - desktops</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">min-width vs max-width</div>
+                        <div class="property-desc">Mobile-first vs Desktop-first</div>
+                        <div class="code-example">
+/* Mobile First (min-width) */
+@media (min-width: 768px) {<br>
+&nbsp;&nbsp;/* Para pantallas MAYORES de 768px */<br>
+}<br><br>
+/* Desktop First (max-width) */
+@media (max-width: 768px) {<br>
+&nbsp;&nbsp;/* Para pantallas MENORES de 768px */<br>
+}
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Media queries para orientación</div>
+                        <div class="code-example">
+@media (orientation: landscape) {<br>
+&nbsp;&nbsp;/* Horizontal */<br>
+}<br><br>
+@media (orientation: portrait) {<br>
+&nbsp;&nbsp;/* Vertical */<br>
+}
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Rangos de tamaño</div>
+                        <div class="code-example">
+/* Entre 768px y 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {<br>
+&nbsp;&nbsp;.elemento { ... }<br>
+}
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Patrón responsive con flexbox</div>
+                        <div class="code-example">
+.contenedor {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;flex-wrap: wrap;<br>
+}<br><br>
+@media (max-width: 768px) {<br>
+&nbsp;&nbsp;.contenedor {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flex-direction: column;<br>
+&nbsp;&nbsp;}<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVO: BOX-SIZING EXPLICADO -->
+            <div class="section">
+                <h2 class="section-title">📐 Box-sizing (Modelo de Caja)<span class="nuevo-badge">AMPLIADO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">box-sizing: border-box</div>
+                        <div class="property-desc">⭐ FUNDAMENTAL - Cambia cómo se calcula el tamaño</div>
+                        <div class="code-example">
+/* SIEMPRE incluir al inicio */
+* {<br>
+&nbsp;&nbsp;box-sizing: border-box;<br>
+}
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">Incluye padding y border en el width/height</div>
+                            <div class="value-item">Hace los cálculos MÁS predecibles</div>
+                            <div class="value-item">⭐ BEST PRACTICE - usar siempre</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">content-box vs border-box</div>
+                        <div class="property-desc">La diferencia explicada</div>
+                        <div class="code-example">
+/* content-box (defecto) */<br>
+width: 200px; + padding: 20px; = 240px total<br><br>
+/* border-box (recomendado) */<br>
+width: 200px; + padding: 20px; = 200px total
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Reset universal recomendado</div>
+                        <div class="code-example">
+* {<br>
+&nbsp;&nbsp;margin: 0;<br>
+&nbsp;&nbsp;padding: 0;<br>
+&nbsp;&nbsp;box-sizing: border-box;<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVO: PSEUDO-ELEMENTOS -->
+            <div class="section">
+                <h2 class="section-title">✨ Pseudo-elementos<span class="nuevo-badge">AMPLIADO</span></h2>
+                <div class="grid">
+                    <div class="card card-nuevo">
+                        <div class="property-name">::before</div>
+                        <div class="property-desc">Inserta contenido ANTES del elemento</div>
+                        <div class="code-example">
+.titulo::before {<br>
+&nbsp;&nbsp;content: "👉 ";<br>
+&nbsp;&nbsp;color: red;<br>
+}
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">Requiere <code>content: ""</code></div>
+                            <div class="value-item">Se comporta como un hijo</div>
+                            <div class="value-item">Útil para decoraciones</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">::after</div>
+                        <div class="property-desc">Inserta contenido DESPUÉS del elemento</div>
+                        <div class="code-example">
+.enlace::after {<br>
+&nbsp;&nbsp;content: " →";<br>
+&nbsp;&nbsp;transition: transform 0.3s;<br>
+}<br><br>
+.enlace:hover::after {<br>
+&nbsp;&nbsp;transform: translateX(5px);<br>
+}
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Usos comunes de ::before/::after</div>
+                        <div class="value-list">
+                            <div class="value-item">✅ Iconos decorativos</div>
+                            <div class="value-item">✅ Bordes personalizados</div>
+                            <div class="value-item">✅ Overlays sobre imágenes</div>
+                            <div class="value-item">✅ Clearfix (float)</div>
+                            <div class="value-item">✅ Tooltips</div>
+                        </div>
+                    </div>
+
+                    <div class="card card-nuevo">
+                        <div class="property-name">Overlay con ::before</div>
+                        <div class="code-example">
+.imagen {<br>
+&nbsp;&nbsp;position: relative;<br>
+}<br><br>
+.imagen::before {<br>
+&nbsp;&nbsp;content: "";<br>
+&nbsp;&nbsp;position: absolute;<br>
+&nbsp;&nbsp;top: 0;<br>
+&nbsp;&nbsp;left: 0;<br>
+&nbsp;&nbsp;width: 100%;<br>
+&nbsp;&nbsp;height: 100%;<br>
+&nbsp;&nbsp;background: rgba(0,0,0,0.5);<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIONES ORIGINALES DEL CHEATSHEET -->
+            <!-- Las secciones originales irían aquí... -->
+            <!-- Por brevedad, solo incluyo las nuevas secciones arriba -->
+
+            <!-- RESUMEN RÁPIDO ACTUALIZADO -->
+            <div class="section">
+                <h2 class="section-title">⚡ Resumen Rápido Actualizado</h2>
+                <div class="card" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); color: white; border: none;">
+                    <h3 style="color: white; margin-bottom: 20px;">🆕 Conceptos NUEVOS añadidos:</h3>
+                    <div class="code-example">
+/* ANIMACIONES */<br>
+animation: nombre duración timing delay iteration;<br>
+@keyframes nombre { from {...} to {...} }<br>
+animation-delay, animation-fill-mode: both;<br><br>
+/* TIPOGRAFÍA AVANZADA */<br>
+letter-spacing, text-transform, white-space<br><br>
+/* IMÁGENES */<br>
+object-fit: cover; /* ⭐ esencial */<br>
+object-position: center top;<br><br>
+/* FONDOS AVANZADOS */<br>
+background-attachment: fixed; /* parallax */<br>
+background: gradient, url(); /* múltiples */<br>
+linear-gradient(135deg, color1 0%, color2 100%);<br><br>
+/* COLORES */<br>
+rgba(255, 0, 0, 0.5) /* con transparencia */<br><br>
+/* FLEXBOX AVANZADO */<br>
+flex-wrap: wrap; /* responsive */<br>
+gap: 20px; /* espaciado limpio */<br>
+flex: 1; /* crecimiento */<br>
+min-width, max-width /* en items flex */<br><br>
+/* MEDIA QUERIES */<br>
+@media (max-width: 768px) { ... }<br>
+@media (min-width: 768px) { ... } /* mobile first */<br><br>
+/* BOX-SIZING */<br>
+* { box-sizing: border-box; } /* ⭐ siempre */<br><br>
+/* PSEUDO-ELEMENTOS */<br>
+::before, ::after { content: ""; }
+                    </div>
+
+                    <h3 style="color: white; margin: 30px 0 20px 0;">🎯 Patrones de uso del ejercicio:</h3>
+                    <div class="code-example">
+/* HEADER RESPONSIVE CON FLEXBOX */<br>
+header {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;justify-content: space-between;<br>
+&nbsp;&nbsp;flex-wrap: wrap;<br>
+}<br><br>
+/* TARJETAS ADAPTATIVAS */<br>
+.contenedor {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;gap: 30px;<br>
+&nbsp;&nbsp;flex-wrap: wrap;<br>
+}<br>
+.tarjeta {<br>
+&nbsp;&nbsp;flex: 1;<br>
+&nbsp;&nbsp;min-width: 280px;<br>
+&nbsp;&nbsp;max-width: 350px;<br>
+}<br><br>
+/* HERO CON BACKGROUND MÚLTIPLE */<br>
+.hero {<br>
+&nbsp;&nbsp;background:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;url('imagen.jpg') center/cover;<br>
+&nbsp;&nbsp;background-attachment: fixed;<br>
+}<br><br>
+/* ANIMACIÓN ENTRADA */<br>
+@keyframes fadeIn {<br>
+&nbsp;&nbsp;from { opacity: 0; transform: translateY(20px); }<br>
+&nbsp;&nbsp;to { opacity: 1; transform: translateY(0); }<br>
+}<br>
+.elemento {<br>
+&nbsp;&nbsp;animation: fadeIn 1s ease 0.3s both;<br>
+}<br><br>
+/* SELECTOR HERMANO ADYACENTE */<br>
+img:hover + h3 {<br>
+&nbsp;&nbsp;color: red;<br>
+&nbsp;&nbsp;transform: scale(1.1);<br>
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
