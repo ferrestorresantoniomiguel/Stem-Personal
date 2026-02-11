@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cheatsheet Completo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .property-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .property-desc {
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+
+        .selector-type {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+
+        .value-list {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .value-item {
+            padding: 5px 0;
+            color: #2d3748;
+        }
+
+        .value-item code {
+            background: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: #e53e3e;
+            font-family: 'Courier New', monospace;
+        }
+
+        .box-visual {
+            background: #fed7d7;
+            border: 20px solid #fc8181;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .box-content {
+            background: #bee3f8;
+            padding: 20px;
+            border: 3px dashed #4299e1;
+        }
+
+        .flexbox-demo {
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border: 2px solid #667eea;
+        }
+
+        .flex-item {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📘 CSS Cheatsheet Completo</h1>
+            <p>Guía de Referencia Rápida - Todos los Conceptos</p>
+        </header>
+
+        <div class="content">
+            <!-- FORMAS DE APLICAR CSS -->
+            <div class="section">
+                <h2 class="section-title">🔗 Formas de Aplicar CSS</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">1. CSS Externo (RECOMENDADO)</div>
+                        <div class="property-desc">Archivo .css separado vinculado al HTML</div>
+                        <div class="code-example">
+&lt;!-- En el HTML (dentro del &lt;head&gt;) --&gt;<br>
+&lt;link rel="stylesheet" href="estilos.css"&gt;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">✅ Reutilizable en múltiples páginas</div>
+                            <div class="value-item">✅ Fácil mantenimiento</div>
+                            <div class="value-item">✅ Mejor rendimiento (cacheable)</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">2. CSS Interno</div>
+                        <div class="property-desc">Estilos dentro del &lt;head&gt; del HTML</div>
+                        <div class="code-example">
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;style&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p { color: blue; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.boton { background: red; }<br>
+&nbsp;&nbsp;&lt;/style&gt;<br>
+&lt;/head&gt;
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">3. CSS en Línea (Inline)</div>
+                        <div class="property-desc">Estilos directamente en el elemento HTML</div>
+                        <div class="code-example">
+&lt;p style="color: blue; font-size: 16px;"&gt;<br>
+&nbsp;&nbsp;Texto azul<br>
+&lt;/p&gt;
+                        </div>
+                        <div class="value-list">
+                            <div class="value-item">❌ NO recomendado (difícil de mantener)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SINTAXIS BÁSICA -->
+            <div class="section">
+                <h2 class="section-title">📝 Sintaxis Básica de CSS</h2>
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+                    <div class="code-example" style="font-size: 1.1em; color: #68d391;">
+selector {<br>
+&nbsp;&nbsp;propiedad: valor;<br>
+&nbsp;&nbsp;propiedad2: valor2;<br>
+}
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 30px; background: #e6fffa; border-left: 4px solid #38b2ac;">
+                    <div class="property-name">Comentarios en CSS</div>
+                    <div class="property-desc">Se usan para documentar el código (no se ven en la página)</div>
+                    <div class="code-example">/* Esto es un comentario */<br>/* Los comentarios pueden ocupar<br>&nbsp;&nbsp;&nbsp;múltiples líneas */</div>
+                </div>
+            </div>
+
+            <!-- SELECTORES BÁSICOS -->
+            <div class="section">
+                <h2 class="section-title">🎯 Selectores Básicos</h2>
+                <div class="grid">
+                    <div class="card">
+                        <span class="selector-type">ELEMENTO</span>
+                        <div class="property-name">Selector por elemento</div>
+                        <div class="property-desc">Aplica estilos a todos los elementos del mismo tipo</div>
+                        <div class="code-example">p { color: blue; }<br>h1 { font-size: 32px; }</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">CLASE</span>
+                        <div class="property-name">.clase</div>
+                        <div class="property-desc">Aplica estilos a elementos con una clase específica</div>
+                        <div class="code-example">.boton { background: red; }<br>.destacado { font-weight: bold; }</div>
+                        <div class="value-list">
+                            <div class="value-item">HTML: <code>&lt;div class="boton"&gt;</code></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">ID</span>
+                        <div class="property-name">#identificador</div>
+                        <div class="property-desc">Aplica estilos a un único elemento con ID específico</div>
+                        <div class="code-example">#encabezado { font-size: 24px; }</div>
+                        <div class="value-list">
+                            <div class="value-item">HTML: <code>&lt;div id="encabezado"&gt;</code></div>
+                            <div class="value-item">⚠️ Solo debe usarse una vez por página</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">UNIVERSAL</span>
+                        <div class="property-name">*</div>
+                        <div class="property-desc">Selecciona TODOS los elementos</div>
+                        <div class="code-example">* {<br>&nbsp;&nbsp;margin: 0;<br>&nbsp;&nbsp;padding: 0;<br>&nbsp;&nbsp;box-sizing: border-box;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">MÚLTIPLE</span>
+                        <div class="property-name">elemento1, elemento2</div>
+                        <div class="property-desc">Aplica los mismos estilos a varios elementos</div>
+                        <div class="code-example">h1, h2, h3 {<br>&nbsp;&nbsp;font-family: Arial;<br>&nbsp;&nbsp;color: #333;<br>}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SELECTORES COMBINADORES -->
+            <div class="section">
+                <h2 class="section-title">🔗 Selectores Combinadores</h2>
+                <div class="grid">
+                    <div class="card">
+                        <span class="selector-type">DESCENDIENTE</span>
+                        <div class="property-name">padre hijo</div>
+                        <div class="property-desc">Selecciona todos los descendientes (hijos, nietos, etc.)</div>
+                        <div class="code-example">div p { color: blue; }<br>.tarjeta img { border-radius: 10px; }</div>
+                        <div class="value-list">
+                            <div class="value-item">Selecciona TODOS los &lt;p&gt; dentro de &lt;div&gt;</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">HIJO DIRECTO</span>
+                        <div class="property-name">padre > hijo</div>
+                        <div class="property-desc">Selecciona solo hijos directos (no nietos)</div>
+                        <div class="code-example">div > p { color: green; }<br>.menu > li { display: inline; }</div>
+                        <div class="value-list">
+                            <div class="value-item">Selecciona solo &lt;p&gt; hijos DIRECTOS de &lt;div&gt;</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">HERMANO ADYACENTE</span>
+                        <div class="property-name">elemento + hermano</div>
+                        <div class="property-desc">Selecciona el siguiente hermano INMEDIATO</div>
+                        <div class="code-example">h1 + p { font-size: 18px; }<br>img + h3 { margin-top: 10px; }</div>
+                        <div class="value-list">
+                            <div class="value-item">Selecciona el primer &lt;p&gt; después de &lt;h1&gt;</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">HERMANOS GENERALES</span>
+                        <div class="property-name">elemento ~ hermanos</div>
+                        <div class="property-desc">Selecciona TODOS los hermanos siguientes</div>
+                        <div class="code-example">h1 ~ p { color: gray; }</div>
+                        <div class="value-list">
+                            <div class="value-item">Selecciona TODOS los &lt;p&gt; después de &lt;h1&gt;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PSEUDO-CLASES -->
+            <div class="section">
+                <h2 class="section-title">🎭 Pseudo-clases (Estados)</h2>
+                <div class="grid">
+                    <div class="card">
+                        <span class="selector-type">INTERACCIÓN</span>
+                        <div class="property-name">:hover</div>
+                        <div class="property-desc">Aplica estilos cuando el ratón pasa sobre el elemento</div>
+                        <div class="code-example">a:hover {<br>&nbsp;&nbsp;color: red;<br>&nbsp;&nbsp;text-decoration: underline;<br>}<br><br>button:hover {<br>&nbsp;&nbsp;background-color: blue;<br>&nbsp;&nbsp;transform: scale(1.05);<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">CLIC</span>
+                        <div class="property-name">:active</div>
+                        <div class="property-desc">Aplica estilos cuando se hace clic en el elemento</div>
+                        <div class="code-example">button:active {<br>&nbsp;&nbsp;transform: scale(0.95);<br>&nbsp;&nbsp;background-color: darkblue;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">FOCO</span>
+                        <div class="property-name">:focus</div>
+                        <div class="property-desc">Aplica estilos cuando el elemento está enfocado (inputs)</div>
+                        <div class="code-example">input:focus {<br>&nbsp;&nbsp;border: 2px solid blue;<br>&nbsp;&nbsp;outline: none;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">VISITADO</span>
+                        <div class="property-name">:visited</div>
+                        <div class="property-desc">Aplica estilos a enlaces ya visitados</div>
+                        <div class="code-example">a:visited {<br>&nbsp;&nbsp;color: purple;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">PRIMER HIJO</span>
+                        <div class="property-name">:first-child</div>
+                        <div class="property-desc">Selecciona el primer hijo de un elemento</div>
+                        <div class="code-example">li:first-child {<br>&nbsp;&nbsp;font-weight: bold;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">ÚLTIMO HIJO</span>
+                        <div class="property-name">:last-child</div>
+                        <div class="property-desc">Selecciona el último hijo de un elemento</div>
+                        <div class="code-example">li:last-child {<br>&nbsp;&nbsp;border-bottom: none;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">ENÉSIMO HIJO</span>
+                        <div class="property-name">:nth-child(n)</div>
+                        <div class="property-desc">Selecciona un hijo específico o patrón</div>
+                        <div class="code-example">li:nth-child(2) { /* segundo */ }<br>li:nth-child(odd) { /* impares */ }<br>li:nth-child(even) { /* pares */ }<br>li:nth-child(3n) { /* cada 3 */ }</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">NO</span>
+                        <div class="property-name">:not(selector)</div>
+                        <div class="property-desc">Selecciona elementos que NO cumplan el selector</div>
+                        <div class="code-example">p:not(.especial) {<br>&nbsp;&nbsp;color: gray;<br>}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PSEUDO-ELEMENTOS -->
+            <div class="section">
+                <h2 class="section-title">✨ Pseudo-elementos</h2>
+                <div class="grid">
+                    <div class="card">
+                        <span class="selector-type">ANTES</span>
+                        <div class="property-name">::before</div>
+                        <div class="property-desc">Inserta contenido ANTES del elemento</div>
+                        <div class="code-example">h1::before {<br>&nbsp;&nbsp;content: "★ ";<br>&nbsp;&nbsp;color: gold;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">DESPUÉS</span>
+                        <div class="property-name">::after</div>
+                        <div class="property-desc">Inserta contenido DESPUÉS del elemento</div>
+                        <div class="code-example">h1::after {<br>&nbsp;&nbsp;content: " ★";<br>&nbsp;&nbsp;color: gold;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">PRIMERA LETRA</span>
+                        <div class="property-name">::first-letter</div>
+                        <div class="property-desc">Aplica estilos a la primera letra</div>
+                        <div class="code-example">p::first-letter {<br>&nbsp;&nbsp;font-size: 2em;<br>&nbsp;&nbsp;font-weight: bold;<br>&nbsp;&nbsp;color: red;<br>}</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="selector-type">PRIMERA LÍNEA</span>
+                        <div class="property-name">::first-line</div>
+                        <div class="property-desc">Aplica estilos a la primera línea</div>
+                        <div class="code-example">p::first-line {<br>&nbsp;&nbsp;font-weight: bold;<br>&nbsp;&nbsp;color: blue;<br>}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLORES -->
+            <div class="section">
+                <h2 class="section-title">🎨 Colores</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">color</div>
+                        <div class="property-desc">Color del texto</div>
+                        <div class="code-example">color: red;<br>color: #ff0000;<br>color: rgb(255, 0, 0);<br>color: rgba(255, 0, 0, 0.5);</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Formatos de color</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>Nombre</code> - red, blue, green</div>
+                            <div class="value-item"><code>Hexadecimal</code> - #ff0000, #f00</div>
+                            <div class="value-item"><code>RGB</code> - rgb(255, 0, 0)</div>
+                            <div class="value-item"><code>RGBA</code> - rgba(255, 0, 0, 0.5) con transparencia</div>
+                            <div class="value-item"><code>HSL</code> - hsl(0, 100%, 50%)</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">opacity</div>
+                        <div class="property-desc">Transparencia del elemento completo</div>
+                        <div class="code-example">opacity: 0.5; /* 50% transparente */<br>opacity: 1; /* totalmente opaco */</div>
+                        <div class="value-list">
+                            <div class="value-item">Valores: 0 (transparente) a 1 (opaco)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FONDOS -->
+            <div class="section">
+                <h2 class="section-title">🖼️ Fondos</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">background-color</div>
+                        <div class="property-desc">Color de fondo del elemento</div>
+                        <div class="code-example">background-color: yellow;<br>background-color: #ffd700;<br>background-color: rgba(255, 215, 0, 0.3);</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">background-image</div>
+                        <div class="property-desc">Imagen de fondo</div>
+                        <div class="code-example">background-image: url('imagen.jpg');<br>background-image: url('../img/fondo.png');</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">background-size</div>
+                        <div class="property-desc">Tamaño de la imagen de fondo</div>
+                        <div class="code-example">background-size: cover;<br>background-size: contain;<br>background-size: 100px 200px;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>cover</code> - cubre todo (puede recortar)</div>
+                            <div class="value-item"><code>contain</code> - ajusta completa (puede dejar espacio)</div>
+                            <div class="value-item"><code>100%</code> - porcentajes</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">background-position</div>
+                        <div class="property-desc">Posición de la imagen de fondo</div>
+                        <div class="code-example">background-position: center;<br>background-position: top right;<br>background-position: 50% 50%;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>center</code> - centrado</div>
+                            <div class="value-item"><code>top, bottom, left, right</code></div>
+                            <div class="value-item"><code>50% 50%</code> - porcentajes</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">background-repeat</div>
+                        <div class="property-desc">Repetición de la imagen de fondo</div>
+                        <div class="code-example">background-repeat: no-repeat;<br>background-repeat: repeat;<br>background-repeat: repeat-x;<br>background-repeat: repeat-y;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">background-attachment</div>
+                        <div class="property-desc">Comportamiento al hacer scroll</div>
+                        <div class="code-example">background-attachment: fixed;<br>background-attachment: scroll;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>fixed</code> - fijo (efecto parallax)</div>
+                            <div class="value-item"><code>scroll</code> - se desplaza con el contenido</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">background (ATAJO)</div>
+                        <div class="property-desc">Combina todas las propiedades de fondo</div>
+                        <div class="code-example">background: url('img.jpg') center/cover no-repeat fixed;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">linear-gradient</div>
+                        <div class="property-desc">Gradiente lineal como fondo</div>
+                        <div class="code-example">background: linear-gradient(to right, red, blue);<br>background: linear-gradient(45deg, #667eea, #764ba2);</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIPOGRAFÍA -->
+            <div class="section">
+                <h2 class="section-title">✍️ Tipografía</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">font-family</div>
+                        <div class="property-desc">Tipo de fuente</div>
+                        <div class="code-example">font-family: Arial, sans-serif;<br>font-family: 'Times New Roman', serif;<br>font-family: 'Courier New', monospace;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>serif</code> - con remates (Georgia, Times)</div>
+                            <div class="value-item"><code>sans-serif</code> - sin remates (Arial, Helvetica)</div>
+                            <div class="value-item"><code>monospace</code> - ancho fijo (Courier)</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">font-size</div>
+                        <div class="property-desc">Tamaño de la fuente</div>
+                        <div class="code-example">font-size: 16px;<br>font-size: 1.5em;<br>font-size: 1.2rem;<br>font-size: 120%;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">font-weight</div>
+                        <div class="property-desc">Grosor de la fuente</div>
+                        <div class="code-example">font-weight: normal; /* 400 */<br>font-weight: bold; /* 700 */<br>font-weight: 100; /* muy fina */<br>font-weight: 900; /* muy gruesa */</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">font-style</div>
+                        <div class="property-desc">Estilo de la fuente</div>
+                        <div class="code-example">font-style: normal;<br>font-style: italic;<br>font-style: oblique;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">text-align</div>
+                        <div class="property-desc">Alineación horizontal del texto</div>
+                        <div class="code-example">text-align: left;<br>text-align: center;<br>text-align: right;<br>text-align: justify;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">text-decoration</div>
+                        <div class="property-desc">Decoración del texto</div>
+                        <div class="code-example">text-decoration: none;<br>text-decoration: underline;<br>text-decoration: line-through;<br>text-decoration: overline;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">text-transform</div>
+                        <div class="property-desc">Transformación de mayúsculas/minúsculas</div>
+                        <div class="code-example">text-transform: uppercase;<br>text-transform: lowercase;<br>text-transform: capitalize;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">line-height</div>
+                        <div class="property-desc">Altura de línea (interlineado)</div>
+                        <div class="code-example">line-height: 1.5;<br>line-height: 24px;<br>line-height: 150%;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">letter-spacing</div>
+                        <div class="property-desc">Espaciado entre letras</div>
+                        <div class="code-example">letter-spacing: 2px;<br>letter-spacing: 0.1em;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">word-spacing</div>
+                        <div class="property-desc">Espaciado entre palabras</div>
+                        <div class="code-example">word-spacing: 5px;<br>word-spacing: 0.2em;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">text-shadow</div>
+                        <div class="property-desc">Sombra del texto</div>
+                        <div class="code-example">text-shadow: 2px 2px 4px rgba(0,0,0,0.3);<br>text-shadow: 0 0 10px red;</div>
+                        <div class="value-list">
+                            <div class="value-item">offset-x | offset-y | blur | color</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIMENSIONES -->
+            <div class="section">
+                <h2 class="section-title">📏 Dimensiones</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">width</div>
+                        <div class="property-desc">Ancho del elemento</div>
+                        <div class="code-example">width: 400px;<br>width: 50%;<br>width: 20em;<br>width: 100vw;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">height</div>
+                        <div class="property-desc">Altura del elemento</div>
+                        <div class="code-example">height: 300px;<br>height: 50%;<br>height: 100vh;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">max-width</div>
+                        <div class="property-desc">Ancho máximo</div>
+                        <div class="code-example">max-width: 1200px;<br>max-width: 100%;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">min-width</div>
+                        <div class="property-desc">Ancho mínimo</div>
+                        <div class="code-example">min-width: 300px;<br>min-width: 20%;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">max-height</div>
+                        <div class="property-desc">Altura máxima</div>
+                        <div class="code-example">max-height: 600px;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">min-height</div>
+                        <div class="property-desc">Altura mínima</div>
+                        <div class="code-example">min-height: 100px;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESPACIADO -->
+            <div class="section">
+                <h2 class="section-title">📦 Espaciado (Margin y Padding)</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">margin</div>
+                        <div class="property-desc">Espacio EXTERIOR (fuera del borde)</div>
+                        <div class="code-example">margin: 20px; /* todos los lados */<br>margin: 10px 20px; /* vertical | horizontal */<br>margin: 5px 10px 15px 20px; /* ⬆️ ➡️ ⬇️ ⬅️ */</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>margin-top</code></div>
+                            <div class="value-item"><code>margin-right</code></div>
+                            <div class="value-item"><code>margin-bottom</code></div>
+                            <div class="value-item"><code>margin-left</code></div>
+                            <div class="value-item"><code>margin: 0 auto;</code> - centrar horizontalmente</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">padding</div>
+                        <div class="property-desc">Espacio INTERIOR (entre contenido y borde)</div>
+                        <div class="code-example">padding: 15px; /* todos los lados */<br>padding: 10px 25px; /* vertical | horizontal */<br>padding: 5px 10px 15px 20px; /* ⬆️ ➡️ ⬇️ ⬅️ */</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>padding-top</code></div>
+                            <div class="value-item"><code>padding-right</code></div>
+                            <div class="value-item"><code>padding-bottom</code></div>
+                            <div class="value-item"><code>padding-left</code></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BORDES -->
+            <div class="section">
+                <h2 class="section-title">🔲 Bordes</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">border</div>
+                        <div class="property-desc">Borde alrededor del elemento</div>
+                        <div class="code-example">border: 2px solid black;<br>border: 3px dashed red;<br>border: 5px dotted blue;</div>
+                        <div class="value-list">
+                            <div class="value-item">Sintaxis: grosor | estilo | color</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Estilos de borde</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>solid</code> - línea sólida</div>
+                            <div class="value-item"><code>dashed</code> - línea discontinua</div>
+                            <div class="value-item"><code>dotted</code> - puntos</div>
+                            <div class="value-item"><code>double</code> - línea doble</div>
+                            <div class="value-item"><code>groove</code> - borde 3D hundido</div>
+                            <div class="value-item"><code>ridge</code> - borde 3D elevado</div>
+                            <div class="value-item"><code>none</code> - sin borde</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Bordes individuales</div>
+                        <div class="code-example">border-top: 2px solid red;<br>border-right: 1px dashed blue;<br>border-bottom: 3px solid green;<br>border-left: 2px dotted black;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">border-radius</div>
+                        <div class="property-desc">Redondea las esquinas</div>
+                        <div class="code-example">border-radius: 10px; /* todas */<br>border-radius: 50%; /* círculo */<br>border-radius: 10px 20px 30px 40px;</div>
+                        <div class="value-list">
+                            <div class="value-item">Orden: ↖️ ↗️ ↘️ ↙️</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">border-color</div>
+                        <div class="property-desc">Color del borde</div>
+                        <div class="code-example">border-color: red;<br>border-color: #ff0000;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">border-width</div>
+                        <div class="property-desc">Grosor del borde</div>
+                        <div class="code-example">border-width: 2px;<br>border-width: thin; /* 1px */<br>border-width: medium; /* 3px */<br>border-width: thick; /* 5px */</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">outline</div>
+                        <div class="property-desc">Contorno exterior (no afecta el tamaño)</div>
+                        <div class="code-example">outline: 2px solid blue;<br>outline: none; /* quitar contorno */</div>
+                        <div class="value-list">
+                            <div class="value-item">💡 Útil para inputs enfocados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODELO DE CAJA -->
+            <div class="section">
+                <h2 class="section-title">📦 Modelo de Caja (Box Model)</h2>
+                <div class="card" style="background: #fff5f5; border-left: 4px solid #e53e3e;">
+                    <div class="box-visual">
+                        <div style="padding: 10px; background: #fed7d7; margin-bottom: 10px;">
+                            <strong>MARGIN</strong> (Margen exterior)
+                        </div>
+                        <div style="padding: 10px; background: #fc8181; margin-bottom: 10px;">
+                            <strong>BORDER</strong> (Borde)
+                        </div>
+                        <div style="padding: 10px; background: #f6ad55; margin-bottom: 10px;">
+                            <strong>PADDING</strong> (Relleno interior)
+                        </div>
+                        <div class="box-content">
+                            <strong>CONTENT</strong><br>(Contenido)
+                        </div>
+                    </div>
+                    
+                    <div class="code-example">
+.elemento {<br>
+&nbsp;&nbsp;width: 300px;        /* ancho del contenido */<br>
+&nbsp;&nbsp;padding: 20px;       /* espacio interior */<br>
+&nbsp;&nbsp;border: 5px solid;   /* borde */<br>
+&nbsp;&nbsp;margin: 30px;        /* espacio exterior */<br>
+}<br><br>
+/* Tamaño total SIN box-sizing: */<br>
+/* 300 + 40(padding) + 10(border) = 350px */
+                    </div>
+                </div>
+
+                <div class="card" style="background: #e6fffa; border-left: 4px solid #38b2ac; margin-top: 20px;">
+                    <div class="property-name">box-sizing: border-box</div>
+                    <div class="property-desc">Incluye padding y border en el width/height</div>
+                    <div class="code-example">
+* {<br>
+&nbsp;&nbsp;box-sizing: border-box;<br>
+}<br><br>
+.elemento {<br>
+&nbsp;&nbsp;width: 300px; /* ahora incluye padding y border */<br>
+&nbsp;&nbsp;padding: 20px;<br>
+&nbsp;&nbsp;border: 5px solid;<br>
+}<br>
+/* Tamaño total: exactamente 300px */
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIDADES -->
+            <div class="section">
+                <h2 class="section-title">📐 Unidades de Medida</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">Unidades Absolutas</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>px</code> - píxeles (tamaño fijo)</div>
+                            <div class="value-item"><code>pt</code> - puntos (1pt = 1/72 pulgada)</div>
+                            <div class="value-item"><code>cm</code> - centímetros</div>
+                            <div class="value-item"><code>mm</code> - milímetros</div>
+                            <div class="value-item"><code>in</code> - pulgadas</div>
+                        </div>
+                        <div class="code-example">width: 400px;<br>font-size: 16px;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Unidades Relativas</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>%</code> - porcentaje del elemento padre</div>
+                            <div class="value-item"><code>em</code> - relativo al font-size del elemento</div>
+                            <div class="value-item"><code>rem</code> - relativo al font-size raíz (html)</div>
+                            <div class="value-item"><code>vw</code> - 1% del ancho del viewport</div>
+                            <div class="value-item"><code>vh</code> - 1% del alto del viewport</div>
+                            <div class="value-item"><code>vmin</code> - 1% del lado menor del viewport</div>
+                            <div class="value-item"><code>vmax</code> - 1% del lado mayor del viewport</div>
+                        </div>
+                        <div class="code-example">width: 80%;<br>padding: 2em;<br>height: 100vh;<br>font-size: 1.5rem;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DISPLAY -->
+            <div class="section">
+                <h2 class="section-title">📊 Display (Visualización)</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">display: block</div>
+                        <div class="property-desc">Elemento de bloque (ocupa todo el ancho)</div>
+                        <div class="code-example">display: block;</div>
+                        <div class="value-list">
+                            <div class="value-item">Salta a nueva línea</div>
+                            <div class="value-item">Ejemplos: div, p, h1, section</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">display: inline</div>
+                        <div class="property-desc">Elemento en línea (solo ocupa su contenido)</div>
+                        <div class="code-example">display: inline;</div>
+                        <div class="value-list">
+                            <div class="value-item">No salta a nueva línea</div>
+                            <div class="value-item">NO acepta width/height</div>
+                            <div class="value-item">Ejemplos: span, a, strong</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">display: inline-block</div>
+                        <div class="property-desc">Mezcla de inline y block</div>
+                        <div class="code-example">display: inline-block;</div>
+                        <div class="value-list">
+                            <div class="value-item">No salta a nueva línea</div>
+                            <div class="value-item">SÍ acepta width/height</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">display: none</div>
+                        <div class="property-desc">Oculta el elemento completamente</div>
+                        <div class="code-example">display: none;</div>
+                        <div class="value-list">
+                            <div class="value-item">El elemento no ocupa espacio</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">display: flex</div>
+                        <div class="property-desc">Activa Flexbox</div>
+                        <div class="code-example">display: flex;</div>
+                        <div class="value-list">
+                            <div class="value-item">⚡ Ver sección Flexbox completa</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">display: grid</div>
+                        <div class="property-desc">Activa Grid Layout</div>
+                        <div class="code-example">display: grid;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POSICIONAMIENTO -->
+            <div class="section">
+                <h2 class="section-title">📍 Posicionamiento</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">position: static</div>
+                        <div class="property-desc">Posición por defecto (flujo normal)</div>
+                        <div class="code-example">position: static;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">position: relative</div>
+                        <div class="property-desc">Relativo a su posición original</div>
+                        <div class="code-example">position: relative;<br>top: 10px;<br>left: 20px;</div>
+                        <div class="value-list">
+                            <div class="value-item">Mantiene su espacio original</div>
+                            <div class="value-item">Usa: top, right, bottom, left</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">position: absolute</div>
+                        <div class="property-desc">Relativo al padre posicionado más cercano</div>
+                        <div class="code-example">position: absolute;<br>top: 0;<br>right: 0;</div>
+                        <div class="value-list">
+                            <div class="value-item">Sale del flujo normal</div>
+                            <div class="value-item">No ocupa espacio</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">position: fixed</div>
+                        <div class="property-desc">Fijo respecto al viewport</div>
+                        <div class="code-example">position: fixed;<br>top: 0;<br>left: 0;</div>
+                        <div class="value-list">
+                            <div class="value-item">No se mueve al hacer scroll</div>
+                            <div class="value-item">Útil para menús fijos</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">position: sticky</div>
+                        <div class="property-desc">Mezcla de relative y fixed</div>
+                        <div class="code-example">position: sticky;<br>top: 0;</div>
+                        <div class="value-list">
+                            <div class="value-item">Se "pega" al hacer scroll</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">z-index</div>
+                        <div class="property-desc">Orden de apilamiento (profundidad)</div>
+                        <div class="code-example">z-index: 10;<br>z-index: 999;</div>
+                        <div class="value-list">
+                            <div class="value-item">Mayor valor = más al frente</div>
+                            <div class="value-item">Solo funciona con position</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLEXBOX -->
+            <div class="section">
+                <h2 class="section-title">🔄 Flexbox</h2>
+                
+                <div class="card" style="margin-bottom: 30px; background: #e6fffa; border-left: 4px solid #38b2ac;">
+                    <div class="property-name">display: flex</div>
+                    <div class="property-desc">⚡ OBLIGATORIO para activar Flexbox</div>
+                    <div class="code-example">.contenedor {<br>&nbsp;&nbsp;display: flex;<br>}</div>
+                </div>
+
+                <h3 style="margin-bottom: 20px; color: #2d3748;">Propiedades del Contenedor</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">flex-direction</div>
+                        <div class="property-desc">Dirección del eje principal</div>
+                        <div class="code-example">flex-direction: row;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>row</code> - horizontal (izq→der) ⮕</div>
+                            <div class="value-item"><code>row-reverse</code> - horizontal inverso ⬅</div>
+                            <div class="value-item"><code>column</code> - vertical (arriba→abajo) ⬇</div>
+                            <div class="value-item"><code>column-reverse</code> - vertical inverso ⬆</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">justify-content</div>
+                        <div class="property-desc">Alineación en el eje PRINCIPAL (horizontal en row)</div>
+                        <div class="code-example">justify-content: space-between;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>flex-start</code> - inicio</div>
+                            <div class="value-item"><code>flex-end</code> - final</div>
+                            <div class="value-item"><code>center</code> - centro</div>
+                            <div class="value-item"><code>space-between</code> - espacio entre</div>
+                            <div class="value-item"><code>space-around</code> - espacio alrededor</div>
+                            <div class="value-item"><code>space-evenly</code> - espacio uniforme</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">align-items</div>
+                        <div class="property-desc">Alineación en el eje TRANSVERSAL (vertical en row)</div>
+                        <div class="code-example">align-items: center;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>stretch</code> - estirar (defecto)</div>
+                            <div class="value-item"><code>flex-start</code> - arriba</div>
+                            <div class="value-item"><code>flex-end</code> - abajo</div>
+                            <div class="value-item"><code>center</code> - centro</div>
+                            <div class="value-item"><code>baseline</code> - línea base</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">flex-wrap</div>
+                        <div class="property-desc">Permite que los elementos salten de línea</div>
+                        <div class="code-example">flex-wrap: wrap;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>nowrap</code> - no envolver (defecto)</div>
+                            <div class="value-item"><code>wrap</code> - envolver</div>
+                            <div class="value-item"><code>wrap-reverse</code> - envolver invertido</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">gap</div>
+                        <div class="property-desc">Espacio entre elementos flex</div>
+                        <div class="code-example">gap: 20px;<br>gap: 10px 20px; /* fila | columna */</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">align-content</div>
+                        <div class="property-desc">Alineación de líneas (con flex-wrap)</div>
+                        <div class="code-example">align-content: space-between;</div>
+                        <div class="value-list">
+                            <div class="value-item">Mismos valores que justify-content</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 20px; color: #2d3748;">Propiedades de los Items Flex</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">flex-grow</div>
+                        <div class="property-desc">Capacidad de CRECER</div>
+                        <div class="code-example">flex-grow: 1;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>0</code> - no crece (defecto)</div>
+                            <div class="value-item"><code>1</code> - crece proporcionalmente</div>
+                            <div class="value-item"><code>2</code> - crece el doble</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">flex-shrink</div>
+                        <div class="property-desc">Capacidad de REDUCIRSE</div>
+                        <div class="code-example">flex-shrink: 1;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>1</code> - se reduce (defecto)</div>
+                            <div class="value-item"><code>0</code> - NO se reduce</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">flex-basis</div>
+                        <div class="property-desc">Tamaño base inicial</div>
+                        <div class="code-example">flex-basis: 200px;<br>flex-basis: 30%;<br>flex-basis: auto;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">flex (ATAJO)</div>
+                        <div class="property-desc">Combina grow, shrink y basis</div>
+                        <div class="code-example">flex: 1; /* flex-grow: 1 */<br>flex: 1 1 auto; /* grow | shrink | basis */<br>flex: 0 0 200px;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">align-self</div>
+                        <div class="property-desc">Alineación individual del item</div>
+                        <div class="code-example">align-self: flex-end;<br>align-self: center;</div>
+                        <div class="value-list">
+                            <div class="value-item">Sobrescribe align-items</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">order</div>
+                        <div class="property-desc">Orden visual del elemento</div>
+                        <div class="code-example">order: 1;<br>order: -1; /* primero */</div>
+                        <div class="value-list">
+                            <div class="value-item">Defecto: 0</div>
+                            <div class="value-item">Menor valor = primero</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANSFORMACIONES -->
+            <div class="section">
+                <h2 class="section-title">🔄 Transformaciones</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">transform: scale()</div>
+                        <div class="property-desc">Escala (cambiar tamaño)</div>
+                        <div class="code-example">transform: scale(1.2); /* 120% */<br>transform: scale(0.8); /* 80% */<br>transform: scale(1.5, 0.8); /* x, y */</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">transform: rotate()</div>
+                        <div class="property-desc">Rotación</div>
+                        <div class="code-example">transform: rotate(45deg);<br>transform: rotate(-90deg);</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">transform: translate()</div>
+                        <div class="property-desc">Mover (trasladar)</div>
+                        <div class="code-example">transform: translate(50px, 100px);<br>transform: translateX(20px);<br>transform: translateY(-30px);</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">transform: skew()</div>
+                        <div class="property-desc">Inclinar</div>
+                        <div class="code-example">transform: skew(20deg);<br>transform: skewX(15deg);<br>transform: skewY(10deg);</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Múltiples transformaciones</div>
+                        <div class="code-example">transform: scale(1.2) rotate(45deg);<br>transform: translate(50px, 20px) scale(1.5);</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">transform-origin</div>
+                        <div class="property-desc">Punto de origen de la transformación</div>
+                        <div class="code-example">transform-origin: center;<br>transform-origin: top left;<br>transform-origin: 50% 50%;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANSICIONES Y ANIMACIONES -->
+            <div class="section">
+                <h2 class="section-title">✨ Transiciones y Animaciones</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">transition</div>
+                        <div class="property-desc">Anima cambios de propiedades</div>
+                        <div class="code-example">transition: all 0.3s ease;<br>transition: background-color 0.5s;<br>transition: transform 0.2s ease-in-out;</div>
+                        <div class="value-list">
+                            <div class="value-item">propiedad | duración | timing-function | delay</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">transition-property</div>
+                        <div class="property-desc">Qué propiedad animar</div>
+                        <div class="code-example">transition-property: all;<br>transition-property: background-color;<br>transition-property: transform, opacity;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">transition-duration</div>
+                        <div class="property-desc">Duración de la transición</div>
+                        <div class="code-example">transition-duration: 0.3s;<br>transition-duration: 500ms;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">transition-timing-function</div>
+                        <div class="property-desc">Curva de velocidad</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>ease</code> - inicio lento, rápido, fin lento</div>
+                            <div class="value-item"><code>linear</code> - velocidad constante</div>
+                            <div class="value-item"><code>ease-in</code> - inicio lento</div>
+                            <div class="value-item"><code>ease-out</code> - fin lento</div>
+                            <div class="value-item"><code>ease-in-out</code> - inicio y fin lento</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Ejemplo completo</div>
+                        <div class="code-example">
+.boton {<br>
+&nbsp;&nbsp;background: blue;<br>
+&nbsp;&nbsp;transition: all 0.3s ease;<br>
+}<br><br>
+.boton:hover {<br>
+&nbsp;&nbsp;background: red;<br>
+&nbsp;&nbsp;transform: scale(1.1);<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOMBRAS Y EFECTOS -->
+            <div class="section">
+                <h2 class="section-title">🌟 Sombras y Efectos</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">box-shadow</div>
+                        <div class="property-desc">Sombra de caja</div>
+                        <div class="code-example">box-shadow: 0 4px 6px rgba(0,0,0,0.1);<br>box-shadow: 2px 2px 10px #888;<br>box-shadow: inset 0 0 10px red;</div>
+                        <div class="value-list">
+                            <div class="value-item">offset-x | offset-y | blur | spread | color</div>
+                            <div class="value-item"><code>inset</code> - sombra interior</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">text-shadow</div>
+                        <div class="property-desc">Sombra de texto</div>
+                        <div class="code-example">text-shadow: 2px 2px 4px rgba(0,0,0,0.3);<br>text-shadow: 0 0 10px red;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">filter</div>
+                        <div class="property-desc">Filtros visuales</div>
+                        <div class="code-example">filter: blur(5px);<br>filter: brightness(150%);<br>filter: grayscale(100%);<br>filter: contrast(200%);</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">Múltiples sombras</div>
+                        <div class="code-example">box-shadow:<br>&nbsp;&nbsp;0 2px 4px rgba(0,0,0,0.1),<br>&nbsp;&nbsp;0 4px 8px rgba(0,0,0,0.2);</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OVERFLOW -->
+            <div class="section">
+                <h2 class="section-title">📜 Overflow (Desbordamiento)</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">overflow</div>
+                        <div class="property-desc">Comportamiento del contenido que desborda</div>
+                        <div class="code-example">overflow: visible;<br>overflow: hidden;<br>overflow: scroll;<br>overflow: auto;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>visible</code> - se ve (defecto)</div>
+                            <div class="value-item"><code>hidden</code> - se oculta</div>
+                            <div class="value-item"><code>scroll</code> - barra de scroll siempre</div>
+                            <div class="value-item"><code>auto</code> - scroll solo si necesario</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">overflow-x / overflow-y</div>
+                        <div class="property-desc">Control por eje</div>
+                        <div class="code-example">overflow-x: hidden;<br>overflow-y: scroll;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">text-overflow</div>
+                        <div class="property-desc">Texto que desborda</div>
+                        <div class="code-example">overflow: hidden;<br>white-space: nowrap;<br>text-overflow: ellipsis; /* ... */</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSOR -->
+            <div class="section">
+                <h2 class="section-title">👆 Cursor</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">cursor</div>
+                        <div class="property-desc">Tipo de cursor al pasar el ratón</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>pointer</code> - manita (enlaces, botones)</div>
+                            <div class="value-item"><code>default</code> - flecha normal</div>
+                            <div class="value-item"><code>text</code> - cursor de texto</div>
+                            <div class="value-item"><code>move</code> - cruz de movimiento</div>
+                            <div class="value-item"><code>not-allowed</code> - prohibido</div>
+                            <div class="value-item"><code>wait</code> - reloj de espera</div>
+                            <div class="value-item"><code>help</code> - ayuda (?)</div>
+                        </div>
+                        <div class="code-example">cursor: pointer;<br>cursor: not-allowed;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISIBILIDAD -->
+            <div class="section">
+                <h2 class="section-title">👁️ Visibilidad</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">visibility</div>
+                        <div class="property-desc">Controla la visibilidad</div>
+                        <div class="code-example">visibility: visible;<br>visibility: hidden;</div>
+                        <div class="value-list">
+                            <div class="value-item"><code>hidden</code> - oculto pero ocupa espacio</div>
+                            <div class="value-item">vs <code>display: none</code> - no ocupa espacio</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">opacity</div>
+                        <div class="property-desc">Transparencia</div>
+                        <div class="code-example">opacity: 1; /* opaco */<br>opacity: 0.5; /* 50% */<br>opacity: 0; /* transparente */</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LISTAS -->
+            <div class="section">
+                <h2 class="section-title">📋 Listas</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="property-name">list-style-type</div>
+                        <div class="property-desc">Tipo de viñeta</div>
+                        <div class="code-example">list-style-type: disc;<br>list-style-type: circle;<br>list-style-type: square;<br>list-style-type: decimal;<br>list-style-type: none;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">list-style-position</div>
+                        <div class="property-desc">Posición de la viñeta</div>
+                        <div class="code-example">list-style-position: inside;<br>list-style-position: outside;</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="property-name">list-style-image</div>
+                        <div class="property-desc">Imagen como viñeta</div>
+                        <div class="code-example">list-style-image: url('icono.png');</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESUMEN RÁPIDO -->
+            <div class="section">
+                <h2 class="section-title">⚡ Resumen Rápido</h2>
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+                    <h3 style="color: white; margin-bottom: 20px;">Selectores:</h3>
+                    <div class="code-example">
+elemento { }         /* Por tipo */<br>
+.clase { }           /* Por clase */<br>
+#id { }              /* Por ID */<br>
+* { }                /* Universal */<br>
+padre hijo { }       /* Descendiente */<br>
+padre > hijo { }     /* Hijo directo */<br>
+elemento + hermano   /* Hermano adyacente */<br>
+elemento:hover { }   /* Pseudo-clase */<br>
+elemento::before { } /* Pseudo-elemento */
+                    </div>
+                    
+                    <h3 style="color: white; margin: 30px 0 20px 0;">Propiedades esenciales:</h3>
+                    <div class="code-example">
+/* Colores */<br>
+color, background-color, opacity<br><br>
+/* Fondos */<br>
+background-image, background-size, background-position<br><br>
+/* Texto */<br>
+font-family, font-size, font-weight, text-align<br><br>
+/* Espaciado */<br>
+margin, padding, border<br><br>
+/* Dimensiones */<br>
+width, height, max-width, min-width<br><br>
+/* Display */<br>
+display: block | inline | inline-block | flex | none<br><br>
+/* Posición */<br>
+position: relative | absolute | fixed | sticky<br><br>
+/* Flexbox */<br>
+display: flex, justify-content, align-items, gap<br><br>
+/* Efectos */<br>
+transform, transition, box-shadow, hover<br><br>
+/* Bordes */<br>
+border, border-radius, outline
+                    </div>
+
+                    <h3 style="color: white; margin: 30px 0 20px 0;">Patrón hover común:</h3>
+                    <div class="code-example">
+.elemento {<br>
+&nbsp;&nbsp;transition: all 0.3s ease;<br>
+}<br><br>
+.elemento:hover {<br>
+&nbsp;&nbsp;transform: scale(1.05);<br>
+&nbsp;&nbsp;box-shadow: 0 5px 15px rgba(0,0,0,0.2);<br>
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
