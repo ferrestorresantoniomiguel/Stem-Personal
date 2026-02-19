@@ -173,5 +173,5 @@ time {
 /* Estilo (cuando tocas) los enlaces "redes sociales"*/
 #main-footer a:hover {
     text-decoration: underline;
-    color: white;
+    color: black;
 }

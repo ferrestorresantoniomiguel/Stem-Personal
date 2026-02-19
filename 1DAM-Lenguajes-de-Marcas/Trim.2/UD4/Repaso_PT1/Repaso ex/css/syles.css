@@ -1,0 +1,258 @@
+/* =========================================
+   1. ESTILOS GLOBALES DEL PERIÓDICO
+   ========================================= */
+
+/* Reseteo y modelo de caja */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Fundamental para que padding no ensanche la caja */
+}
+
+/* Tipografía y fondo general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4; /* Color base de fondo */
+    color: #333; /* Color de texto base */
+    line-height: 1.6;
+}
+
+/* Tipografía diferenciada para títulos */
+h1, h2, h3 {
+    font-family: 'Georgia', serif;
+    color: #1a202c;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor principal centrado */
+.wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Separación interior lateral */
+}
+
+/* =========================================
+   2. CABECERA (.topbar)
+   ========================================= */
+
+.topbar {
+    display: flex; /* Flexbox para alinear título y nav */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ajuste si el ancho disminuye */
+    padding: 20px 0;
+    border-bottom: 3px solid #e2e8f0; /* Separador visual inferior */
+}
+
+.nav__list {
+    display: flex; /* Enlaces en horizontal */
+    list-style: none; /* Eliminar viñetas */
+}
+
+.nav__link {
+    text-decoration: none; /* Quitar subrayado */
+    color: #4a5568;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Efecto visual al pasar el ratón */
+.nav__link:hover {
+    color: #e53e3e;
+}
+
+/* Sección activa */
+.nav__link--active {
+    color: #e53e3e;
+    border-bottom: 2px solid #e53e3e;
+}
+
+/* =========================================
+   3. PORTADA PRINCIPAL (.hero)
+   ========================================= */
+
+.hero {
+    display: flex;
+    flex-direction: column; /* Contenido en vertical */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    margin: 40px 0;
+    /* Bloque visual destacado con degradado e imagen */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://placehold.co/1200x400');
+    background-size: cover; /* Ajuste de fondo */
+    background-position: center;
+    color: white;
+    border-radius: 15px;
+}
+
+.hero h2 {
+    color: white;
+    font-size: 2.5rem;
+}
+
+/* Botón de acción (CTA) */
+.hero__cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #e53e3e;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s; /* Preparar transformación */
+}
+
+.hero__cta:hover {
+    background-color: #c53030;
+    transform: scale(1.1); /* Efecto de transformación */
+}
+
+/* =========================================
+   4. CRÓNICA DE LOS CUARTOS (.section--cards)
+   ========================================= */
+
+.section--cards {
+    display: flex;
+    flex-wrap: wrap; /* Para que bajen de línea si no caben */
+    gap: 20px; /* Separación entre tarjetas */
+    margin-bottom: 50px;
+}
+
+.card {
+    flex: 1 1 calc(33.333% - 20px); /* Ocupan un tercio menos el gap */
+    min-width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
+    border-top: 4px solid #e53e3e; /* Borde personalizado */
+}
+
+.card__img {
+    width: 100%;
+    border-radius: 8px; /* Imagen redondeada */
+}
+
+/* Selector de hijo directo para el título */
+.card > .card__title {
+    margin: 15px 0;
+    font-size: 1.25rem;
+}
+
+.card__link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #e53e3e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card__link:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   5. AGRUPACIONES DESTACADAS (.section--groups)
+   ========================================= */
+
+.section--groups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: #edf2f7;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.group {
+    flex: 1 1 calc(25% - 20px);
+    min-width: 200px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Estilos diferentes por tipo */
+.group--coro { border-bottom: 4px solid #3182ce; }
+.group--chirigota { border-bottom: 4px solid #38a169; }
+.group--comparsa { border-bottom: 4px solid #805ad5; }
+.group--cuarteto { border-bottom: 4px solid #d69e2e; }
+
+/* Selector de hermanos adyacentes (+) */
+/* Al pasar el ratón por la imagen, cambia el estilo del título */
+.group__img:hover + .group__title {
+    color: #e53e3e;
+    transform: translateY(-5px);
+    display: block; /* Asegura que la transición se note */
+}
+
+/* =========================================
+   6. AGENDA (.section--agenda)
+   ========================================= */
+
+/* Selector combinado para quitar viñetas */
+.agenda {
+    list-style: none;
+}
+
+.agenda__item {
+    background: white;
+    margin-bottom: 15px;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Contenido en columna */
+    gap: 10px;
+}
+
+.agenda__item--destacado {
+    border: 2px solid #e53e3e;
+    background-color: #fff5f5; /* Estilo claramente diferente */
+}
+
+/* Etiqueta visual redondeada para el tiempo */
+.agenda__time {
+    display: inline-block;
+    background: #2d3748;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    width: fit-content;
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+
+.footer {
+    background-color: #1a202c; /* Fondo oscuro */
+    color: #edf2f7; /* Texto claro */
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Elementos en los extremos */
+    align-items: center;
+}
+
+.social {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.social__link {
+    color: #edf2f7;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.social__link:hover {
+    opacity: 0.7; /* Efecto hover */
+}
