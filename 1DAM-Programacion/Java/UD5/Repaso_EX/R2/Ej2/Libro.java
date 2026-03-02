@@ -19,7 +19,7 @@ public class Libro {
         this.id = contador;
         this.titulo = titulo;
         this.autor = autor;
-        this.sinopsis = null;
+        this.sinopsis = "Sinopsis no disponible";
         this.disponible = disponible;
         contador++;
     }
