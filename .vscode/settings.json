@@ -1,6 +1,7 @@
 {
     "liveServer.settings.port": 5501,
     "java.project.sourcePaths": [
+        "1DAM-Programacion/Java/UD5/Repaso_EX/R2/Ej3",
         "1DAM-Programacion/Java/UD5/Repaso_EX/R2/Ej2",
         "1DAM-Programacion/Java/UD5/Repaso_EX/R2/Ej1",
         "1DAM-Programacion/Java/UD5/R1",
@@ -9,7 +10,7 @@
         "1DAM-Programacion/Java/REPASO_PT1/REPASO de JAVA",
         "1DAM-Programacion/Java/PT1",
         "1DAM-Programacion/Java/EJ_Resueltos",
-        "1DAM-Programacion/Java/UD5/Repaso_EX/R2/Ej3"
+        "1DAM-Programacion/Java/UD5/Repaso_EX/R3/Ej1"
     ],
     "livePreview.defaultPreviewPath": "/1DAM-Lenguajes-de-Marcas/Trim.2/UD4/css_cheatsheet.html"
 }
