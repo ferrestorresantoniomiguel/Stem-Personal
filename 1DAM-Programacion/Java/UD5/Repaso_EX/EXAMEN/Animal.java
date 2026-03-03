@@ -21,7 +21,7 @@ public class Animal {
 
     private void setGenerarCantidad(int cantidad) {
         this.cantidad = -1;
-        if (cantidad > 0) {
+        if (cantidad >= 0) {
             this.cantidad = cantidad;
         }
     }
@@ -45,6 +45,10 @@ public class Animal {
         return cantidad;
     }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
     public double getPrecio() {
         return precio;
     }
@@ -62,7 +66,7 @@ public class Animal {
     public String consultarPrecio() {
         String mensajePrecio = "";
         if (precio != -1) {
-            mensajePrecio= "Precio: " + cantidad + "€";
+            mensajePrecio= "Precio: " + precio + "€";
         } else {
             mensajePrecio= "PRECIO ERRONEO: Vuelve a cambiarlo cuando sea posible";
         }

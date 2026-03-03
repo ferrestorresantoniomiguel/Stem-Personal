@@ -5,7 +5,7 @@ public class ejercicio1 {
         final int NUMEROESTUDIANTES = 100;
 
         for (int i = 0; i < NUMEROESTUDIANTES; i++) {
-            estudianteAleatorio = new Estudiante(Faker.nombreCompleto(), Faker.edad(), "STEM" + i);
+            estudianteAleatorio = new Estudiante(FakerPR.nombreCompleto(), FakerPR.edad(), "STEM" + i);
             uco.agregarEstudiante(estudianteAleatorio);
         }
         System.out.println(uco.mostrarEstudiantes());

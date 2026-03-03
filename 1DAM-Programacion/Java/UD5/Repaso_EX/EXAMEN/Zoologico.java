@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Zoologico {
     ArrayList<Animal> animales;
@@ -33,7 +32,7 @@ public class Zoologico {
         this.animales.add(animalIntroducir);
     }
 
-    public Animal eliminarAnimal(String codigo, Animal animalEliminar) {
+    public Animal eliminarAnimal(String codigo) {
         Animal animalEncontrado = buscarPorNombre(codigo);
         if (animalEncontrado != null) {
             animales.remove(animalEncontrado);

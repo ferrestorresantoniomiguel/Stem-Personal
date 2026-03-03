@@ -60,8 +60,8 @@ public class ejercicio3 {
         final String MENU = "0. SALIR \n1. AGREGAR PRODUCTO \n2. VENDER PRODUCTO \n3. MOSTRAR INVENTARIO";
 
         for (int i = 0; i < NUMEROPRODUCTOS; i++) {
-            productoRandom = new Producto(Faker.nombreProducto(), Faker.descripcionProducto(), Faker.precioProducto(),
-                    Faker.cantidadStock());
+            productoRandom = new Producto(FakerPR.nombreProducto(), FakerPR.descripcionProducto(), FakerPR.precioProducto(),
+                    FakerPR.cantidadStock());
             mercadona.agregarProducto(productoRandom);
         }
         System.out.println(mercadona.mostrarProductos());

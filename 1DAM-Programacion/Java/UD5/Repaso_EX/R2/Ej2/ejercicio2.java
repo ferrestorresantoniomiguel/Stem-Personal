@@ -46,7 +46,7 @@ public class ejercicio2 {
         final String MENU = "0. SALIR \n1. AGREGAR LIBRO \n2. PRESTAR LIBRO \n3. DEVOLVER LIBRO \n4. MOSTRAR LIBROS";
 
         for (int i = 0; i < NUMEROLIBROS; i++) {
-            libroAleatorio = new Libro(Faker.titulo(), Faker.autorLibro(), Faker.booleano());
+            libroAleatorio = new Libro(FakerPR.titulo(), FakerPR.autorLibro(), FakerPR.booleano());
             sanDios.agregarLibro(libroAleatorio);
         }
         System.out.println(sanDios.mostrarLibros());
