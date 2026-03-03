@@ -73,6 +73,14 @@ public class Animal {
         return mensajePrecio;
     }
 
+    public void setPrecio(double precio) {
+    if (precio > 0) {
+        this.precio = precio;
+    } else {
+        this.precio = -1;
+    }
+}
+
     @Override
     public String toString() {
         return "Codigo: " + codigo + " | Nombre: " + nombre + " | " + consultarCantidad() + " | " + consultarPrecio();
