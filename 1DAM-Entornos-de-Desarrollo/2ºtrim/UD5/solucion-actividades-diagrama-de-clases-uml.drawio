@@ -609,7 +609,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="7ccAkAVJZwYYoR_qJxhV" name="07-videojuegos">
-        <mxGraphModel dx="1667" dy="959" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+        <mxGraphModel dx="1250" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -773,7 +773,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="Be57CwduN26EL0CKj8B6" name="08-biblioteca">
-        <mxGraphModel dx="1316" dy="757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+        <mxGraphModel dx="1250" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -967,7 +967,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="R2ExR_YKABRPE7FiGKRW" name="09-secretaria">
-        <mxGraphModel dx="1250" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+        <mxGraphModel dx="628" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -1325,7 +1325,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="10-sistema-fp" id="A9TcuqUzmB-5eGgf4Erg">
-        <mxGraphModel dx="1350" dy="851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="628" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="5S-2mbRhmf25Nm8ge4wH-0"/>
                 <mxCell id="5S-2mbRhmf25Nm8ge4wH-1" parent="5S-2mbRhmf25Nm8ge4wH-0"/>
