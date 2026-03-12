@@ -9,7 +9,7 @@ public class Televisor extends Electrodomestico {
 
     @Override
     public String toString() {
-        return "Electrodomestico: " + getNombre() + " | Modelo: " + getModelo() + " | Pulgadas: " + pulgadas;
+        return super.toString() + " | Pulgadas: " + pulgadas;
     }
 
     

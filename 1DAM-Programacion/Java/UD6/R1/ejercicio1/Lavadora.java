@@ -4,12 +4,15 @@ public class Lavadora extends Electrodomestico {
     public Lavadora(String nombre, String modelo, double capacidadCarga) {
         super(nombre, modelo);
         this.capacidadCarga = capacidadCarga;
-        System.out.println("Constructor de lavadora");
+    }
+
+    public Lavadora(String modelo, double capacidadCarga) {
+        this("Sin nombre", modelo, capacidadCarga);
     }
 
     @Override
     public String toString() {
-        return "Electrodomestico: " + getNombre() + " | Modelo: " + getModelo() + " | Capacidad de Carga: " + capacidadCarga;
+        return super.toString()+ " | Capacidad de Carga: " + capacidadCarga;
     }
 
     

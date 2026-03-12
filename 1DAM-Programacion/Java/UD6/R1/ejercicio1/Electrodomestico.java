@@ -5,7 +5,6 @@ public class Electrodomestico {
     public Electrodomestico(String nombre, String modelo) {
         this.nombre = nombre;
         this.modelo = modelo;
-        System.out.println("Constructor de Electrodomestico");
     }
 
     @Override
